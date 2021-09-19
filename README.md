@@ -75,3 +75,24 @@ new Vue({
 });
 ```
 
+引入Vue-router
+
+```
+// 安装
+npm install vue-router
+
+// 使用
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+```
+
+
+
+支持sass
+
+```
+npm install -D sass-loader sass
+```
+

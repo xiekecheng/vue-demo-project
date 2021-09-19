@@ -8,12 +8,15 @@
 import Vue from "vue";
 import App from "./App.vue";
 import ElementUI from "element-ui";
+
 // 引入css样式
 import "element-ui/lib/theme-chalk/index.css";
 Vue.config.productionTip = false;
 
 // 引入elementUI
 Vue.use(ElementUI);
+import router from "./router";
 new Vue({
+  router,
   render: (h) => h(App),
 }).$mount("#app");
