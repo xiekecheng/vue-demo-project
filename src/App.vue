@@ -8,20 +8,15 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="200px"> <Sider /> </el-aside>
+      <el-aside width="200px">
+        <!-- <router-link to="/goods">Goods</router-link> -->
+      </el-aside>
       <el-container>
         <el-header>这里是头部</el-header>
         <el-main>
-          <!-- <el-row>
-            <el-button>默认按钮</el-button>
-            <el-button type="primary">主要按钮</el-button>
-            <el-button type="success">成功按钮</el-button>
-            <el-button type="info">信息按钮</el-button>
-            <el-button type="warning">警告按钮</el-button>
-            <el-button type="danger">危险按钮</el-button>
-          </el-row> -->
-          <!--  -->
-          <router-view></router-view>
+          这里是椅子
+          <Counter />
+          <!-- <router-view></router-view> -->
         </el-main>
       </el-container>
     </el-container>
@@ -30,14 +25,12 @@
 
 <script>
 // 引入组件
-// import HelloWorld from "./components/HelloWorld.vue";
-import Sider from "@/views/layout/Sider";
+import Counter from "@/views/app/Counter";
 export default {
   name: "App",
   // 挂载组件
   components: {
-    // HelloWorld,
-    Sider,
+    Counter,
   },
 };
 </script>

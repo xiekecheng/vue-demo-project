@@ -1,31 +1,5 @@
 <template>
-  <div class="my-sider">
-    <!-- <el-menu
-      default-active="1"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-    >
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-    </el-menu> -->
-
+  <div>
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
@@ -74,7 +48,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      isCollapse: true,
+    };
   },
   methods: {
     handleOpen(key, keyPath) {
