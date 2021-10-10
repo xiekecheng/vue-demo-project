@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 const Home = () => import("@/views/home/Home");
 const Goods = () => import("@/views/goods/Goods");
+const GoodsAdd = () => import("@/views/goods/GoodsAdd");
 const Charts = () => import("@/views/chart/Charts");
 
 // const router = new VueRouter({
@@ -27,6 +28,7 @@ const Charts = () => import("@/views/chart/Charts");
 
 const routes = [
   { path: "/goods", name: "goods", component: Goods },
+  { path: "/goodsAdd", name: "goodsAdd", component: GoodsAdd },
   { path: "/home", name: "home", component: Home },
   { path: "/charts", name: "charts", component: Charts },
 ];

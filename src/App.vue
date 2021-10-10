@@ -29,9 +29,13 @@
               <span slot="title">商品管理</span>
             </template>
             <el-menu-item index="1-1">
-              <router-link :to="{ name: 'goods' }" tag="span">商品</router-link>
+              <router-link :to="{ name: 'goods' }" tag="span"
+                >商品列表</router-link
+              >
             </el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+            <router-link :to="{ name: 'goodsAdd' }" tag="span">
+              <el-menu-item index="1-2">发布商品</el-menu-item></router-link
+            >
           </el-submenu>
 
           <el-submenu index="2">
