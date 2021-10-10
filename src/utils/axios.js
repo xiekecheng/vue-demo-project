@@ -1,9 +1,10 @@
 const axios = require("axios");
 
 const instance = axios.create({
-  baseURL: "https://some-domain.com/api/",
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
+  // baseURL: "https://some-domain.com/api/",
+  baseURL: "https://localhost:8080",
+  timeout: 5000,
+  // headers: { "X-Custom-Header": "foobar" },
 });
 
 // Add a request interceptor
@@ -18,16 +19,11 @@ instance.interceptors.request.use(
   }
 );
 
-// Add a response interceptor
 instance.interceptors.response.use(
   function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
     return response;
   },
   function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
     return Promise.reject(error);
   }
 );

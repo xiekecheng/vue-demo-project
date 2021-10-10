@@ -1,14 +1,15 @@
 <template>
   <div>
-    <h1>我是首页</h1>
+    <ul>
+      <li v-for="item in list" :key="item.id" v-text="item.name"></li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: "home",
-  data() {
-    return {};
+  props: {
+    list: Array,
   },
 };
 </script>

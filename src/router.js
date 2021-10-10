@@ -1,9 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
-// const Home = () => import("@/views/home/Home");
+const Home = () => import("@/views/home/Home");
 const Goods = () => import("@/views/goods/Goods");
 const Charts = () => import("@/views/chart/Charts");
+
 // const router = new VueRouter({
 //   mode: "hash",
 //   routes: [
@@ -25,10 +26,12 @@ const Charts = () => import("@/views/chart/Charts");
 // const Bar = { template: "<div>bar</div>" };
 
 const routes = [
-  { path: "/goods", component: Goods },
-  { path: "/bar", component: Charts },
+  { path: "/goods", name: "goods", component: Goods },
+  { path: "/home", name: "home", component: Home },
+  { path: "/charts", name: "charts", component: Charts },
 ];
 const router = new VueRouter({
+  mode: "history",
   routes,
 });
 export default router;

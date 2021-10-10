@@ -1,14 +1,15 @@
 <template>
   <div>
-    <h1>我是首页</h1>
+    <h1 v-text="children"></h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "home",
   data() {
-    return {};
+    return {
+      children: "我是children",
+    };
   },
 };
 </script>
