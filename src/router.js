@@ -20,6 +20,7 @@ const Children4 = () => import("@/views/test/components/Children4");
 // 错误页面
 const Error = () => import("@/views/error/404");
 const routes = [
+  // 商品管理
   { path: "/goods", name: "goods", component: Goods },
   { path: "/goodsAdd", name: "goodsAdd", component: GoodsAdd },
   { path: "/goodsList", name: "goodsList", component: GoodsList },

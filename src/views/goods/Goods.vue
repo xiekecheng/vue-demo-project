@@ -25,7 +25,21 @@
 </template>
 
 <script>
+import Mock from "mockjs";
 export default {
+  created() {
+    const mockData = Mock.mock({
+      "data|40-70": [
+        {
+          date: "@DATE",
+          name: "@CNAME",
+          address: "@REGION",
+        },
+      ],
+    });
+    console.log('mockData',mockData);
+    this.tableData = mockData.data;
+  },
   data() {
     return {
       pageSize: 10,
