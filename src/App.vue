@@ -9,14 +9,13 @@
   <div id="app">
     <el-container>
       <el-aside width="200px">
-        <!-- <router-link to="/goods">Goods</router-link> -->
+        <!-- 侧边栏 -->
+        <sider />
       </el-aside>
       <el-container>
-        <el-header>这里是头部</el-header>
+        <el-header><Header /></el-header>
         <el-main>
-          这里是椅子
-          <Counter />
-          <!-- <router-view></router-view> -->
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -25,25 +24,43 @@
 
 <script>
 // 引入组件
-import Counter from "@/views/app/Counter";
+// import Counter from "@/views/app/Counter";
+// import Test from "@/views/app/Test";
+// import Parent from "@/views/app/Parent";
+import Sider from "@/views/layout/Sider";
+import Header from "@/views/layout/Header";
 export default {
   name: "App",
+  data() {
+    return {};
+  },
+  watch: {
+    // $route: function (newVal, oldVal) {
+    //   console.log("newVal, oldVal", newVal, oldVal);
+    // },
+    // question: function (newQuestion, oldQuestion) {
+    //   this.answer = "Waiting for you to stop typing...";
+    //   this.debouncedGetAnswer();
+    // },
+  },
   // 挂载组件
   components: {
-    Counter,
+    Sider,
+    Header,
+  },
+
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
   },
 };
 </script>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
@@ -62,8 +79,8 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
+  /* text-align: center; */
+  /* line-height: 160px; */
 }
 
 body > .el-container {
@@ -78,4 +95,27 @@ body > .el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
+
+/* 侧边栏 开始 */
+/* .el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+} */
+/* 侧边栏 结束 */
+
+/* 布局 */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+#app {
+  height: 100%;
+}
+.el-container {
+  height: 100%;
+}
+/* 布局 */
 </style>
