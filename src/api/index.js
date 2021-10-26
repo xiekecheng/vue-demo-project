@@ -1,14 +1,21 @@
-const axios = require("@/utils/axios");
+const request = require("@/utils/axios");
 export const getGoodsList = (params) =>
-  axios({
+  request({
     url: "",
     method: "",
     params,
   });
 
 export const fetTopics = (params) =>
-  axios({
+  request({
     url: "/api/v1/topics",
     method: "get",
     params,
   });
+export function fetchMusicList(params) {
+  return request({
+    url: "/soso/fcgi-bin/client_search_cp",
+    method: "get",
+    params,
+  });
+}

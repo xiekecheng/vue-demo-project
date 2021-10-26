@@ -1,35 +1,42 @@
 <template>
-  <div>
-    <!-- <router-link to="/test4/children1">页面1</router-link>
-    <router-link to="/test4/children2">页面2</router-link>
-    <router-link to="/test4/children3">页面3</router-link>
-    <router-link to="/test4/children4">页面4</router-link>
-    <router-view></router-view> -->
-
-    <ul>
-      <li v-for="item in list" :key="item"></li>
-    </ul>
+  <div class="content">
+    <custom-comp>
+      <template #header> <button @click="">增加</button> </template>
+      <template #content> 这里是content </template>
+      <template #footer> 当前值:{{ $store.state.count }} </template>
+    </custom-comp>
   </div>
 </template>
 
 <script>
-import axios from '@/utils/axios'
+// import axios from '@/utils/axios'
+import CustomComp from "./components/CustomComp.vue";
+
 export default {
-  data(){
-    return{
-      list:[]
+  data() {
+    return {
+      dialogVisible: false,
+      input: "",
+    };
+  },
+  components: {
+    CustomComp,
+  },
+  methods: {
+
+    handleAdd(){
+
     }
   },
-  mounted(){
-    axios({
-      url:''
-    })
-  }
 };
 </script>
 
 <style lang="scss" scoped>
 .router-link-active {
+  background-color: red;
+}
+
+::v-deep .el-input__inner {
   background-color: red;
 }
 </style>
