@@ -12,6 +12,7 @@ const Test1 = () => import("@/views/test/Test1");
 const Test2 = () => import("@/views/test/Test2");
 const Test3 = () => import("@/views/test/Test3");
 const Test4 = () => import("@/views/test/Test4");
+const Test5 = () => import("@/views/test/Test5");
 const Children1 = () => import("@/views/test/components/Children1");
 const Children2 = () => import("@/views/test/components/Children2");
 const Children3 = () => import("@/views/test/components/Children3");
@@ -29,6 +30,7 @@ const routes = [
   { path: "/test1", name: "test1", component: Test1 },
   { path: "/test2", name: "test2", component: Test2 },
   { path: "/test3", name: "test3", component: Test3 },
+  { path: "/test5", name: "test5", component: Test5 },
   {
     path: "/test4",
     name: "test4",
