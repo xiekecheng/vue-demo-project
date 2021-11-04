@@ -32,7 +32,7 @@
             >
           </span>
         </span>
-      </el-tree>-->
+      </el-tree> -->
     </div>
   </div>
 </template>
@@ -41,7 +41,7 @@
 let id = 1000;
 
 export default {
-  data () {
+  data() {
     const data = [
       {
         id: 1,
@@ -99,7 +99,7 @@ export default {
   },
 
   methods: {
-    loadNode (node, resolve) {
+    loadNode(node, resolve) {
       if (node.level === 0) {
         return resolve([{ name: "region" }]);
       }
@@ -119,7 +119,7 @@ export default {
         resolve(data);
       }, 500);
     },
-    append (data) {
+    append(data) {
       const newChild = { id: id++, label: "testtest", children: [] };
       if (!data.children) {
         this.$set(data, "children", []);
@@ -127,14 +127,14 @@ export default {
       data.children.push(newChild);
     },
 
-    remove (node, data) {
+    remove(node, data) {
       const parent = node.parent;
       const children = parent.data.children || parent.data;
       const index = children.findIndex((d) => d.id === data.id);
       children.splice(index, 1);
     },
 
-    renderContent (h, { node, data }) {
+    renderContent(h, { node, data }) {
       return (
         <span class="custom-tree-node">
           <span>{node.label}</span>
