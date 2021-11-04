@@ -32,7 +32,7 @@
             >
           </span>
         </span>
-      </el-tree> -->
+      </el-tree>-->
     </div>
   </div>
 </template>
@@ -135,6 +135,7 @@ export default {
     },
 
     renderContent(h, { node, data }) {
+      console.log("node, data ", node, data);
       return (
         <span class="custom-tree-node">
           <span>{node.label}</span>
