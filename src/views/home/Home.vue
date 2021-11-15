@@ -4,15 +4,15 @@
     <div>
       <el-tabs
         v-model="activeName"
-        @tab-click="handleClick"
         tab-position="left"
+        @tab-click="handleClick"
       >
         <el-tab-pane label="供应链保理" name="first">
           <!-- Start 供应链保理 -->
           <el-tabs
             v-model="activeName"
-            @tab-click="handleClick"
             tab-position="left"
+            @tab-click="handleClick"
           >
             <el-tab-pane label="商票贴现" name="first"
               ><my-table
@@ -28,8 +28,8 @@
           <!-- Start 仓单质押 -->
           <el-tabs
             v-model="activeName"
-            @tab-click="handleClick"
             tab-position="left"
+            @tab-click="handleClick"
           >
             <el-tab-pane label="电子仓单质押222" name="first"
               ><my-table
@@ -48,7 +48,7 @@
 <script>
 import Table from "./Table.vue";
 export default {
-  name: "home",
+  name: "Home",
   components: {
     "my-table": Table,
   },

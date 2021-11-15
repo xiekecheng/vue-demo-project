@@ -6,11 +6,11 @@
     <a href="www.baidu.com" @click.prevent="handleClick('aaa', $event)"
       >我不会跳转页面</a
     > -->
-    全名: <input type="text" v-model="fullName" />
+    全名: <input v-model="fullName" type="text" />
     firstName:
-    <input type="text" v-model="firstName" />
+    <input v-model="firstName" type="text" />
     lastName:
-    <input type="text" v-model="lastName" />
+    <input v-model="lastName" type="text" />
     <span :class="{ color: false, [styleName]: true }">我是文字</span>
     <button @click="mixMethod">调用mixin方法</button>
     <span v-text="mixinName"></span>
@@ -21,6 +21,7 @@
 <script>
 import mixin from "./components/mix";
 export default {
+  mixins: [mixin],
   data() {
     return {
       word: "this is a famous city",
@@ -53,7 +54,6 @@ export default {
       this.mixMethod();
     },
   },
-  mixins: [mixin],
 };
 </script>
 
