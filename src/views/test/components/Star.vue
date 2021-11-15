@@ -2,9 +2,9 @@
   <div>
     <ul>
       <li
-        :class="{ on: textValue >= i, liStyle: true }"
         v-for="i in 5"
         :key="i"
+        :class="{ on: textValue >= i, liStyle: true }"
         @click="handleValue(i)"
       ></li>
     </ul>

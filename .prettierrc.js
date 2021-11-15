@@ -1,3 +1,4 @@
+// .prettierrc.js
 module.exports = {
   // 一行最多 120 字符
   printWidth: 120,
@@ -18,12 +19,12 @@ module.exports = {
   // 大括号内的首尾需要空格
   bracketSpacing: true,
   // jsx 标签的反尖括号需要换行
-  jsxBracketSameLine: false,
+  bracketSameLine: false,
   // 箭头函数，只有一个参数的时候，也需要括号
   arrowParens: 'always',
   // 每个文件格式化的范围是文件的全部内容
   rangeStart: 0,
-  rangeEnd: null,
+  rangeEnd: Infinity,
   // 不需要写文件开头的 @prettier
   requirePragma: false,
   // 不需要自动在文件开头插入 @prettier

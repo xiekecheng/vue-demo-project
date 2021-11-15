@@ -3,24 +3,24 @@
     <custom-comp>
       <template #header> <button @click="handleAdd">增加</button> </template>
       <template #content> 这里是content </template>
-      <template #footer> 当前值:{{ $store.state.count }} </template>
-    </custom-comp>
+      <template #footer> 当前值:{{ $store.state.count }} </template> </custom-comp
+    >Î
   </div>
 </template>
 
 <script>
 // import axios from '@/utils/axios'
-import CustomComp from "./components/CustomComp.vue";
+import CustomComp from './components/CustomComp.vue';
 
 export default {
-  data () {
-    return {
-      dialogVisible: false,
-      input: "",
-    };
-  },
   components: {
     CustomComp,
+  },
+  data() {
+    return {
+      dialogVisible: false,
+      input: '',
+    };
   },
   methods: {
     handleAdd() {},
