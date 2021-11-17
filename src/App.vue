@@ -13,7 +13,7 @@
         <sider />
       </el-aside>
       <el-container>
-        <el-header><Header /></el-header>
+        <el-header><my-header /></el-header>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -31,6 +31,11 @@ import Sider from "@/views/layout/Sider";
 import Header from "@/views/layout/Header";
 export default {
   name: "App",
+  // 挂载组件
+  components: {
+    Sider,
+    'my-header':Header,
+  },
   data() {
     return {};
   },
@@ -42,11 +47,6 @@ export default {
     //   this.answer = "Waiting for you to stop typing...";
     //   this.debouncedGetAnswer();
     // },
-  },
-  // 挂载组件
-  components: {
-    Sider,
-    Header,
   },
 
   methods: {

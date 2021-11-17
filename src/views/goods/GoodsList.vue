@@ -51,14 +51,14 @@
 </template>
 
 <script>
-import { format } from "timeago.js";
+import { format } from 'timeago.js';
 
-import { fetTopics } from "@/api";
+import { fetTopics } from '@/api';
 export default {
-  name: "GoodsList",
+  name: 'GoodsList',
   filters: {
     computeDate(value) {
-      return format(value, "zh_CN");
+      return format(value, 'zh_CN');
     },
   },
   data() {
@@ -77,7 +77,7 @@ export default {
     },
   },
   mounted() {
-    console.log("获取请求数据");
+    console.log('获取请求数据');
     this.getTopics();
   },
   methods: {
@@ -88,12 +88,12 @@ export default {
       });
     },
     onSizeChange(size) {
-      console.log("每页条数", size);
+      console.log('每页条数', size);
       this.size = size;
       // this.getTopics();
     },
     onCurrentChange(page) {
-      console.log("当前页", page);
+      console.log('当前页', page);
       this.currentPage = page;
       // this.getTopics();
     },

@@ -5,6 +5,8 @@ const Home = () => import("@/views/home/Home");
 const Goods = () => import("@/views/goods/Goods");
 const GoodsAdd = () => import("@/views/goods/GoodsAdd");
 const GoodsList = () => import("@/views/goods/GoodsList");
+const GoodsData = () => import("@/views/goods/GoodsData");
+const GoodsData2 = () => import("@/views/goods/GoodsData2");
 const Charts = () => import("@/views/chart/Charts");
 
 // 测试页面
@@ -26,6 +28,8 @@ const routes = [
   { path: "/goods", name: "goods", component: Goods },
   { path: "/goodsAdd", name: "goodsAdd", component: GoodsAdd },
   { path: "/goodsList", name: "goodsList", component: GoodsList },
+  { path: "/goodsData", name: "goodsData", component: GoodsData },
+  { path: "/goodsData2", name: "goodsData2", component: GoodsData2 },
   { path: "/home", name: "home", component: Home },
   { path: "/charts", name: "charts", component: Charts },
   { path: "/test1", name: "test1", component: Test1 },

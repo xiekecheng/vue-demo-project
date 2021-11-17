@@ -8,12 +8,12 @@
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
+      :collapse="isCollapse"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="isCollapse"
     >
       <el-submenu index="1">
-        <template slot="title">
+        <template v-slot:title>
           <i class="el-icon-location"></i>
           <span slot="title">商品管理</span>
         </template>
@@ -24,12 +24,18 @@
           <el-menu-item index="1-2">发布商品</el-menu-item>
         </router-link>
         <router-link :to="{ name: 'goodsList' }" tag="span">
-          <el-menu-item index="1-2">CNode论坛</el-menu-item>
+          <el-menu-item index="1-3">CNode论坛</el-menu-item>
+        </router-link>
+        <router-link :to="{ name: 'goodsData' }" tag="span">
+          <el-menu-item index="1-4">数据</el-menu-item>
+        </router-link>
+        <router-link :to="{ name: 'goodsData2' }" tag="span">
+          <el-menu-item index="1-5">数据2</el-menu-item>
         </router-link>
       </el-submenu>
 
       <el-submenu index="2">
-        <template slot="title">
+        <template v-slot:title>
           <i class="el-icon-menu"></i>
           <span slot="title">图表管理</span>
         </template>
@@ -42,7 +48,7 @@
       </el-submenu>
 
       <el-submenu index="3">
-        <template slot="title">
+        <template v-slot:title>
           <i class="el-icon-document"></i>
           <span slot="title">商品管理</span>
         </template>
@@ -53,7 +59,7 @@
       </el-submenu>
 
       <el-submenu index="4">
-        <template slot="title">
+        <template v-slot:title>
           <i class="el-icon-setting"></i>
           <span slot="title">测试页面</span>
         </template>

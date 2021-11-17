@@ -9,10 +9,11 @@ import Vue from "vue";
 import App from "./App.vue";
 import ElementUI from "element-ui";
 import store from "@/store";
+import request from '@/utils/axios';
 // 引入css样式
 import "element-ui/lib/theme-chalk/index.css";
 Vue.config.productionTip = false;
-
+Vue.prototype.$request=request
 // 引入elementUI
 Vue.use(ElementUI);
 import router from "@/router";
