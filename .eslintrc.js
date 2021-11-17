@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     // 自定义你的规则
     'vue/no-empty-component-block':0,
-    "vue/component-tags-order":0
+    "vue/component-tags-order":0,
+    'vue/no-deprecated-slot-attribute':0
   },
 };
