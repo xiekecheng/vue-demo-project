@@ -7,9 +7,10 @@
 -->
 <template>
   <div id="app">
-    <el-container>
+    <!-- <login /> -->
+    <router-view></router-view>
+    <!-- <el-container>
       <el-aside width="200px">
-        <!-- 侧边栏 -->
         <sider />
       </el-aside>
       <el-container>
@@ -18,23 +19,22 @@
           <router-view></router-view>
         </el-main>
       </el-container>
-    </el-container>
+    </el-container> -->
   </div>
 </template>
 
 <script>
 // 引入组件
-// import Counter from "@/views/app/Counter";
-// import Test from "@/views/app/Test";
-// import Parent from "@/views/app/Parent";
-import Sider from "@/views/layout/Sider";
-import Header from "@/views/layout/Header";
+// import Sider from '@/views/layout/Sider';
+// import Header from '@/views/layout/Header';
+// import Login from '@/views/login';
 export default {
-  name: "App",
+  name: 'App',
   // 挂载组件
   components: {
-    Sider,
-    'my-header':Header,
+    // Sider,
+    // 'my-header': Header,
+    // Login,
   },
   data() {
     return {};

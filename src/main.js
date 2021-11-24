@@ -13,6 +13,7 @@ import request from '@/utils/axios';
 // 引入css样式
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
+import './permission.js'
 Vue.config.productionTip = false;
 Vue.prototype.$request = request;
 // 引入elementUI
