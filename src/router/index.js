@@ -2,12 +2,14 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 const Home = () => import('@/views/home/Home');
+// 商品模块
 const Goods = () => import('@/views/goods/Goods');
 const GoodsAdd = () => import('@/views/goods/GoodsAdd');
 const GoodsList = () => import('@/views/goods/GoodsList');
 const GoodsData = () => import('@/views/goods/GoodsData');
 const GoodsData2 = () => import('@/views/goods/GoodsData2');
 const Charts = () => import('@/views/chart/Charts');
+const Layout = () => import('@/views/layout');
 
 // 测试页面
 const Test1 = () => import('@/views/test/Test1');
@@ -21,11 +23,38 @@ const Children3 = () => import('@/views/test/components/Children3');
 const Children4 = () => import('@/views/test/components/Children4');
 
 // 登录页面
-const Login = ()=>import('@/views/login')
+const Login = () => import('@/views/login');
 // 错误页面
 const Error = () => import('@/views/error/404');
 const routes = [
-  { path: '/', redirect: '/goods' },
+  {
+    path: '/goods',
+    redirect: '/goods/goodsHome',
+    component: Layout,
+    children: [
+      {
+        path: 'goodsHome',
+        component: Goods,
+      },
+      {
+        path: 'goodsAdd',
+        component: GoodsAdd,
+      },
+      {
+        path: 'goodsList',
+        component: GoodsList,
+      },
+      {
+        path: 'goodsData',
+        component: GoodsData,
+      },
+      {
+        path: 'goodsData2',
+        component: GoodsData2,
+      },
+    ],
+  },
+
   // 商品管理
   { path: '/goods', name: 'goods', component: Goods },
   { path: '/goodsAdd', name: 'goodsAdd', component: GoodsAdd },

@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name:'MyHeader',
   methods: {
     handleGo() {
       history.forward();

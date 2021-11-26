@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import {setToken} from '@/utils/auth';
+import { setToken } from '@/utils/auth';
 export default {
   data() {
     let validatePass = (rule, value, callback) => {
@@ -70,9 +70,9 @@ export default {
           this.loading = true;
           setTimeout(() => {
             this.loading = false;
-            setToken('token123')
+            setToken('token123');
             this.$message.success('登录成功');
-            this.$router.push('/')
+            this.$router.push('/');
           }, 2000);
         } else {
           // 登录失败

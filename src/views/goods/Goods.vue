@@ -1,10 +1,10 @@
 <template>
-  <div style="width: 240px">
+  <div style="width: 240px;" >
     <p>
       <label style="margin-right: 16px">切换 Loading</label>
       <el-switch v-model="loading" />
     </p>
-    <el-skeleton style="width: 240px" :loading="loading" :count="3" animated>
+    <el-skeleton style="width: 240px" :loading="loading" :count="2" animated>
       <template slot="template">
         <el-skeleton-item variant="image" style="width: 240px; height: 240px" />
         <div style="padding: 14px">
@@ -55,11 +55,11 @@ export default {
         price: 192,
         name: '好吃的汉堡包马',
       },
-      {
-        imgUrl: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
-        price: 21,
-        name: '好吃的汉堡包山狮',
-      },
+      // {
+      //   imgUrl: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
+      //   price: 21,
+      //   name: '好吃的汉堡包山狮',
+      // },
     ];
   },
 };

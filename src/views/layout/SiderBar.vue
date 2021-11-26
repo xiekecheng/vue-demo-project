@@ -17,19 +17,19 @@
           <i class="el-icon-location"></i>
           <span slot="title">商品管理</span>
         </template>
-        <router-link :to="{ name: 'goods' }" tag="span">
+        <router-link to="/goods/goodsHome" tag="span">
           <el-menu-item index="1-1">商品列表</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'goodsAdd' }" tag="span">
+        <router-link to="/goods/goodsAdd" tag="span">
           <el-menu-item index="1-2">发布商品</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'goodsList' }" tag="span">
+        <router-link to="/goods/goodsList" tag="span">
           <el-menu-item index="1-3">CNode论坛</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'goodsData' }" tag="span">
+        <router-link to="/goods/goodsData" tag="span">
           <el-menu-item index="1-4">数据</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'goodsData2' }" tag="span">
+        <router-link to="/goods/goodsData2" tag="span">
           <el-menu-item index="1-5">数据2</el-menu-item>
         </router-link>
       </el-submenu>

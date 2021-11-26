@@ -7,19 +7,7 @@
 -->
 <template>
   <div id="app">
-    <!-- <login /> -->
     <router-view></router-view>
-    <!-- <el-container>
-      <el-aside width="200px">
-        <sider />
-      </el-aside>
-      <el-container>
-        <el-header><my-header /></el-header>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
-      </el-container>
-    </el-container> -->
   </div>
 </template>
 
