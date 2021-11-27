@@ -7,14 +7,15 @@ module.exports = {
       //   target: "http://localhost:9999/",
       //   changeOrigin: true,
       // },
-      "/api": {
-        target: "https://cnodejs.org/",
+      '/api': {
+        target: 'https://cnodejs.org/',
         changeOrigin: true,
       },
-      "/soso": {
+      '/soso': {
         target: "'https://c.y.qq.com'",
         changeOrigin: true,
       },
     },
   },
+  // devtool: 'source-map',
 };

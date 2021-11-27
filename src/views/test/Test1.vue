@@ -1,27 +1,28 @@
 <template>
   <div>
-    <h1>测试keep-alive</h1>
-    <button @click="changeState(1)">组件1</button>
-    <button @click="changeState(2)">组件2</button>
-    <button @click="changeState(3)">组件3</button>
+    <span>当前已选择的值{{value}}</span>
+    <el-transfer v-model="value" :data="data"></el-transfer>
   </div>
 </template>
+
 <script>
 export default {
-  components: {
-    // component1: Comp1,
-    // component2: Comp2,
-    // component3: Comp3,
-  },
   data() {
-    return {
-      state: 1,
+    const generateData = (_) => {
+      const data = [];
+      for (let i = 1; i <= 15; i++) {
+        data.push({
+          key: i,
+          label: `备选项 ${i}`,
+          disabled: i % 4 === 0,
+        });
+      }
+      return data;
     };
-  },
-  methods: {
-    changeState(val) {
-      this.state = val;
-    },
+    return {
+      data: generateData(),
+      value: [1, 4],
+    };
   },
 };
 </script>

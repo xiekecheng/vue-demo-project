@@ -1,112 +1,66 @@
 <template>
-  <div>
-    <h1>商品页面</h1>
-    <el-table :data="tableData" border :span-method="objectSpanMethod">
-      <el-table-column prop="date" label="日期" width="180"> </el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-      <el-table-column prop="address" label="地址" width="180"> </el-table-column>
-      <el-table-column prop="tag" label="编码" width="180"> </el-table-column>
-    </el-table>
-    <!-- Start 分页功能 -->
-    <div class="block">
-      <!-- <span class="demonstration">完整功能</span> -->
-      <el-pagination
-        :current-page="currentPage4"
-        :page-sizes="[5, 10, 15, 20]"
-        :page-size="pageSize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="tableData.length"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      >
-      </el-pagination>
-    </div>
-    <!-- End 分页功能 -->
+  <div style="width: 240px;" >
+    <p>
+      <label style="margin-right: 16px">切换 Loading</label>
+      <el-switch v-model="loading" />
+    </p>
+    <el-skeleton style="width: 240px" :loading="loading" :count="2" animated>
+      <template slot="template">
+        <el-skeleton-item variant="image" style="width: 240px; height: 240px" />
+        <div style="padding: 14px">
+          <el-skeleton-item variant="h3" style="width: 50%" />
+          <div style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px">
+            <el-skeleton-item variant="text" style="margin-right: 16px" />
+            <el-skeleton-item variant="text" style="width: 30%" />
+          </div>
+        </div>
+      </template>
+      <template>
+        <el-card v-for="item in list" :key="item.name" :body-style="{ padding: '0px', marginBottom: '1px' }">
+          <img
+            :src="item.imgUrl"
+            class="image"
+          />
+          <div style="padding: 14px">
+            <span>{{item.name}}</span>
+            <div class="bottom card-header">
+              <span class="time">{{ item.price }}</span>
+              <el-button type="text" class="button">操作按钮</el-button>
+            </div>
+          </div>
+        </el-card>
+      </template>
+    </el-skeleton>
   </div>
 </template>
 
 <script>
-import Mock from 'mockjs';
 export default {
   data() {
     return {
-      spanArr: [],
-      pageSize: 10,
-      tableData: [],
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4,
+      loading: true,
+      currentDate: '2021-06-01',
+      list: [],
     };
   },
-  created() {
-    const mockData = Mock.mock({
-      'data|40-70': [
-        {
-          date: '@DATE',
-          name: '@CNAME',
-          address: '@REGION',
-          'tag|10-15': 1,
-        },
-      ],
-    });
-    console.log('mockData', mockData);
-    this.tableData = mockData.data;
-  },
   mounted() {
-    let contactDot = 0;
-    this.tableData4.forEach((item, index) => {
-      item.index = index;
-      if (index === 0) {
-        this.spanArr.push(1);
-      } else {
-        if (item.id === this.tableData4[index - 1].id) {
-          this.spanArr[contactDot] += 1;
-          this.spanArr.push(0);
-        } else {
-          this.spanArr.push(1);
-          contactDot = index;
-        }
-      }
-    });
-  },
-  methods: {
-    mounted() {
-      this.onMergeLines();
-    },
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    },
-    onMergeLines() {
-      this.dataTable.forEach((item, index) => {
-        if (index === 0) {
-          this.spanArr.push(1);
-          this.position = 0;
-        } else {
-          // 判断当前元素与上一个元素是否相同
-          if (this.dataTable[index].distribution === this.dataTable[index - 1].distribution) {
-            this.spanArr[this.position] += 1;
-            this.spanArr.push(0);
-          } else {
-            this.spanArr.push(1);
-            this.position = index;
-          }
-        }
-      });
-    },
-    // objectSpanMethod({ row, column, rowIndex, columnIndex }) {
-    //   if (columnIndex === ) {
-    //     const _row = this.spanArr[rowIndex];
-    //     const _col = _row > 0 ? 1 : 0;
-    //     return {
-    //       rowspan: _row,
-    //       colspan: _col,
-    //     };
-    //   }
-    // },
+    this.list = [
+      {
+        imgUrl: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+        price: 19,
+        name: '好吃的汉堡包鹿',
+      },
+      {
+        imgUrl: 'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
+        price: 192,
+        name: '好吃的汉堡包马',
+      },
+      // {
+      //   imgUrl: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
+      //   price: 21,
+      //   name: '好吃的汉堡包山狮',
+      // },
+    ];
   },
 };
 </script>
