@@ -11,6 +11,7 @@ const GoodsData2 = () => import('@/views/goods/GoodsData2');
 const Charts = () => import('@/views/chart/Charts');
 const Layout = () => import('@/views/layout');
 
+// const Dashboard = () => import('@/views/dashboard');
 // 测试页面
 const Test1 = () => import('@/views/test/Test1');
 const Test2 = () => import('@/views/test/Test2');
@@ -27,6 +28,45 @@ const Login = () => import('@/views/login');
 // 错误页面
 const Error = () => import('@/views/error/404');
 const routes = [
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    // children:[
+    //   {
+    //     path:'dashboard',
+    //     component:Dashboard
+    //   }
+    // ]
+  },
+  {
+    path: '/dashboard',
+    redirect: '/dashboard/analysis',
+    component: Layout,
+    children: [
+      {
+        path: 'analysis',
+        component: () => import('@/views/dashboard/analysis'),
+        meta: {
+          title: '分析页',
+        },
+      },
+      {
+        path: 'monitor',
+        component: () => import('@/views/dashboard/monitor'),
+        meta: {
+          title: '监控页',
+        },
+      },
+      {
+        path: 'workplace',
+        component: () => import('@/views/dashboard/workplace'),
+        meta: {
+          title: '工作台',
+        },
+      },
+    ],
+  },
   {
     path: '/goods',
     redirect: '/goods/goodsHome',
@@ -54,13 +94,7 @@ const routes = [
       },
     ],
   },
-
   // 商品管理
-  { path: '/goods', name: 'goods', component: Goods },
-  { path: '/goodsAdd', name: 'goodsAdd', component: GoodsAdd },
-  { path: '/goodsList', name: 'goodsList', component: GoodsList },
-  { path: '/goodsData', name: 'goodsData', component: GoodsData },
-  { path: '/goodsData2', name: 'goodsData2', component: GoodsData2 },
   { path: '/home', name: 'home', component: Home },
   { path: '/charts', name: 'charts', component: Charts },
   { path: '/test1', name: 'test1', component: Test1 },
