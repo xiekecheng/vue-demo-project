@@ -32,7 +32,7 @@ import { setToken } from '@/utils/auth';
 export default {
   data() {
     let validatePass = (rule, value, callback) => {
-      console.log('rule, value, callback', rule, value, callback);
+      // console.log('rule, value, callback', rule, value, callback);
       if (value === '') {
         callback(new Error('请输入账号'));
       } else {
@@ -73,10 +73,11 @@ export default {
             setToken('token123');
             this.$message.success('登录成功');
             this.$router.push('/');
-          }, 2000);
+          }, 1000);
         } else {
           // 登录失败
           console.log('error submit!!');
+          this.$message.warning('登录失败');
           return false;
         }
       });
