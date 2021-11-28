@@ -62,13 +62,18 @@
 
       <el-submenu index="3">
         <template #title>
-          <i class="el-icon-document"></i>
-          <span slot="title">商品管理</span>
+          <i class="el-icon-edit-outline"></i>
+          <span slot="title">表单页</span>
         </template>
         <router-link :to="{ name: 'home' }" tag="span">
-          <el-menu-item index="3-1">首页</el-menu-item>
+          <el-menu-item index="3-1">基础表单</el-menu-item>
         </router-link>
-        <el-menu-item index="3-2">选项2</el-menu-item>
+        <router-link to="/goods/goodsData2">
+          <el-menu-item index="3-2">分步表单</el-menu-item>
+        </router-link>
+        <router-link to="/goods/goodsData2">
+          <el-menu-item index="3-2">高级表单</el-menu-item>
+        </router-link>
       </el-submenu>
 
       <el-submenu index="4">
@@ -76,19 +81,19 @@
           <i class="el-icon-setting"></i>
           <span slot="title">测试页面</span>
         </template>
-        <router-link :to="{ name: 'test1' }" tag="span">
+        <router-link to="/test/test1" tag="span">
           <el-menu-item index="4-1">测试页面1</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'test2' }" tag="span">
+        <router-link to="/test/test2" tag="span">
           <el-menu-item index="4-2">测试页面2</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'test3' }" tag="span">
+        <router-link to="/test/test3" tag="span">
           <el-menu-item index="4-3">测试页面3</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'test4' }" tag="span">
+        <router-link to="/test/test4" tag="span">
           <el-menu-item index="4-4">测试页面4</el-menu-item>
         </router-link>
-        <router-link :to="{ name: 'test5' }" tag="span">
+        <router-link to="/test/test5" tag="span">
           <el-menu-item index="4-5">测试页面5</el-menu-item>
         </router-link>
       </el-submenu>
