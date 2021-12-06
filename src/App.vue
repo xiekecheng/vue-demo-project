@@ -7,36 +7,13 @@
 -->
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
 
 <script>
-// 引入组件
-// import Sider from '@/views/layout/Sider';
-// import Header from '@/views/layout/Header';
-// import Login from '@/views/login';
 export default {
   name: 'App',
-  // 挂载组件
-  components: {
-    // Sider,
-    // 'my-header': Header,
-    // Login,
-  },
-  data() {
-    return {};
-  },
-  watch: {
-    // $route: function (newVal, oldVal) {
-    //   console.log("newVal, oldVal", newVal, oldVal);
-    // },
-    // question: function (newQuestion, oldQuestion) {
-    //   this.answer = "Waiting for you to stop typing...";
-    //   this.debouncedGetAnswer();
-    // },
-  },
-
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -65,7 +42,7 @@ export default {
 }
 
 .el-main {
-  background-color: #e9eef3;
+  background-color: #F0F2F5;
   color: #333;
   /* text-align: center; */
   /* line-height: 160px; */

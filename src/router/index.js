@@ -134,13 +134,56 @@ const routes = [
   // },
 
   { path: '/login', component: () => import('@/views/login') },
+  // 表单页
   {
     path: '/form',
     component: Layout,
     children: [
-      { path: 'basic-form', component: () => '@/views/form/basic-form' },
-      { path: 'advanced-form', component: () => '@/views/form/advanced-form' },
-      { path: 'step-form', component: () => '@/views/form/step-form' },
+      { path: 'basic-form', component: () => import('@/views/form/basic-form') },
+      { path: 'advanced-form', component: () => import('@/views/form/advanced-form') },
+      { path: 'step-form', component: () => import('@/views/form/step-form') },
+    ],
+  },
+  {
+    path: '/list',
+    component: Layout,
+    children: [
+      { path: 'basic-list', component: () => import('@/views/list/basic-list') },
+      { path: 'step-form', component: () => import('@/views/list/table-list') },
+      { path: 'card-list', component: () => import('@/views/list/card-list') },
+    ],
+  },
+  {
+    path: '/profile',
+    component: Layout,
+    children: [
+      { path: 'basic', component: () => import('@/views/profile/basic') },
+      { path: 'advanced', component: () => import('@/views/profile/advanced') },
+    ],
+  },
+  {
+    path: '/result',
+    component: Layout,
+    children: [
+      { path: 'fail', component: () => import('@/views/result/fail') },
+      { path: 'success', component: () => import('@/views/result/success') },
+    ],
+  },
+  {
+    path: '/account',
+    component: Layout,
+    children: [
+      { path: 'center', component: () => import('@/views/account/center') },
+      { path: 'settings', component: () => import('@/views/account/settings') },
+    ],
+  },
+  {
+    path: '/editor',
+    component: Layout,
+    children: [
+      { path: 'flow', component: () => import('@/views/editor/flow') },
+      { path: 'mind', component: () => import('@/views/editor/mind') },
+      { path: 'koni', component: () => import('@/views/editor/koni') },
     ],
   },
   // 页面不存在
