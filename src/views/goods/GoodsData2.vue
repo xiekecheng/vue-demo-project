@@ -1,23 +1,25 @@
 <template>
   <div>
+    <!-- :span-method="cellMerges" -->
     <el-table
       ref="tableList"
       :data="dataSource"
       height="846"
       border
+      stripe
       :header-cell-style="{ background: '#f5f7fa' }"
-      :span-method="cellMerges"
     >
+      <el-table-column type="index" width="50" align="center"> </el-table-column>
       <el-table-column label="二级指标" width="200" prop="twoLevel" show-overflow-tooltip align="center" />
       <el-table-column label="三级指标" width="240" prop="threeLevel" show-overflow-tooltip align="center" />
       <el-table-column label="评分项目" width="240" prop="evaluateProject" show-overflow-tooltip align="center" />
-      <el-table-column label="评分标准" align="left">
+      <el-table-column label="评分标准" width="150" :filters="filters" :filter-method="filterTag" filter-placement="right" align="center">
         <template v-slot="scope">
           <div style="text-indent: 14px">{{ scope.row.evaluateStandard || '' }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="分值" width="90" prop="score" show-overflow-tooltip align="center" />
-      <el-table-column label="土建" width="90" prop="structureScore" show-overflow-tooltip align="center">
+      <el-table-column sortable label="分值" width="90" prop="score" show-overflow-tooltip align="center" />
+      <el-table-column sortable label="土建" width="90" prop="structureScore" show-overflow-tooltip align="center">
         <template v-slot="scope">
           <span>{{ scope.row.structureScore || scope.row.structureScore === 0 ? scope.row.structureScore : '-' }}</span>
         </template>
@@ -43,6 +45,16 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      :current-page="currentPage"
+      :page-sizes="[5, 10, 20, 30]"
+      :page-size="100"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    >
+    </el-pagination>
   </div>
 </template>
 
@@ -52,6 +64,15 @@ import { mergeRows } from '@/utils/utils';
 export default {
   data() {
     return {
+      filters: [
+        { text: '10', value: '10' },
+        { text: '20', value: '20' },
+        { text: '30', value: '30' },
+        { text: '40', value: '40' },
+        { text: '33', value: '33' },
+      ],
+      currentSize: 5,
+      currentPage: 1,
       dataSource: [
         {
           twoLevel: '能力指标 27',
@@ -82,14 +103,19 @@ export default {
       ],
     };
   },
+  computed: {
+    total() {
+      return this.dataSource.length;
+    },
+  },
   mounted() {
     setTimeout(() => {
       this.$request.get('https://www.fastmock.site/mock/7f29378820c13ab23aa3ac4bbefb8909/api/api/user').then((res) => {
         console.log('res', res);
         this.dataSource = res.data.data;
-        console.log('this.dataSource',this.dataSource)
+        console.log('this.dataSource', this.dataSource);
       });
-    }, 5000);
+    }, 0);
   },
   methods: {
     cellMerges({ rowIndex, columnIndex }) {
@@ -100,6 +126,15 @@ export default {
       ];
       return mergeRows(rowIndex, columnIndex, this.dataSource, mergeCfg);
     },
+    filterTag(value, row) {
+      return row.evaluateStandard === value;
+    },
+    handleSizeChange(){
+
+    },
+    handleCurrentChange(){
+
+    }
   },
 };
 </script>

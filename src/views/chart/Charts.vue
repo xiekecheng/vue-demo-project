@@ -1,30 +1,20 @@
 <template>
-  <div>
-    <h1>Echarts图表</h1>
-    <div id="main"></div>
+  <div class="my-chart">
+    <div id="chart"></div>
   </div>
 </template>
 
 <script>
 import * as echarts from 'echarts';
-// var myChart = echarts.init(document.getElementById("main"));
 export default {
   data() {
     return {};
   },
   watch: {
-    // $route: function (newVal, oldVal) {
-    //   console.log("newVal, oldVal", newVal, oldVal);
-    // },
-    // question: function (newQuestion, oldQuestion) {
-    //   this.answer = "Waiting for you to stop typing...";
-    //   this.debouncedGetAnswer();
-    // },
   },
   mounted() {
-    // console.log(this.$route);
     // 基于准备好的dom，初始化echarts实例
-    let myChart = echarts.init(document.getElementById('main'));
+    let myChart = echarts.init(document.getElementById('chart'));
     // // 绘制图表
     myChart.setOption({
       title: {
@@ -52,8 +42,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#main {
+.my-chart{
   width: 100%;
-  height: 400px;
+}
+#chart {
+  width: 100%;
+  height: 300px;
 }
 </style>

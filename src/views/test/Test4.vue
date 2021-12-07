@@ -28,15 +28,6 @@
 </template>
 
 <script>
-// const navbar = document.getElementById('navbar');
-// const menu = document.getElementById('menu');
-// console.log('window.scrollY', window.pageYOffset);
-// console.log('menu.offsetTop', menu.offsetTop);
-// if (window.scrollY >= menu.offsetTop) {
-//   navbar.classList.add('sticky');
-// } else {
-//   navbar.classList.remove('sticky');
-// }
 export default {
   mounted() {
     // window.addEventListener('scroll', this.handleScroll, true);
