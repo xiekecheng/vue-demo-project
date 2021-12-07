@@ -46,7 +46,7 @@
 
       <el-submenu index="5">
         <template #title>
-          <i class="el-icon-edit-outline"></i>
+          <i class="el-icon-s-grid"></i>
           <span slot="title">列表页</span>
         </template>
         <el-submenu index="6">

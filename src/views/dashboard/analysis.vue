@@ -26,17 +26,25 @@
       <el-col>
         <el-card>
           <template #header class="clearfix">
-          <span>线上热门搜索</span>
-          <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+            <span>线上热门搜索</span>
+            <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </template>
+          <user-table/>
         </el-card>
       </el-col>
       <el-col>
-        <el-card>
+        <el-card class="card">
           <template #header class="clearfix">
-          <span>销售额类别占比</span>
-          <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+            <span>销售额类别占比</span>
+            <el-radio-group v-model="radio1" class="selectRadio" size="small">
+              <el-radio-button label="全部渠道"></el-radio-button>
+              <el-radio-button label="线上"></el-radio-button>
+              <el-radio-button label="门店"></el-radio-button>
+            </el-radio-group >
+            <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </template>
+          <PieChart/>
+          <!-- <SaleTable/> -->
         </el-card>
       </el-col>
     </el-row>
@@ -46,14 +54,14 @@
 
 <script>
 import SaleTable from './components/SaleTable.vue';
-// import Charts from '@/views/chart/Charts';
-// import * as echarts from 'echarts/core';
-
+import PieChart from './components/PieChart.vue';
+import UserTable from './components/UserTable.vue';
 export default {
-  components: { SaleTable },
+  components: { SaleTable,PieChart,UserTable },
   data() {
     return {
       activeName: 'first',
+      radio1:'上海'
     };
   },
   mounted() {},
@@ -73,6 +81,14 @@ export default {
   .desc {
     margin-top: 24px;
   }
+}
+.card{
+  position: relative;
+}
+.selectRadio{
+  position: absolute;
+  right: 80px;
+  top:12px;
 }
 #seaTable {
   width: 400px;
