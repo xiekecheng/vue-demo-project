@@ -3,18 +3,18 @@ module.exports = {
   devServer: {
     // before,
     proxy: {
-      // "/api": {
-      //   target: "http://localhost:9999/",
+      "/api": {
+        target: "http://localhost:7001/",
+        changeOrigin: true,
+      },
+      // '/api': {
+      //   target: 'https://cnodejs.org/',
       //   changeOrigin: true,
       // },
-      '/api': {
-        target: 'https://cnodejs.org/',
-        changeOrigin: true,
-      },
-      '/soso': {
-        target: "'https://c.y.qq.com'",
-        changeOrigin: true,
-      },
+      // '/soso': {
+      //   target: "'https://c.y.qq.com'",
+      //   changeOrigin: true,
+      // },
     },
   },
   // devtool: 'source-map',
