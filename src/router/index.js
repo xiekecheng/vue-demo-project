@@ -148,8 +148,8 @@ const routes = [
     path: '/list',
     component: Layout,
     children: [
+      { path: 'table-list', component: () => import('@/views/list/table-list') },
       { path: 'basic-list', component: () => import('@/views/list/basic-list') },
-      { path: 'step-form', component: () => import('@/views/list/table-list') },
       { path: 'card-list', component: () => import('@/views/list/card-list') },
     ],
   },
