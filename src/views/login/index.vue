@@ -29,10 +29,10 @@
 
 <script>
 import { setToken } from '@/utils/auth';
+import { login } from '@/api';
 export default {
   data() {
     let validatePass = (rule, value, callback) => {
-      // console.log('rule, value, callback', rule, value, callback);
       if (value === '') {
         callback(new Error('请输入账号'));
       } else {
@@ -54,7 +54,6 @@ export default {
       ruleForm: {
         username: '',
         password: '',
-        // age: '',
       },
       rules: {
         username: [{ validator: validatePass, trigger: 'blur' }],
@@ -66,18 +65,25 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          // 登录成功
-          this.loading = true;
-          setTimeout(() => {
-            this.loading = false;
-            setToken('token123');
-            this.$message.success('登录成功');
-            this.$router.push('/');
-          }, 1000);
+          login(this.ruleForm)
+            .then((res) => {
+              console.log('res', res);
+              if (res.status === 'SUCCESS') {
+                setToken('token123');
+                this.$message.success('登录成功');
+                this.loading = false;
+                this.$router.push('/');
+              } else {
+                this.$message.warning('登录失败,请确认用户名或密码是否正确');
+                return false;
+              }
+            })
+            .catch((e) => {
+              this.loading = false;
+            });
         } else {
           // 登录失败
-          console.log('error submit!!');
-          this.$message.warning('登录失败');
+          this.$message.warning('表单校验不通过');
           return false;
         }
       });

@@ -33,13 +33,13 @@
           <i class="el-icon-edit-outline"></i>
           <span slot="title">表单页</span>
         </template>
-        <router-link :to="{ name: 'home' }" tag="span">
+        <router-link to="/form/basic-form" tag="span">
           <el-menu-item index="3-1">基础表单</el-menu-item>
         </router-link>
-        <router-link to="/goods/goodsData2">
+        <router-link to="/form/step-form">
           <el-menu-item index="3-2">分步表单</el-menu-item>
         </router-link>
-        <router-link to="/goods/goodsData2">
+        <router-link to="/form/advanced-form">
           <el-menu-item index="3-2">高级表单</el-menu-item>
         </router-link>
       </el-submenu>
@@ -64,14 +64,14 @@
             <el-menu-item index="6-3">搜索列表（应用）</el-menu-item>
           </router-link>
         </el-submenu>
-        <router-link to="/list/basic-list" tag="span">
-          <el-menu-item index="5-1">基础表单</el-menu-item>
+        <router-link to="/list/table-list" tag="span">
+          <el-menu-item index="5-1">查询列表</el-menu-item>
         </router-link>
-        <router-link to="/list/table-list">
-          <el-menu-item index="5-2">分步表单</el-menu-item>
+        <router-link to="/list/basic-list">
+          <el-menu-item index="5-2">标准列表</el-menu-item>
         </router-link>
         <router-link to="/list/card-list">
-          <el-menu-item index="5-3">高级表单</el-menu-item>
+          <el-menu-item index="5-3">卡片列表</el-menu-item>
         </router-link>
       </el-submenu>
 

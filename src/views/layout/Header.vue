@@ -1,14 +1,21 @@
 <template>
-  <div>
-    <button @click="handleGo">前进</button>
-    <button @click="handleBack">后退</button>
-    <button @click="handleFresh">刷新</button>
-    <button @click="logout">退出登录</button>
+  <div class="my-header">
+    <el-row type="flex" justify="space-between">
+      <el-col>
+        <div>
+          <button @click="handleGo">前进</button>
+          <button @click="handleBack">后退</button>
+          <button @click="handleFresh">刷新</button>
+          <button @click="logout">退出登录</button>
+        </div>
+      </el-col>
+      <el-col span="2">用户名:{{}}</el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
-import {removeToken} from '@/utils/auth';
+import { removeToken } from '@/utils/auth';
 export default {
   name: 'MyHeader',
   methods: {
@@ -19,16 +26,19 @@ export default {
       history.back();
     },
     handleFresh() {
-
       history.go();
     },
-    logout(){
+    logout() {
       // 移除token
-      removeToken()
-      this.$router.push('/login')
-    }
+      removeToken();
+      this.$router.push('/login');
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.my-header{
+  // padding: 0 16px;
+}
+</style>

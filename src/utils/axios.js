@@ -1,8 +1,8 @@
-const axios = require("axios");
-
+const axios = require('axios');
+// import { Message } from 'element-ui';
+// const {Message}  = require('element-ui')
 const instance = axios.create({
-  // baseURL: "https://cnodejs.org/",
-  // baseURL: "https://localhost:8080",
+  baseURL: 'http://localhost:8080/api/',
   timeout: 5000,
   // headers: { "X-Custom-Header": "foobar" },
 });
@@ -16,16 +16,26 @@ instance.interceptors.request.use(
   function (error) {
     // Do something with request error
     return Promise.reject(error);
-  }
+  },
 );
 
 instance.interceptors.response.use(
   function (response) {
-    return response;
+    // console.log('response', response);
+    const res = response.data
+    if(res.status!=='SUCCESS'){
+      // Message({
+      //   message: res.errMsg || 'Error',
+      //   type: 'error',
+      //   duration: 5 * 1000
+      // })
+    }
+    return res
+    
   },
   function (error) {
     return Promise.reject(error);
-  }
+  },
 );
 
 module.exports = instance;
