@@ -170,6 +170,15 @@ const routes = [
     ],
   },
   {
+    path: '/exception', // 异常页
+    component: Layout,
+    children: [
+      { path: '403', component: () => import('@/views/exception/403') },
+      { path: '404', component: () => import('@/views/exception/404') },
+      { path: '500', component: () => import('@/views/exception/500') },
+    ],
+  },
+  {
     path: '/account',
     component: Layout,
     children: [

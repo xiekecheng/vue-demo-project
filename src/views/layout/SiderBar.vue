@@ -109,13 +109,13 @@
           <i class="el-icon-warning-outline"></i>
           <span slot="title">异常页</span>
         </template>
-        <router-link to="/profile/basic" tag="span">
+        <router-link to="/exception/403" tag="span">
           <el-menu-item index="8-1">403</el-menu-item>
         </router-link>
-        <router-link to="/result/fail">
+        <router-link to="/exception/404">
           <el-menu-item index="8-2">404</el-menu-item>
         </router-link>
-        <router-link to="/result/fail">
+        <router-link to="/exception/500">
           <el-menu-item index="8-3">500</el-menu-item>
         </router-link>
       </el-submenu>
@@ -125,10 +125,10 @@
           <i class="el-icon-user"></i>
           <span slot="title">个人页</span>
         </template>
-        <router-link to="/profile/basic" tag="span">
+        <router-link to="/account/center" tag="span">
           <el-menu-item index="9-1">个人中心</el-menu-item>
         </router-link>
-        <router-link to="/result/fail">
+        <router-link to="/account/settings">
           <el-menu-item index="9-2">个人设置</el-menu-item>
         </router-link>
       </el-submenu>
