@@ -1,90 +1,67 @@
 <template>
   <div>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="date" label="排名" width="180"> </el-table-column>
-      <el-table-column prop="name" label="搜索关键词" width="180"> </el-table-column>
-      <el-table-column prop="address" label="用户数"> </el-table-column>
-      <el-table-column prop="address" label="周涨幅"> </el-table-column>
+    <el-table :data="searchList" style="width: 100%">
+      <el-table-column prop="rank" label="排名" width="180"> </el-table-column>
+      <el-table-column prop="keyword" label="搜索关键词" width="180"> </el-table-column>
+      <el-table-column prop="user_number" label="用户数"> </el-table-column>
+      <el-table-column prop="week_rise" label="周涨幅"> </el-table-column>
     </el-table>
-		  <el-pagination
-    layout="prev, pager, next"
-    :total="1000">
-  </el-pagination>
+    <el-pagination
+      :current-page="currentPage"
+      :page-sizes="[5, 10, 15, 20]"
+      :page-size="currentSize"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="searchTotal"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    >
+    </el-pagination>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-        },
-        {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄',
-        },
-        {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-        {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄',
-        },
-      ],
+      currentPage: 1,
+      currentSize: 5,
     };
+  },
+  computed: {
+    ...mapState('hotSearch', ['searchList', 'searchTotal']),
+  },
+  watch: {
+    currentPage() {
+      this.getList();
+    },
+    currentSize() {
+      this.getList();
+    },
+  },
+  created() {
+    // 获取热搜数据
+    this.getList();
+  },
+
+  mounted() {
+    // this.tableData = this.searchList
+  },
+
+  methods: {
+    ...mapActions('hotSearch', ['getSearchList']),
+    handleSizeChange(val) {
+      this.currentSize = val;
+    },
+    handleCurrentChange(val) {
+      this.currentPage = val;
+    },
+    getList() {
+      this.getSearchList({
+        page: this.currentPage,
+        size: this.currentSize,
+      });
+    },
   },
 };
 </script>

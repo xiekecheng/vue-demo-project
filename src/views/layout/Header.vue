@@ -9,7 +9,7 @@
           <button @click="logout">退出登录</button>
         </div>
       </el-col>
-      <el-col span="2">用户名:{{}}</el-col>
+      <el-col :span="2">用户名:{{}}</el-col>
     </el-row>
   </div>
 </template>
@@ -39,6 +39,6 @@ export default {
 
 <style lang="scss" scoped>
 .my-header{
-  // padding: 0 16px;
+  display: flow-root;
 }
 </style>
