@@ -3,9 +3,9 @@ const axios = require('axios');
 // const {Message}  = require('element-ui')
 // const baseURL1 = 'http://localhost:8080/api/'
 // const baseURL2 = 'http://localhost/api/'
-const baseURL2 = '/api/'
+// const baseURL2 = '/api/'
 const instance = axios.create({
-  baseURL: baseURL2,
+  // baseURL: baseURL2,
   timeout: 5000,
   // headers: { "X-Custom-Header": "foobar" },
 });
