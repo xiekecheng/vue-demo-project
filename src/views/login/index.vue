@@ -29,7 +29,8 @@
 
 <script>
 import { setToken } from '@/utils/auth';
-import { login } from '@/api';
+// import { login } from '@/api';
+import { mapActions } from 'vuex';
 export default {
   data() {
     let validatePass = (rule, value, callback) => {
@@ -61,13 +62,14 @@ export default {
       },
     };
   },
+
   methods: {
+    ...mapActions('user', ['login']),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          login(this.ruleForm)
+          this.login(this.ruleForm)
             .then((res) => {
-              console.log('res', res);
               if (res.status === 'SUCCESS') {
                 setToken('token123');
                 this.$message.success('登录成功');
