@@ -9,15 +9,25 @@
           <button @click="logout">退出登录</button>
         </div>
       </el-col>
-      <el-col :span="2">用户名:{{}}</el-col>
+      <el-col :span="6">用户名:{{ userInfo.username }}</el-col>
     </el-row>
   </div>
 </template>
 
 <script>
 import { removeToken } from '@/utils/auth';
+import { mapState } from 'vuex';
 export default {
   name: 'MyHeader',
+  computed: {
+    ...mapState('user', ['userInfo']),
+  },
+  created(){
+    // console.log('userInfo', this.userInfo);
+  },
+  mounted() {
+    // console.log('userInfo', this.userInfo);
+  },
   methods: {
     handleGo() {
       history.forward();
@@ -38,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.my-header{
+.my-header {
   display: flow-root;
 }
 </style>
