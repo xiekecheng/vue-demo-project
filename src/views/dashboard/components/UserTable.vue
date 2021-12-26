@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="searchList" style="width: 100%">
+    <el-table :data="searchList" style="width: 100%" :height="288">
       <el-table-column prop="rank" label="排名" width="180"> </el-table-column>
       <el-table-column prop="keyword" label="搜索关键词" width="180"> </el-table-column>
       <el-table-column prop="user_number" label="用户数"> </el-table-column>
