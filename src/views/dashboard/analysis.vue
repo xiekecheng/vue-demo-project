@@ -36,7 +36,7 @@
       </el-tabs>
     </el-card>
     <el-row class="desc" type="flex" justify="space-between" :gutter="24">
-      <el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
         <el-card>
           <template #header class="clearfix">
             <span>线上热门搜索</span>
@@ -45,7 +45,7 @@
           <user-table />
         </el-card>
       </el-col>
-      <el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
         <el-card class="card">
           <template #header class="clearfix">
             <span>销售额类别占比</span>

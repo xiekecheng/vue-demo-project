@@ -27,3 +27,10 @@ export function login(data){
     data
   })
 }
+export function getAddressList(data){
+  return request({
+    url:'findAddressList',
+    method:'post',
+    data
+  })
+}
