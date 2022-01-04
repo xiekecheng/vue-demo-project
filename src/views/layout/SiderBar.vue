@@ -131,6 +131,9 @@
         <router-link to="/account/settings">
           <el-menu-item index="9-2">个人设置</el-menu-item>
         </router-link>
+        <router-link to="/account/addUser">
+          <el-menu-item index="9-2">添加用户</el-menu-item>
+        </router-link>
       </el-submenu>
 
       <el-submenu index="10">

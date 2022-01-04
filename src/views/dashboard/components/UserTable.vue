@@ -10,7 +10,7 @@
       :current-page="currentPage"
       :page-sizes="[5, 10, 15, 20]"
       :page-size="currentSize"
-      layout="total, sizes, prev, pager, next, jumper"
+      layout=" prev, pager, next"
       :total="searchTotal"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"

@@ -9,7 +9,9 @@
           <button @click="logout">退出登录</button>
         </div>
       </el-col>
-      <el-col :span="6">用户名:{{ userInfo.username }}</el-col>
+      <el-col >用户名:{{ userInfo.username }}
+        <el-avatar shape="square" size="large" :src='"http://localhost:7001/"+userInfo.avatar'></el-avatar>
+      </el-col>
     </el-row>
   </div>
 </template>

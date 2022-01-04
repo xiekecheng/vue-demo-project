@@ -1,19 +1,12 @@
 import { login } from '@/api';
+import { register,uploadAvatar } from '@/api/user';
 // import { reject, resolve } from 'core-js/fn/promise';
+
 export default {
   namespaced: true,
   state: {
     count: 0,
-    userInfo: {
-      avatar: '',
-      email: '',
-      gender: '',
-      id: '',
-      password: '',
-      phone: '',
-      role: '',
-      username: '',
-    },
+    userInfo: JSON.parse(localStorage.getItem('userInfo')),
   },
   mutations: {
     increment(state) {
@@ -24,12 +17,38 @@ export default {
     },
   },
   actions: {
+    // 用户登陆
     login({ commit, state }, payload) {
       return new Promise((resolve, reject) => {
         login(payload)
           .then((res) => {
-            console.log('res', res);
             commit('setUserInfo', res.data);
+            // 将用户信息保存在localStorage
+            localStorage.setItem('userInfo',JSON.stringify(res.data))
+            resolve(res);
+          })
+          .catch((e) => {
+            reject(e);
+          });
+      });
+    },
+    // 添加用户
+    register({ commit, state }, payload) {
+      return new Promise((resolve, reject) => {
+        register(payload)
+          .then((res) => {
+            resolve(res);
+          })
+          .catch((e) => {
+            reject(e);
+          });
+      });
+    },
+    // 上传头像
+    uploadAvatar({ commit, state }, payload) {
+      return new Promise((resolve, reject) => {
+        uploadAvatar(payload)
+          .then((res) => {
             resolve(res);
           })
           .catch((e) => {

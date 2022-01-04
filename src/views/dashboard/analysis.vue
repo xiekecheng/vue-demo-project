@@ -2,11 +2,13 @@
   <div class="analysis">
     <div>
       <el-row type="flex" :gutter="24" class="row-bg" justify="space-between">
-        <el-col><el-card class="box-card" shadow="hover"> 
-         <div>总销售额</div>
-         <div>¥ 126,560</div>
-         <div>日销售额￥12,423</div>
-        </el-card></el-col>
+        <el-col
+          ><el-card class="box-card" shadow="hover">
+            <div>总销售额</div>
+            <div>¥ 126,560</div>
+            <div>日销售额￥12,423</div>
+          </el-card></el-col
+        >
         <el-col><el-card class="box-card" shadow="hover">访问量 </el-card> </el-col>
         <el-col><el-card class="box-card" shadow="hover">支付笔数</el-card> </el-col>
         <el-col><el-card class="box-card" shadow="hover">运营活动效果</el-card></el-col>
@@ -61,7 +63,22 @@
         </el-card>
       </el-col>
     </el-row>
-    <div id="saleTable"></div>
+    <div id="saleTable">
+      <el-card class="box-card">
+        <!-- <div v-for="o in 4" :key="o" class="text item">
+          {{ '列表内容 ' + o }}
+        </div> -->
+        <el-tabs type="border-card">
+          <el-tab-pane>
+            <span slot="label"><i class="el-icon-date"></i> 我的行程</span>
+            我的行程
+          </el-tab-pane>
+          <el-tab-pane label="消息中心">消息中心</el-tab-pane>
+          <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+          <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+        </el-tabs>
+      </el-card>
+    </div>
   </div>
 </template>
 

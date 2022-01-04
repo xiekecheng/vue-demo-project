@@ -184,6 +184,7 @@ const routes = [
     children: [
       { path: 'center', component: () => import('@/views/account/center') },
       { path: 'settings', component: () => import('@/views/account/settings') },
+      { path: 'addUser', component: () => import('@/views/account/addUser') },
     ],
   },
   {
