@@ -40,7 +40,7 @@
           <el-menu-item index="3-2">分步表单</el-menu-item>
         </router-link>
         <router-link to="/form/advanced-form">
-          <el-menu-item index="3-2">高级表单</el-menu-item>
+          <el-menu-item index="3-3">高级表单</el-menu-item>
         </router-link>
       </el-submenu>
 
@@ -150,6 +150,21 @@
         <router-link to="/editor/koni">
           <el-menu-item index="10-3">拓扑编辑器</el-menu-item>
         </router-link>
+      </el-submenu>
+            <el-submenu index="11">
+        <template #title>
+          <i class="el-icon-menu"></i>
+          <span slot="title">组件</span>
+        </template>
+        <router-link to="/component/richtext" tag="span">
+          <el-menu-item index="11-1">富文本编辑器</el-menu-item>
+        </router-link>
+        <!-- <router-link to="/editor/mind">
+          <el-menu-item index="10-2">脑图编辑器</el-menu-item>
+        </router-link>
+        <router-link to="/editor/koni">
+          <el-menu-item index="10-3">拓扑编辑器</el-menu-item>
+        </router-link> -->
       </el-submenu>
 
       <!-- <el-submenu index="1">

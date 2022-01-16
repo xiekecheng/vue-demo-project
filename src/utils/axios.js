@@ -6,7 +6,7 @@ const axios = require('axios');
 const baseURL2 = '/api'
 const instance = axios.create({
   baseURL: baseURL2,
-  timeout: 5000,
+  // timeout: 5000,
   // headers: { "X-Custom-Header": "foobar" },
 });
 

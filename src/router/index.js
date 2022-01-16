@@ -196,6 +196,13 @@ const routes = [
       { path: 'koni', component: () => import('@/views/editor/koni') },
     ],
   },
+  {
+    path:'/component',
+    component:Layout,
+    children:[
+      {path:'richtext',component:()=>import('@/views/component/richtext')}
+    ]
+  },
   // 页面不存在
   { path: '*', component: Error },
 ];

@@ -10,6 +10,8 @@ import App from './App.vue';
 import ElementUI from 'element-ui';
 import store from '@/store';
 import request from '@/utils/axios';
+import CKEditor from 'ckeditor4-vue';
+
 // 引入css样式
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
@@ -18,6 +20,8 @@ Vue.config.productionTip = false;
 Vue.prototype.$request = request;
 // 引入elementUI
 Vue.use(ElementUI);
+// 引入富文本编辑器
+Vue.use(CKEditor)
 import router from '@/router';
 new Vue({
   router,
