@@ -8,6 +8,14 @@ export const getSearchList = (data) =>
     data,
   });
 
+// 分页多条件筛选查询热搜列表
+export const getListFilterByPage = (data) =>
+  request({
+    url: '/getListFilterByPage',
+    method: 'post',
+    data,
+  });
 export default {
   getSearchList,
+  getListFilterByPage,
 };

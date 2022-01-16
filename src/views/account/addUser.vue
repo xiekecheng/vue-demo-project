@@ -7,7 +7,7 @@
         <el-form-item label="用户名" prop="username">
           <el-input v-model="formRegister.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="password" >
+        <el-form-item label="密码" prop="password">
           <el-input v-model="formRegister.password" show-password></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
@@ -42,6 +42,7 @@
           </el-upload>
         </el-form-item>
         <el-form-item>
+          <el-progress :percentage="percentage"></el-progress>
           <el-button type="primary" @click="submitForm('formRegister')">提交</el-button>
           <el-button @click="resetForm('formRegister')">重置</el-button>
         </el-form-item>
@@ -64,9 +65,11 @@ export default {
         role: '',
         gender: '',
         avatar: '',
-				filePath:''
+        filePath: '',
+        
       },
-			filePath:'',
+      filePath: '',
+      percentage:1,
       forms: '',
       roleOptions: [
         { label: '管理员', value: 'admin' },
@@ -93,8 +96,8 @@ export default {
           // this.forms = new FormData()
           // this.forms.append('file',)
           // 上传图片 获取上传之后存储的地址
-          this.$refs['upload'].submit()
-					this.formRegister.avatar = this.filePath
+          this.$refs['upload'].submit();
+          this.formRegister.avatar = this.filePath;
           // 调用注册接口
           const result = await this.register(this.formRegister);
           if (result.status === 'SUCCESS') {
@@ -115,10 +118,35 @@ export default {
     uploadSectionFile(params) {
       this.forms = new FormData();
       this.forms.append('file', params.file);
-      this.uploadAvatar(this.forms).then((res) => {
-        console.log('res', res.data.filePath);
-        this.filePath = res.data.filePath;
-      });
+      // this.uploadAvatar(this.forms).then((res) => {
+      //   console.log('res', res.data.filePath);
+      //   this.filePath = res.data.filePath;
+      // });
+
+      // let self = this;
+      this.$request.post('/uploadAvatar', this.forms, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          transformRequest: [
+            function (data) {
+              return data;
+            },
+          ],
+          onUploadProgress: (progressEvent) => {
+            console.log('progressEvent',progressEvent);
+            let complete = (((progressEvent.loaded / progressEvent.total) * 100) | 0) ;
+            console.log('complete=>',complete)
+            // self.uploadMessage = '上传 ' + complete;
+            this.percentage = complete
+            console.log('上传=>',complete);
+          },
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            self.uploadMessage = '上传成功!';
+          }
+        });
     },
     // 重置表单
     resetForm(formName) {
