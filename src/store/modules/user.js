@@ -1,5 +1,5 @@
 import { login } from '@/api';
-import { register,uploadAvatar } from '@/api/user';
+import { register, uploadAvatar } from '@/api/user';
 // import { reject, resolve } from 'core-js/fn/promise';
 
 export default {
@@ -24,7 +24,7 @@ export default {
           .then((res) => {
             commit('setUserInfo', res.data);
             // 将用户信息保存在localStorage
-            localStorage.setItem('userInfo',JSON.stringify(res.data))
+            localStorage.setItem('userInfo', JSON.stringify(res.data));
             resolve(res);
           })
           .catch((e) => {
@@ -34,15 +34,7 @@ export default {
     },
     // 添加用户
     register({ commit, state }, payload) {
-      return new Promise((resolve, reject) => {
-        register(payload)
-          .then((res) => {
-            resolve(res);
-          })
-          .catch((e) => {
-            reject(e);
-          });
-      });
+      return register(payload);
     },
     // 上传头像
     uploadAvatar({ commit, state }, payload) {
