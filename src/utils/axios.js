@@ -1,3 +1,14 @@
+/*
+ * @Author: github.com/xiekecheng
+ * @Date: 2022-05-02 23:40:58
+ * @LastEditors: github.com/xiekecheng
+ * @LastEditTime: 2022-05-02 23:54:26
+ * @FilePath: /vue-demo-project/src/utils/axios.js
+ * @Description: 配置axios
+ * 
+ */
+
+
 const axios = require('axios');
 // import { Message } from 'element-ui';
 // const {Message}  = require('element-ui')
