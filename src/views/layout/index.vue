@@ -1,10 +1,12 @@
 <template>
   <el-container>
     <el-aside width="200px;height:100%">
-      <siderbar />
+      <sider-bar></sider-bar>
     </el-aside>
     <el-container>
-      <el-header><my-header /></el-header>
+      <el-header height="48px">
+        <my-header />
+      </el-header>
       <el-main>
         <router-view />
       </el-main>
@@ -13,11 +15,12 @@
 </template>
 
 <script>
-// import SiderBar from '@/views/layout/SiderBar';
+import SiderBar from '@/views/layout/SiderBar';
 import Header from '@/views/layout/Header';
-import Siderbar from './Siderbar';
 export default {
-  components: { Siderbar, 'my-header': Header },
+  components: { 
+    SiderBar,
+   'my-header': Header },
 };
 </script>
 

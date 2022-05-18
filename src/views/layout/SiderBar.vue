@@ -1,10 +1,5 @@
 <template>
   <div class="my-siderbar">
-    <!-- 侧边栏 开始 -->
-    <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group> -->
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
@@ -51,7 +46,6 @@
         </template>
         <el-submenu index="6">
           <template #title>
-            <i class="el-icon-edit-outline"></i>
             <span slot="title">搜索列表</span>
           </template>
           <router-link to="/list/basic-list" tag="span">
@@ -86,9 +80,6 @@
         <router-link to="/profile/advanced">
           <el-menu-item index="6-2">高级详情页</el-menu-item>
         </router-link>
-        <!-- <router-link to="/goods/goodsData2">
-          <el-menu-item index="3-2">高级表单</el-menu-item>
-        </router-link> -->
       </el-submenu>
 
       <el-submenu index="7">
@@ -151,7 +142,7 @@
           <el-menu-item index="10-3">拓扑编辑器</el-menu-item>
         </router-link>
       </el-submenu>
-            <el-submenu index="11">
+      <el-submenu index="11">
         <template #title>
           <i class="el-icon-menu"></i>
           <span slot="title">组件</span>
@@ -159,68 +150,10 @@
         <router-link to="/component/richtext" tag="span">
           <el-menu-item index="11-1">富文本编辑器</el-menu-item>
         </router-link>
-        <!-- <router-link to="/editor/mind">
-          <el-menu-item index="10-2">脑图编辑器</el-menu-item>
+        <router-link to="/component/tree" tag="span">
+          <el-menu-item index="11-2">树形控件</el-menu-item>
         </router-link>
-        <router-link to="/editor/koni">
-          <el-menu-item index="10-3">拓扑编辑器</el-menu-item>
-        </router-link> -->
       </el-submenu>
-
-      <!-- <el-submenu index="1">
-        <template #title>
-          <i class="el-icon-location"></i>
-          <span slot="title">商品管理</span>
-        </template>
-        <router-link to="/goods/goodsHome" tag="span">
-          <el-menu-item index="1-1">商品列表</el-menu-item>
-        </router-link>
-        <router-link to="/goods/goodsAdd" tag="span">
-          <el-menu-item index="1-2">发布商品</el-menu-item>
-        </router-link>
-        <router-link to="/goods/goodsList" tag="span">
-          <el-menu-item index="1-3">CNode论坛</el-menu-item>
-        </router-link>
-        <router-link to="/goods/goodsData" tag="span">
-          <el-menu-item index="1-4">数据</el-menu-item>
-        </router-link>
-        <router-link to="/goods/goodsData2" tag="span">
-          <el-menu-item index="1-5">数据2</el-menu-item>
-        </router-link>
-      </el-submenu> -->
-
-      <!-- <el-submenu index="2">
-        <template #title>
-          <i class="el-icon-menu"></i>
-          <span slot="title">图表管理</span>
-        </template>
-        <router-link :to="{ name: 'charts' }" tag="span">
-          <el-menu-item index="2-1">图表</el-menu-item>
-        </router-link>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-      </el-submenu> -->
-
-      <!-- <el-submenu index="4">
-        <template #title>
-          <i class="el-icon-setting"></i>
-          <span slot="title">测试页面</span>
-        </template>
-        <router-link to="/test/test1" tag="span">
-          <el-menu-item index="4-1">测试页面1</el-menu-item>
-        </router-link>
-        <router-link to="/test/test2" tag="span">
-          <el-menu-item index="4-2">测试页面2</el-menu-item>
-        </router-link>
-        <router-link to="/test/test3" tag="span">
-          <el-menu-item index="4-3">测试页面3</el-menu-item>
-        </router-link>
-        <router-link to="/test/test4" tag="span">
-          <el-menu-item index="4-4">测试页面4</el-menu-item>
-        </router-link>
-        <router-link to="/test/test5" tag="span">
-          <el-menu-item index="4-5">测试页面5</el-menu-item>
-        </router-link>
-      </el-submenu> -->
     </el-menu>
     <!-- 侧边栏 结束 -->
   </div>
@@ -248,7 +181,6 @@ export default {
 /* 侧边栏 开始 */
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 208px;
-  // min-height: 400px;
   min-height: 100%;
 }
 /* 侧边栏 结束 */
