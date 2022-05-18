@@ -1,10 +1,10 @@
 /*
  * @Author: github.com/xiekecheng
  * @Date: 2021-12-18 16:54:40
- * @LastEditors: github.com/xiekecheng
- * @LastEditTime: 2022-05-02 23:56:53
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-18 22:53:14
  * @FilePath: /vue-demo-project/src/utils/auth.js
- * @Description: 
+ * @Description: 认证模块
  * 
  */
 import Cookies from 'js-cookie';
