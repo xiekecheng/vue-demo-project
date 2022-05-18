@@ -1,7 +1,7 @@
 <!--
  * @Author: github.com/xiekecheng
  * @Date: 2021-12-18 16:54:40
- * @LastEditTime: 2022-05-18 22:38:40
+ * @LastEditTime: 2022-05-18 22:54:05
  * @FilePath: /vue-demo-project/src/views/list/basic-list.vue
  * @Description: 多级表头表格
  * 
@@ -119,7 +119,6 @@ export default {
     };
   },
   created() {
-    // console.log('basic-list created');
     this.getColumns();
   },
   methods: {
@@ -157,7 +156,6 @@ export default {
         };
         newColumn.push(column);
       });
-      console.log('newColumn', newColumn);
       this.newTableColumn = newColumn;
     },
   },
