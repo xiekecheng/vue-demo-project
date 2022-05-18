@@ -197,11 +197,12 @@ const routes = [
     ],
   },
   {
-    path:'/component',
-    component:Layout,
-    children:[
-      {path:'richtext',component:()=>import('@/views/component/richtext')}
-    ]
+    path: '/component',
+    component: Layout,
+    children: [
+      { path: 'richtext', component: () => import('@/views/component/richtext') },
+      { path: 'tree', component: () => import('@/views/component/tree') },
+    ],
   },
   // 页面不存在
   { path: '*', component: Error },
