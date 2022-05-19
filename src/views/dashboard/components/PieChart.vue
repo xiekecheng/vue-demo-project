@@ -55,6 +55,10 @@ export default {
     };
 
     option && myChart.setOption(option);
+    myChart.on('click',(params)=>{
+      this.$emit('handleDialogOpen',params.seriesName)
+      
+    })
   },
 };
 </script>
