@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .sale-table{
-  width: 500px;
+  width: 100%;
   height: 300px;
 }
 </style>
