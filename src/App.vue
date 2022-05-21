@@ -1,8 +1,8 @@
 <!--
  * @Author: xiekc
  * @Date: 2021-09-15 21:21:35
- * @LastEditors: xkccoding@gmail.com
- * @LastEditTime: 2021-09-15 23:29:21
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-18 23:03:07
  * @FilePath: /vue-demo-project/src/App.vue
 -->
 <template>
@@ -30,8 +30,6 @@ export default {
 .el-footer {
   background-color: #b3c0d1;
   color: #333;
-  /* text-align: center; */
-  line-height: 60px;
 }
 
 .el-aside {
