@@ -1,6 +1,6 @@
 <template>
 	<div>
-				<ckeditor v-model="richtext"></ckeditor>
+				<ckeditor v-model="richtext" :config='config'></ckeditor>
 				<el-button @click="checkData">查看富文本内容</el-button>
 	</div>
 </template>
@@ -9,7 +9,10 @@
 	export default {
 		data(){
 			return{
-				richtext:'hello richtext'
+				richtext:'hello richtext',
+				config:{
+					uiColor:'#AADC6E'
+				}
 			}
 		},
 		methods:{
