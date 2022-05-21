@@ -17,7 +17,7 @@ export default {
   props: {
     listData: {
       type: Array,
-      default: [
+      default: ()=>[
         {
           id: 1,
           name: '工专路 0 号店',
@@ -64,7 +64,6 @@ ul,li{
 	list-style: none;
 }
 ul{
-	// display: flex;
 	.name{
 		flex: 1;
 	}
