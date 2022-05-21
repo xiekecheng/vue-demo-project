@@ -39,12 +39,6 @@
 
     <el-card shadow="never">
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <!-- <el-tab-pane label="销售额" name="first">
-          <el-row :gutter="10">
-            <el-col :xs="24" :sm="24" :md="12" :lg="16" :xl="16"><SaleTable /></el-col>
-            <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8">1111</el-col>
-          </el-row>
-        </el-tab-pane> -->
         <el-tab-pane label="销售额" name="sales">
           <el-row :gutter="10">
             <el-col :xs="24" :sm="24" :md="12" :lg="16" :xl="16">
@@ -125,11 +119,9 @@ export default {
   mounted() {},
   methods: {
     handleClick(tab, event) {
-      console.log(tab, event);
     },
     handleDialogOpen(type) {
       // 开启对话窗
-      console.log('type', type);
       this.$refs.dataDialog.handleOpen(type);
     },
   },
