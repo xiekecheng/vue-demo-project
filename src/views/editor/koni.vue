@@ -13,16 +13,9 @@ export default {
     ...mapState('user', ['count']),
   },
   created() {
-    const result = this.$store.state.user.count;
-    console.log('result', result);
   },
   methods: {
     ...mapMutations('user',['increment'])
-    // increment(){
-    // 	this.$store.commit('user/increment')
-    // 	const result  = this.$store.state.user.count;
-    // 	console.log('result',result);
-    // }
   },
 };
 </script>
