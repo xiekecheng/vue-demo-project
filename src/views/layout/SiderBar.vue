@@ -44,18 +44,18 @@
           <i class="el-icon-s-grid"></i>
           <span slot="title">列表页</span>
         </template>
-        <el-submenu index="6">
+        <el-submenu index="12">
           <template #title>
             <span slot="title">搜索列表</span>
           </template>
           <router-link to="/list/basic-list" tag="span">
-            <el-menu-item index="6-1">搜索列表（文章）</el-menu-item>
+            <el-menu-item index="12-1">搜索列表（文章）</el-menu-item>
           </router-link>
           <router-link to="/list/table-list">
-            <el-menu-item index="6-2">搜索列表（项目）</el-menu-item>
+            <el-menu-item index="12-2">搜索列表（项目）</el-menu-item>
           </router-link>
           <router-link to="/list/card-list">
-            <el-menu-item index="6-3">搜索列表（应用）</el-menu-item>
+            <el-menu-item index="12-3">搜索列表（应用）</el-menu-item>
           </router-link>
         </el-submenu>
         <router-link to="/list/table-list" tag="span">
