@@ -87,7 +87,7 @@
           <i class="el-icon-circle-check"></i>
           <span slot="title">结果页</span>
         </template>
-        <router-link to="/profile/basic" tag="span">
+        <router-link to="/result/success" tag="span">
           <el-menu-item index="7-1">成功页</el-menu-item>
         </router-link>
         <router-link to="/result/fail">
