@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <!-- <h1>个人设置</h1> -->
-    <!-- <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button> -->
+  <div class="wrap">
     <el-tabs :tab-position="tabPosition" style="height: 100%">
       <el-tab-pane label="基本设置"><BasicSetting/></el-tab-pane>
       <el-tab-pane label="安全设置">安全设置</el-tab-pane>
@@ -52,15 +50,12 @@ export default {
     handleClick(tab, event) {
       console.log('tab, event', tab, event);
     },
-    // handleClose(done) {
-    //   this.$confirm('确认关闭？')
-    //     .then((_) => {
-    //       done();
-    //     })
-    //     .catch((_) => {});
-    // },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrap{
+  background-color: #fff;
+}
+</style>
