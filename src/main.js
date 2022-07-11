@@ -15,13 +15,13 @@ import CKEditor from 'ckeditor4-vue';
 // 引入css样式
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
-import './permission.js'
+import './permission.js';
 Vue.config.productionTip = false;
 Vue.prototype.$request = request;
 // 引入elementUI
 Vue.use(ElementUI);
 // 引入富文本编辑器
-Vue.use(CKEditor)
+Vue.use(CKEditor);
 import router from '@/router';
 new Vue({
   router,
