@@ -115,7 +115,9 @@
             <el-tab-pane label="文章(8)" name="first">
               <el-empty :image-size="200"></el-empty>
             </el-tab-pane>
-            <el-tab-pane label="应用(8)" name="second">配置管理</el-tab-pane>
+            <el-tab-pane label="应用(8)" name="second">
+              <Application/>
+            </el-tab-pane>
             <el-tab-pane label="项目(8)" name="third"> <Project /> </el-tab-pane>
           </el-tabs>
         </div>
@@ -126,9 +128,11 @@
 
 <script>
 import Project from './components/Project';
+import Application from './components/Application'
 export default {
   components: {
     Project,
+    Application
   },
   data() {
     return {
@@ -165,7 +169,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article{
+.article {
   background-color: #ffffff;
   padding: 12px;
 }
@@ -229,17 +233,7 @@ export default {
   margin-left: 8px;
   margin-bottom: 5px;
 }
-
-
-// .bottom {
-//   margin-top: 13px;
-//   line-height: 12px;
-// }
-
-// .button {
-//   padding: 0;
-//   float: right;
-// }
-
-
+::v-deep .el-tabs__content{
+  padding: 0 12px;
+}
 </style>
