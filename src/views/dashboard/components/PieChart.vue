@@ -1,7 +1,5 @@
 <template>
-  <div id="main">
-
-	</div>
+  <div id="main"></div>
 </template>
 
 <script>
@@ -53,19 +51,45 @@ export default {
         },
       ],
     };
-
+    // https://blog.51cto.com/u_15072918/3835560
     option && myChart.setOption(option);
-    myChart.on('click',(params)=>{
-      this.$emit('handleDialogOpen',params.seriesName)
-      
-    })
+    myChart.on('click', (params) => {
+      console.log('click params', params);
+      this.$emit('handleDialogOpen', params.seriesName);
+    });
+    // legendselectchanged
+    // myChart.on('legendselectchanged', (params) => {
+    //   console.log('legendselectchanged', params);
+    // });
+
+    myChart.on('legendselectchanged', function (params) {
+      let option = this.getOption();
+      console.log('option',option);
+      console.log('params',params);
+      let select_key = Object.keys(params.selected);
+      // if (!params.selected[params.name]) {
+        
+      //   select_key.map((res) => {
+      //     option.legend[0].selected[res] = !params.selected[res];
+      //   });
+      // } else {
+      //   select_key.map((res) => {
+      //     option.legend[0].selected[res] = false;
+      //   });
+      //   option.legend[0].selected[params.name] = true;
+      // }
+              select_key.map((res) => {
+          option.legend[0].selected[res] = true;
+        });
+      this.setOption(option);
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#main{
-	width: 100%;
-	height: 300px;
+#main {
+  width: 100%;
+  height: 300px;
 }
 </style>
