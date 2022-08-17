@@ -202,6 +202,8 @@ const routes = [
     children: [
       { path: 'richtext', component: () => import('@/views/component/richtext') },
       { path: 'tree', component: () => import('@/views/component/tree') },
+      { path: 'split-pane', component: () => import('@/views/component/split-pane') },
+      { path: 'file-upload', component: () => import('@/views/component/file-upload') },
     ],
   },
   // 页面不存在
