@@ -12,11 +12,12 @@ import { CanvasRenderer } from 'echarts/renderers';
 echarts.use([TitleComponent, TooltipComponent, LegendComponent, PieChart, CanvasRenderer, LabelLayout]);
 export default {
   mounted() {
+    // 获取dom节点
     let chartDom = document.getElementById('main');
+    // 初始化echarts
     let myChart = echarts.init(chartDom);
-    let option;
-
-    option = {
+    // 设置echarts数据
+    const option = {
       title: {
         text: 'Referer of a Website',
         subtext: 'Fake Data',
@@ -53,35 +54,18 @@ export default {
     };
     // https://blog.51cto.com/u_15072918/3835560
     option && myChart.setOption(option);
+    // 设置图形点击事件
     myChart.on('click', (params) => {
-      console.log('click params', params);
       this.$emit('handleDialogOpen', params.seriesName);
     });
-    // legendselectchanged
-    // myChart.on('legendselectchanged', (params) => {
-    //   console.log('legendselectchanged', params);
-    // });
-
-    myChart.on('legendselectchanged', function (params) {
-      let option = this.getOption();
-      console.log('option',option);
-      console.log('params',params);
-      let select_key = Object.keys(params.selected);
-      // if (!params.selected[params.name]) {
-        
-      //   select_key.map((res) => {
-      //     option.legend[0].selected[res] = !params.selected[res];
-      //   });
-      // } else {
-      //   select_key.map((res) => {
-      //     option.legend[0].selected[res] = false;
-      //   });
-      //   option.legend[0].selected[params.name] = true;
-      // }
-              select_key.map((res) => {
-          option.legend[0].selected[res] = true;
-        });
-      this.setOption(option);
+    // 设置图例点击事件
+    myChart.on('legendselectchanged', (params) => {
+      const option = myChart.getOption();
+      const selectedObj = option.legend[0].selected;
+      Object.keys(selectedObj).forEach((key) => {
+        selectedObj[key] = true;
+      });
+      myChart.setOption(option);
     });
   },
 };
