@@ -46,12 +46,10 @@ export default {
   },
   methods: {
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
       this.pageOV.currentSize = val;
       this.getTableData();
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
       this.pageOV.currentPage = val;
       this.getTableData();
     },
@@ -62,7 +60,6 @@ export default {
         type: this.type,
       };
       getAddressList(params).then((res) => {
-        console.log('res', res);
         this.tableData = res.result.result;
         this.pageOV.totalCount = res.result.total;
       });
