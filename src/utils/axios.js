@@ -27,10 +27,9 @@ instance.interceptors.request.use(
     return Promise.reject(error);
   },
 );
-
+// 响应拦截
 instance.interceptors.response.use(
   function (response) {
-    // console.log('response', response);
     const res = response.data
     if(res.status!=='SUCCESS'){
       // Message({
