@@ -1,3 +1,4 @@
+<!-- DashBoard 分析页 销售额类别占比图表 -->
 <template>
   <div id="main"></div>
 </template>
@@ -8,65 +9,115 @@ import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/compo
 import { PieChart } from 'echarts/charts';
 import { LabelLayout } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
-
+import { getChartData } from '@/api/account.js';
 echarts.use([TitleComponent, TooltipComponent, LegendComponent, PieChart, CanvasRenderer, LabelLayout]);
 export default {
-  mounted() {
-    // 获取dom节点
-    let chartDom = document.getElementById('main');
-    // 初始化echarts
-    let myChart = echarts.init(chartDom);
-    // 设置echarts数据
-    const option = {
-      title: {
-        text: 'Referer of a Website',
-        subtext: 'Fake Data',
-        left: 'center',
-      },
-      tooltip: {
-        trigger: 'item',
-      },
-      legend: {
-        orient: 'vertical',
-        left: 'left',
-      },
-      series: [
-        {
-          name: 'Access From',
-          type: 'pie',
-          radius: '50%',
-          data: [
-            { value: 1048, name: 'Search Engine' },
-            { value: 735, name: 'Direct' },
-            { value: 580, name: 'Email' },
-            { value: 484, name: 'Union Ads' },
-            { value: 300, name: 'Video Ads' },
-          ],
-          emphasis: {
-            itemStyle: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)',
+  props: {
+    fromType: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      chartData: {},
+      myChart: null,
+    };
+  },
+  computed: {
+    curChartData() {
+      const mapType = {
+        全部渠道: 'salesTypeData',
+        线上: 'salesTypeDataOnline',
+        门店: 'salesTypeDataOffline',
+      };
+      return this.chartData[mapType[this.fromType]].map((item) => {
+        return {
+          name: `${item.x}:${item.y}`,
+          value: item.y,
+        };
+      });
+    },
+  },
+  watch: {
+    fromType(newVal, oldVal) {
+      this.setChartOption();
+    },
+  },
+  async created() {
+    await this.getChartData();
+    this.$nextTick(() => {
+      this.initialChart();
+    });
+  },
+  mounted() {},
+  methods: {
+    // 获取图表数据
+    getChartData() {
+      return getChartData().then((res) => {
+        this.chartData = res.data.data;
+      });
+    },
+    // 初始化图表
+    initialChart() {
+      // 获取dom节点
+      const chartDom = document.getElementById('main');
+      // 初始化echarts
+      this.myChart = echarts.init(chartDom);
+      // 设置echarts数据
+      this.setChartOption();
+      // 设置图形点击事件
+      this.myChart.on('click', (params) => {
+        this.$emit('handleDialogOpen', params.seriesName);
+      });
+      // 设置图例点击事件
+      this.myChart.on('legendselectchanged', (params) => {
+        const option = this.myChart.getOption();
+        const selectedObj = option.legend[0].selected;
+        Object.keys(selectedObj).forEach((key) => {
+          selectedObj[key] = true;
+        });
+        this.myChart.setOption(option);
+      });
+    },
+    setChartOption() {
+      const mapType = {
+        全部渠道: 'salesTypeData',
+        线上: 'salesTypeDataOnline',
+        门店: 'salesTypeDataOffline',
+      };
+      const data = this.chartData[mapType[this.fromType]].map((item) => {
+        return {
+          name: `${item.x}:${item.y}`,
+          value: item.y,
+        };
+      });
+      const option = {
+        title: {
+          text: '销售额',
+          left: 'left',
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        series: [
+          {
+            type: 'pie',
+            radius: ['60%', '100%'],
+            data,
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              },
             },
           },
-        },
-      ],
-    };
-    // https://blog.51cto.com/u_15072918/3835560
-    option && myChart.setOption(option);
-    // 设置图形点击事件
-    myChart.on('click', (params) => {
-      this.$emit('handleDialogOpen', params.seriesName);
-    });
-    // 设置图例点击事件
-    myChart.on('legendselectchanged', (params) => {
-      const option = myChart.getOption();
-      const selectedObj = option.legend[0].selected;
-      Object.keys(selectedObj).forEach((key) => {
-        selectedObj[key] = true;
-      });
-      myChart.setOption(option);
-    });
+        ],
+      };
+      // https://blog.51cto.com/u_15072918/3835560
+      this.myChart.setOption(option);
+    },
   },
 };
 </script>
