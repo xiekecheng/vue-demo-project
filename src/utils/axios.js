@@ -8,9 +8,9 @@
  * 
  */
 
-
+// http://1.12.227.95:7001/api/getSearchList
 const axios = require('axios');
-const baseURL = 'http://localhost:7001/api/'
+const baseURL = 'http://1.12.227.95:7001/api/'
 const instance = axios.create({
   baseURL: baseURL,
   timeout: 5000,
@@ -27,10 +27,9 @@ instance.interceptors.request.use(
     return Promise.reject(error);
   },
 );
-
+// 响应拦截
 instance.interceptors.response.use(
   function (response) {
-    // console.log('response', response);
     const res = response.data
     if(res.status!=='SUCCESS'){
       // Message({
