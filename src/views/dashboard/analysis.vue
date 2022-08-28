@@ -72,15 +72,25 @@
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
         <el-card class="card" shadow="never">
           <template #header class="clearfix">
-            <span>销售额类别占比</span>
-            <el-radio-group v-model="radio1" class="selectRadio" size="small">
-              <el-radio-button label="全部渠道"></el-radio-button>
-              <el-radio-button label="线上"></el-radio-button>
-              <el-radio-button label="门店"></el-radio-button>
-            </el-radio-group>
-            <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+            <div class="sale-header">
+              <span>销售额类别占比</span>
+              <div>
+                <el-radio-group v-model="curType" size="small" class="mr-8">
+                  <el-radio-button v-for="item in salesType" :key="item" :label="item"></el-radio-button>
+                </el-radio-group>
+                <el-dropdown>
+                  <span class="el-dropdown-link">
+                    <i class="el-icon-more"></i>
+                  </span>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>操作一</el-dropdown-item>
+                    <el-dropdown-item>操作二</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </div>
+            </div>
           </template>
-          <pie-chart @handleDialogOpen="handleDialogOpen" />
+          <pie-chart :fromType="curType" @handleDialogOpen="handleDialogOpen" />
         </el-card>
       </el-col>
     </el-row>
@@ -113,13 +123,13 @@ export default {
   data() {
     return {
       activeName: 'sales',
-      radio1: '上海',
+      curType: '全部渠道',
+      salesType: ['全部渠道', '线上', '门店'],
     };
   },
   mounted() {},
   methods: {
-    handleClick(tab, event) {
-    },
+    handleClick(tab, event) {},
     handleDialogOpen(type) {
       // 开启对话窗
       this.$refs.dataDialog.handleOpen(type);
@@ -160,6 +170,14 @@ export default {
 }
 .bg-purple-light {
   background: #e5e9f2;
+}
+.sale-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mr-8{
+  margin-right: 8px;
 }
 </style>
 
