@@ -8,9 +8,9 @@
  * 
  */
 
-
+// http://1.12.227.95:7001/api/getSearchList
 const axios = require('axios');
-const baseURL = 'http://localhost:7001/api/'
+const baseURL = 'http://1.12.227.95:7001/api/'
 const instance = axios.create({
   baseURL: baseURL,
   timeout: 5000,
