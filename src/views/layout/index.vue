@@ -9,6 +9,13 @@
       </el-header>
       <el-main>
         <router-view />
+        <div>
+          <ul style="display: flex">
+            <li>Vue Design Pro</li>
+            <li></li>
+            <li>Element UI</li>
+          </ul>
+        </div>
       </el-main>
     </el-container>
   </el-container>
@@ -18,9 +25,10 @@
 import SiderBar from '@/views/layout/SiderBar';
 import Header from '@/views/layout/Header';
 export default {
-  components: { 
+  components: {
     SiderBar,
-   'my-header': Header },
+    'my-header': Header,
+  },
 };
 </script>
 
