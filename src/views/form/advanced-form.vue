@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       list: [
-        { value: 1, children: [{ value: 5 }] },
+        { value: 1, children: [{ value: 5, children: [{value:7}] }] },
         { value: 2 },
         {
           value: 3,
