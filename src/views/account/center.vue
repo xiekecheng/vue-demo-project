@@ -1,7 +1,8 @@
 <template>
   <div>
     <el-row :gutter="24">
-      <el-col :md="7" :lg="7" :xl="7">
+      <!--个人信息-->
+      <el-col :md="8">
         <div class="grid-content bg-purple">
           <div class="top-content">
             <div class="avatar">
@@ -109,17 +110,15 @@
           </div>
         </div>
       </el-col>
-      <el-col :md="17" :lg="17" :xl="17">
+      <!--选项卡-->
+      <el-col :md="16">
         <div class="article">
-          <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="文章(8)" name="first">
-              <el-empty :image-size="200"></el-empty>
-            </el-tab-pane>
-            <el-tab-pane label="应用(8)" name="second">
-              <Application/>
-            </el-tab-pane>
-            <el-tab-pane label="项目(8)" name="third"> <Project /> </el-tab-pane>
+          <el-tabs v-model="activeName">
+            <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.label" :name="item.name" />
           </el-tabs>
+          <keep-alive>
+            <component :is="activeName" />
+          </keep-alive>
         </div>
       </el-col>
     </el-row>
@@ -128,25 +127,38 @@
 
 <script>
 import Project from './components/Project';
-import Application from './components/Application'
+import Application from './components/Application';
+import Article1 from './components/Article.vue';
 export default {
   components: {
     Project,
-    Application
+    Application,
+    Article1,
   },
   data() {
     return {
       dynamicTags: ['很有想法的', '专注设计', '辣~', '大长腿', '川妹子'],
+      tabs: [
+        {
+          label: '文章(8)',
+          name: 'Article1',
+        },
+        {
+          label: '项目(8)',
+          name: 'Project',
+        },
+        {
+          label: '应用(8)',
+          name: 'Application',
+        },
+      ],
       inputVisible: false,
       inputValue: '',
-      activeName: 'third',
+      activeName: 'Project',
       currentDate: new Date(),
     };
   },
   methods: {
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
     showInput() {
       this.inputVisible = true;
       this.$nextTick((_) => {
@@ -233,7 +245,7 @@ export default {
   margin-left: 8px;
   margin-bottom: 5px;
 }
-::v-deep .el-tabs__content{
+::v-deep .el-tabs__content {
   padding: 0 12px;
 }
 </style>
