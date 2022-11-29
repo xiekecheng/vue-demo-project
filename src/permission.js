@@ -1,6 +1,6 @@
 import router from './router';
 import { getToken } from '@/utils/auth';
-const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
+const whiteList = ['/login', '/auth-redirect','/login/register']; // no redirect whitelist
 router.beforeEach((to, from, next) => {
   const hasToken = getToken();
   if (!hasToken) {
