@@ -2,7 +2,7 @@
 <template>
   <div class="my-siderbar">
     <el-menu
-      default-active="1-4-1"
+      default-active="2-1-1"
       class="el-menu-vertical-demo"
       background-color="#ffffff"
       @open="handleOpen"
@@ -10,13 +10,13 @@
     >
       <el-submenu v-for="(item, index) in routes" :key="index" :index="item.index">
         <template #title>
-          <i :class="item.iconClass"></i>
+          <i :class="item.iconClass" />
           <span slot="title">{{ item.menu }}</span>
         </template>
         <!-- 子级列表 -->
         <el-submenu v-for="subItem in item.subMenu" :key="subItem.index" :index="subItem.index">
           <template #title>
-            <span slot="title">{{item.menu}}</span>
+            <span slot="title">{{subItem.menu}}</span>
           </template>
           <router-link v-for="(route, routeIdx) in subItem.content" :key="routeIdx" :to="route.to">
             <el-menu-item :index="route.index"> {{ route.menu }} </el-menu-item>

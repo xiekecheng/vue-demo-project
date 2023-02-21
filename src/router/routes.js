@@ -58,17 +58,17 @@ const routes = [
         content: [
           {
             menu: '搜索列表（文章）',
-            to: '/list/basic-list',
+            to: '/list/search-list-article',
             index: '2-1-1',
           },
           {
             menu: '搜索列表（项目）',
-            to: '/list/table-list',
+            to: '/list/search-list-project',
             index: '2-1-2',
           },
           {
             menu: '搜索列表（应用）',
-            to: '/list/card-list',
+            to: '/list/search-list-application',
             index: '2-1-3',
           },
         ],
