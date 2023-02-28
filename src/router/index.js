@@ -132,8 +132,10 @@ const routes = [
   //     { path: 'children4/:id', component: Children4 },
   //   ],
   // },
-
+  // 登录
   { path: '/login', component: () => import('@/views/login') },
+  // 注册
+  { path: '/login/register', component: () => import('@/views/login/register') },
   // 表单页
   {
     path: '/form',
@@ -151,6 +153,9 @@ const routes = [
       { path: 'table-list', component: () => import('@/views/list/table-list') },
       { path: 'basic-list', component: () => import('@/views/list/basic-list') },
       { path: 'card-list', component: () => import('@/views/list/card-list') },
+      { path: 'search-list-article', component: () => import('@/views/list/search/article') },
+      { path: 'search-list-project', component: () => import('@/views/list/search/projects') },
+      { path: 'search-list-application', component: () => import('@/views/list/search/applications') },
     ],
   },
   {
