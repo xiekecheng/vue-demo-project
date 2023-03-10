@@ -1,11 +1,11 @@
 const request = require('@/utils/axios');
 
-export const register = ({data,fn:onUploadProgressFn}) =>
+// 注册用户
+export const register = (data) =>
   request({
     url: '/register',
     method: 'POST',
     data,
-    onUploadProgress:onUploadProgressFn
   });
 
 export const uploadAvatar = (data) =>
@@ -15,6 +15,11 @@ export const uploadAvatar = (data) =>
     data,
   });
 
-export default {
-  register,
+// 登录
+export const login = (data) => {
+  return request({
+    url: '/user/login',
+    method: 'post',
+    data,
+  });
 };
