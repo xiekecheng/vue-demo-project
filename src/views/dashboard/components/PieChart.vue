@@ -25,22 +25,9 @@ export default {
     };
   },
   computed: {
-    curChartData() {
-      const mapType = {
-        全部渠道: 'salesTypeData',
-        线上: 'salesTypeDataOnline',
-        门店: 'salesTypeDataOffline',
-      };
-      return this.chartData[mapType[this.fromType]].map((item) => {
-        return {
-          name: `${item.x}:${item.y}`,
-          value: item.y,
-        };
-      });
-    },
   },
   watch: {
-    fromType(newVal, oldVal) {
+    fromType() {
       this.setChartOption();
     },
   },
@@ -50,7 +37,6 @@ export default {
       this.initialChart();
     });
   },
-  mounted() {},
   methods: {
     // 获取图表数据
     getChartData() {
@@ -71,7 +57,7 @@ export default {
         this.$emit('handleDialogOpen', params.seriesName);
       });
       // 设置图例点击事件
-      this.myChart.on('legendselectchanged', (params) => {
+      this.myChart.on('legendselectchanged', () => {
         const option = this.myChart.getOption();
         const selectedObj = option.legend[0].selected;
         Object.keys(selectedObj).forEach((key) => {

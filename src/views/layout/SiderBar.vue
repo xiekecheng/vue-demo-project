@@ -5,8 +5,7 @@
       default-active="2-1-1"
       class="el-menu-vertical-demo"
       background-color="#ffffff"
-      @open="handleOpen"
-      @close="handleClose"
+      :collapse="isCollapse"
     >
       <el-submenu v-for="(item, index) in routes" :key="index" :index="item.index">
         <template #title>
@@ -40,14 +39,6 @@ export default {
       isCollapse: false,
       routes: routes,
     };
-  },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
   },
 };
 </script>
