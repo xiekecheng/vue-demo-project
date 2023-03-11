@@ -2,7 +2,6 @@
   <div>
     <h1>添加用户</h1>
     <div style="width: 400px; margin: 0 auto">
-      <!-- :rules="rules"  -->
       <el-form ref="formRegister" label-width="80px" :model="formRegister" :rules="rules">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="formRegister.username" />
@@ -31,10 +30,8 @@
             class="avatar-uploader"
             action="http://localhost:8080/api/uploadAvatar"
             :show-file-list="false"
-            :on-success="handleAvatarSuccess"
             :on-change="handleAvatarChange"
             :auto-upload="false"
-            :http-request="uploadSectionFile"
           >
             <img v-if="imageUrl" :src="imageUrl" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
