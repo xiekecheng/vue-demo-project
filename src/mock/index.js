@@ -1,20 +1,11 @@
+import Mock from 'mockjs'
 
-
-function mock(app){
-	app.get('/todo/task',function(req,res){
-		const a = []
-		for(let i=0;i<5;i++){
-			const  o = Mock.mock({
-				id:'@ID',
-				title:'@string("lower",5)',
-				
-			})
-			a.push(o)
-
-		}
-		res.json(a)
-	})
-}
-
-
-export default mock
+Mock.mock('/product/search',{
+	"ret":0,
+	"data":{
+		"mtime":"@datetime",
+		"score|1-800":800,
+		"rank|1-100":80,
+		"nickname":"@cname"
+	}
+})
