@@ -1,22 +1,18 @@
 <template>
   <el-container>
-    <el-aside width="200px;height:100%">
-      <sider-bar></sider-bar>
-    </el-aside>
+    <el-header height='48px' style='background-color: #001529;'>
+      <MyHeader />
+    </el-header>
     <el-container>
-      <el-header height="48px">
-        <my-header />
-      </el-header>
-      <el-main>
-        <router-view />
-        <div>
-          <ul style="display: flex">
-            <li>Vue Design Pro</li>
-            <li></li>
-            <li>Element UI</li>
-          </ul>
-        </div>
-      </el-main>
+      <el-aside width='200px;'>
+        <SiderBar />
+      </el-aside>
+      <el-container>
+        <el-main>
+          <router-view />
+          <MyFooter />
+        </el-main>
+      </el-container>
     </el-container>
   </el-container>
 </template>
@@ -24,12 +20,14 @@
 <script>
 import SiderBar from '@/views/layout/SiderBar';
 import Header from '@/views/layout/Header';
+import MyFooter from '@/views/layout/MyFooter.vue';
+
 export default {
   components: {
+    MyFooter,
     SiderBar,
-    'my-header': Header,
+    'MyHeader': Header,
   },
 };
 </script>
 
-<style lang="scss" scoped></style>

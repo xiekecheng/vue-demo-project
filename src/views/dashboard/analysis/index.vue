@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import AnalyzeCard from '@/views/dashboard/AnalyzeCard.vue';
-import SaleCard from '@/views/dashboard/SaleCard.vue';
-import HotSearch from '@/views/dashboard/HotSearch.vue';
+import AnalyzeCard from '@/views/dashboard/analysis/components/AnalyzeCard.vue';
+import SaleCard from '@/views/dashboard/analysis/components/SaleCard.vue';
+import HotSearch from '@/views/dashboard/analysis/components/HotSearch.vue';
 
 export default {
   components: { HotSearch, SaleCard, AnalyzeCard },

@@ -16,21 +16,21 @@ const routes = [
     children: [
       {
         path: 'analysis',
-        component: () => import('@/views/dashboard/analysis'),
+        component: () => import('@/views/dashboard/analysis/index.vue'),
         meta: {
           title: '分析页',
         },
       },
       {
         path: 'monitor',
-        component: () => import('@/views/dashboard/monitor'),
+        component: () => import('@/views/dashboard/monitor/index.vue'),
         meta: {
           title: '监控页',
         },
       },
       {
         path: 'workplace',
-        component: () => import('@/views/dashboard/workplace'),
+        component: () => import('@/views/dashboard/workplace/index.vue'),
         meta: {
           title: '工作台',
         },

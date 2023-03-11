@@ -2,11 +2,11 @@
   <div class="my-header">
     <div class="box left">
       <img class="img" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
-      <h1>Vue Project</h1>
+      <h1 class='title'>Vue Project</h1>
     </div>
     <div class="box right">
       <el-dropdown @command="handleCommand">
-        <div>
+        <div class='avatar'>
           <el-avatar size="small" :src="imgSrc"></el-avatar>
           {{ userInfo.username }}
         </div>
@@ -25,11 +25,13 @@ import { removeToken } from '@/utils/auth';
 import { mapState } from 'vuex';
 export default {
   name: 'MyHeader',
+  data(){
+    return {
+      imgSrc:'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'
+    }
+  },
   computed: {
     ...mapState('user', ['userInfo']),
-    imgSrc(){
-      return `http://localhost:7001/${this.userInfo.avatar}`;
-    }
   },
   methods: {
     handleCommand(command) {
@@ -48,14 +50,33 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
+
+  .title{
+    font-size: 18px;
+    color: white;
+  }
   .box {
-    flex: 1;
+    display: flex;
+    align-items: center;
     line-height: 48px;
+
     .img {
+      margin-right: 8px;
       height: 28px;
     }
+
+    .avatar{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .account{
+        margin-left: 8px;
+      }
+    }
   }
-  .lfet {
+  .left {
+    cursor: pointer;
     .img {
       height: 28px;
     }

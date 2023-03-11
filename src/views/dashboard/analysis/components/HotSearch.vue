@@ -38,8 +38,8 @@
   </el-row>
 </template>
 <script>
-import PieChart from './components/PieChart.vue';
-import UserTable from './components/UserTable.vue';
+import PieChart from './PieChart.vue';
+import UserTable from './UserTable.vue';
 
 export default {
   name: 'HotSearch',
