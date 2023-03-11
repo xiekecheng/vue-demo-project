@@ -54,7 +54,6 @@ export default {
       this.setChartOption();
       // 设置图形点击事件
       this.myChart.on('click', (params) => {
-        this.$emit('handleDialogOpen', params.seriesName);
       });
       // 设置图例点击事件
       this.myChart.on('legendselectchanged', () => {
