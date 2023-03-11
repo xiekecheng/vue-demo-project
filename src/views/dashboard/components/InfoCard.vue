@@ -32,14 +32,12 @@ export default {
 .box-card {
   height: 182px;
   margin-bottom: 12px;
-  padding: 0;
+  padding: 18px;
   font-size: 14px;
   box-sizing: border-box;
   ::v-deep .el-card__body {
     padding: 0;
-    // padding: 20px 24px 8px;
     height: 100%;
-    // box-sizing: border-box;
   }
   .title-wrap {
     color: rgba(0, 0, 0, 0.45);

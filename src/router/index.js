@@ -1,46 +1,16 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-const Home = () => import('@/views/home/Home');
-// 商品模块
-const Goods = () => import('@/views/goods/Goods');
-const GoodsAdd = () => import('@/views/goods/GoodsAdd');
-const GoodsList = () => import('@/views/goods/GoodsList');
-const GoodsData = () => import('@/views/goods/GoodsData');
-const GoodsData2 = () => import('@/views/goods/GoodsData2');
-const Charts = () => import('@/views/chart/Charts');
 const Layout = () => import('@/views/layout');
 
-// const Dashboard = () => import('@/views/dashboard');
-// 测试页面
-// const Test1 = () => import('@/views/test/Test1');
-// const Test2 = () => import('@/views/test/Test2');
-// const Test3 = () => import('@/views/test/Test3');
-// const Test4 = () => import('@/views/test/Test4');
-// const Test5 = () => import('@/views/test/Test5');
-// const Children1 = () => import('@/views/test/components/Children1');
-// const Children2 = () => import('@/views/test/components/Children2');
-// const Children3 = () => import('@/views/test/components/Children3');
-// const Children4 = () => import('@/views/test/components/Children4');
-
-// 登录页面
-// const Login = () => import('@/views/login');
-// 错误页面
-const Error = () => import('@/views/error/404');
 const routes = [
   {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    // children:[
-    //   {
-    //     path:'dashboard',
-    //     component:Dashboard
-    //   }
-    // ]
   },
   {
-    path: '/dashboard',
+    path: '/dashboard', // DashBoard
     redirect: '/dashboard/analysis',
     component: Layout,
     children: [
@@ -67,78 +37,12 @@ const routes = [
       },
     ],
   },
-  {
-    path: '/goods',
-    redirect: '/goods/goodsHome',
-    component: Layout,
-    children: [
-      {
-        path: 'goodsHome',
-        component: Goods,
-      },
-      {
-        path: 'goodsAdd',
-        component: GoodsAdd,
-      },
-      {
-        path: 'goodsList',
-        component: GoodsList,
-      },
-      {
-        path: 'goodsData',
-        component: GoodsData,
-      },
-      {
-        path: 'goodsData2',
-        component: GoodsData2,
-      },
-    ],
-  },
-  // 商品管理
-  { path: '/home', name: 'home', component: Home },
-  { path: '/charts', name: 'charts', component: Charts },
-  {
-    path: '/test',
-    redirect: '/test/test1',
-    component: Layout,
-    children: [
-      { path: 'test1', component: () => import('@/views/test/Test1') },
-      { path: 'test2', component: () => import('@/views/test/Test2') },
-      { path: 'test3', component: () => import('@/views/test/Test3') },
-      { path: 'test5', component: () => import('@/views/test/Test5') },
-      {
-        path: 'test4',
-        component: () => import('@/views/test/Test4'),
-        // children: [
-        //   { path: 'children1', component: Children1 },
-        //   { path: 'children2', name: 'children2', component: Children2 },
-        //   { path: 'children3', component: Children3 },
-        //   { path: 'children4/:id', component: Children4 },
-        // ],
-      },
-    ],
-  },
-  // { path: '/test1', name: 'test1', component: Test1 },
-  // { path: '/test2', name: 'test2', component: Test2 },
-  // { path: '/test3', name: 'test3', component: Test3 },
-  // { path: '/test5', name: 'test5', component: Test5 },
-  // {
-  //   path: '/test4',
-  //   component: Test4,
-  //   children: [
-  //     { path: 'children1', component: Children1 },
-  //     { path: 'children2', name: 'children2', component: Children2 },
-  //     { path: 'children3', component: Children3 },
-  //     { path: 'children4/:id', component: Children4 },
-  //   ],
-  // },
   // 登录
   { path: '/login', component: () => import('@/views/login') },
   // 注册
   { path: '/login/register', component: () => import('@/views/login/register') },
-  // 表单页
   {
-    path: '/form',
+    path: '/form', // 表单页
     component: Layout,
     children: [
       { path: 'basic-form', component: () => import('@/views/form/basic-form') },
@@ -147,7 +51,7 @@ const routes = [
     ],
   },
   {
-    path: '/list',
+    path: '/list', // 列表页
     component: Layout,
     children: [
       { path: 'table-list', component: () => import('@/views/list/table-list') },
@@ -159,7 +63,7 @@ const routes = [
     ],
   },
   {
-    path: '/profile',
+    path: '/profile', // 详情页
     component: Layout,
     children: [
       { path: 'basic', component: () => import('@/views/profile/basic') },
@@ -167,7 +71,7 @@ const routes = [
     ],
   },
   {
-    path: '/result',
+    path: '/result', // 结果页
     component: Layout,
     children: [
       { path: 'fail', component: () => import('@/views/result/fail') },
@@ -184,7 +88,7 @@ const routes = [
     ],
   },
   {
-    path: '/account',
+    path: '/account', // 个人页
     component: Layout,
     children: [
       { path: 'center', component: () => import('@/views/account/center') },
@@ -193,7 +97,7 @@ const routes = [
     ],
   },
   {
-    path: '/editor',
+    path: '/editor', // 图形编辑器
     component: Layout,
     children: [
       { path: 'flow', component: () => import('@/views/editor/flow') },
@@ -202,7 +106,7 @@ const routes = [
     ],
   },
   {
-    path: '/component',
+    path: '/component', // 组件
     component: Layout,
     children: [
       { path: 'richtext', component: () => import('@/views/component/richtext') },
@@ -212,7 +116,7 @@ const routes = [
     ],
   },
   // 页面不存在
-  { path: '*', component: Error },
+  { path: '*', component: () => import('@/views/error/404') },
 ];
 const router = new VueRouter({
   mode: 'history',
