@@ -12,6 +12,7 @@ export const fetTopics = (params) =>
     method: 'get',
     params,
   });
+
 export function fetchMusicList(params) {
   return request({
     url: '/soso/fcgi-bin/client_search_cp',
@@ -19,18 +20,10 @@ export function fetchMusicList(params) {
     params,
   });
 }
-
-export function login(data){
+export function getAddressList(data) {
   return request({
-    url:'/login',
-    method:'post',
-    data
-  })
-}
-export function getAddressList(data){
-  return request({
-    url:'findAddressList',
-    method:'post',
-    data
-  })
+    url: 'findAddressList',
+    method: 'post',
+    data,
+  });
 }
