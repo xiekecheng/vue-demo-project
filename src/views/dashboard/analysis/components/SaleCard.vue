@@ -23,8 +23,8 @@
   </el-card>
 </template>
 <script>
-import RankList from './components/RankList.vue';
-import SaleTable from './components/SaleTable.vue';
+import RankList from './RankList.vue';
+import SaleTable from './SaleTable.vue';
 
 export default {
   name: 'SaleCard',
