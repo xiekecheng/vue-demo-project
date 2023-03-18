@@ -8,9 +8,9 @@
  * 
  */
 
-// http://1.12.227.95:7001/api/getSearchList
 const axios = require('axios');
-const baseURL = 'http://1.12.227.95:7001/api/'
+const { getToken } = require('@/utils/auth');
+const baseURL = 'http://localhost:8088'
 const instance = axios.create({
   baseURL: baseURL,
   timeout: 5000,
@@ -20,6 +20,13 @@ const instance = axios.create({
 instance.interceptors.request.use(
   function (config) {
     // Do something before request is sent
+    console.log('config',config);
+    const token = getToken()
+    if(!token){
+    //   token不存在,跳转到登录页
+    }
+    // TODO 在请求头中添加token
+    config.headers.Authorization = token;
     return config;
   },
   function (error) {
@@ -30,15 +37,17 @@ instance.interceptors.request.use(
 // 响应拦截
 instance.interceptors.response.use(
   function (response) {
-    const res = response.data
-    if(res.status!=='SUCCESS'){
+    const data = response.data
+    if(data.code!==200){
+      console.log('拦截');
       // Message({
-      //   message: res.errMsg || 'Error',
+      //   message: data.errMsg || 'Error',
       //   type: 'error',
       //   duration: 5 * 1000
       // })
+      return
     }
-    return res
+    return data
     
   },
   function (error) {
