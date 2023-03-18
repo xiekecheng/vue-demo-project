@@ -68,10 +68,11 @@ export default {
   methods: {
     ...mapActions('user', ['login']),
     submitForm(formName) {
-      // setToken('token123');
-      // this.$message.success('登录成功');
-      // this.loading = false;
-      // this.$router.push('/');
+      setToken('token123');
+      this.$message.success('登录成功');
+      this.loading = false;
+      this.$router.push('/');
+      return
 
       this.$refs[formName].validate((valid) => {
         if (valid) {

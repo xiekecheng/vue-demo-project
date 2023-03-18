@@ -7,8 +7,7 @@
  * @Description: 
  * 
  */
-const request = require('@/utils/axios');
-
+import request from '@/utils/axios';
 /**
  * @description: 
  * @param {*} param 入参

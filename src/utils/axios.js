@@ -8,8 +8,8 @@
  * 
  */
 
-const axios = require('axios');
-const { getToken } = require('@/utils/auth');
+import axios from 'axios'
+import { getToken } from '@/utils/auth'
 const baseURL = 'http://localhost:8088'
 const instance = axios.create({
   baseURL: baseURL,
@@ -55,4 +55,4 @@ instance.interceptors.response.use(
   },
 );
 
-module.exports = instance;
+export default instance;

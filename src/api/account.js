@@ -1,5 +1,4 @@
-const axios = require('axios')
-
+import axios from 'axios'
 // 校验是否未初始化
 export const getInitInfo = ()=>{
 	return new Promise(resolve=>{

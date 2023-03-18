@@ -1,4 +1,4 @@
-const request = require('@/utils/axios');
+import request from '@/utils/axios';
 
 // 分页查询热搜列表
 export const getSearchList = (data) =>

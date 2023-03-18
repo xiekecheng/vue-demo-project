@@ -8,7 +8,7 @@
       <el-dropdown @command="handleCommand">
         <div class='avatar'>
           <el-avatar size="small" :src="imgSrc"></el-avatar>
-          {{ userInfo.username }}
+          {{ 'admin' }}
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item icon="el-icon-user" command="userCenter">个人中心</el-dropdown-item>
