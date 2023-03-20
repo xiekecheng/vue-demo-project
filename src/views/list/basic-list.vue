@@ -1,11 +1,3 @@
-<!--
- * @Author: github.com/xiekecheng
- * @Date: 2021-12-18 16:54:40
- * @LastEditTime: 2022-05-18 22:54:05
- * @FilePath: /vue-demo-project/src/views/list/basic-list.vue
- * @Description: 多级表头表格
- * 
--->
 <template>
   <div>
     <h1>标准列表</h1>
@@ -161,5 +153,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

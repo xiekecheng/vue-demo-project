@@ -1,12 +1,11 @@
-<!-- 门店访问量排名 -->
 <template>
   <div>
-		<h4>门店销售排名</h4>
+    <h4>门店销售排名</h4>
     <ul>
-      <li v-for="(item,index) in listData" :key="item.id">
-        <span class="rankNum">{{index+1}}</span>
-				<span class="name">{{item.name}}</span>
-				<span>{{item.num}}</span>
+      <li v-for="(item, index) in listData" :key="item.id">
+        <span class="rankNum">{{ index + 1 }}</span>
+        <span class="name">{{ item.name }}</span>
+        <span>{{ item.num }}</span>
       </li>
     </ul>
   </div>
@@ -17,7 +16,7 @@ export default {
   props: {
     listData: {
       type: Array,
-      default: ()=>[
+      default: () => [
         {
           id: 1,
           name: '工专路 0 号店',
@@ -60,24 +59,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul,li{
-	list-style: none;
+ul,
+li {
+  list-style: none;
 }
-ul{
-	.name{
-		flex: 1;
-	}
+
+ul {
+  .name {
+    flex: 1;
+  }
 }
-li{
-	display: flex;
-	margin-top: 16px;
-	.rankNum{
-		width: 20px;
-		margin-right: 20px;
-		border-radius: 20px;
-		color: white;
-		background-color: #314659;
-		text-align: center;
-	}
+
+li {
+  display: flex;
+  margin-top: 16px;
+
+  .rankNum {
+    width: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    color: white;
+    background-color: #314659;
+    text-align: center;
+  }
 }
 </style>

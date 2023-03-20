@@ -1,10 +1,10 @@
 <template>
   <el-container>
-    <el-header height='48px' style='background-color: #001529;'>
+    <el-header height="48px" style="background-color: #001529">
       <MyHeader />
     </el-header>
     <el-container>
-      <el-aside width='200px;'>
+      <el-aside width="200px">
         <SiderBar />
       </el-aside>
       <el-container>
@@ -26,8 +26,7 @@ export default {
   components: {
     MyFooter,
     SiderBar,
-    'MyHeader': Header,
+    MyHeader: Header,
   },
 };
 </script>
-

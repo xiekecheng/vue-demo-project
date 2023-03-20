@@ -2,45 +2,45 @@
   <div>
     <h1>树形控件</h1>
     <!-- <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">全选</el-checkbox>
-    <el-tree
-      ref="tree"
-      :data="data"
-      show-checkbox
-      :default-expanded-keys="openTreeKeys"
-      node-key="id"
-      highlight-current
-      :props="defaultProps"
-      @node-expand="nodeExpand"
-      @node-click="nodeClick"
-      @check-change="nodeCheck"
-    >
-    </el-tree>
+        <el-tree
+          ref="tree"
+          :data="data"
+          show-checkbox
+          :default-expanded-keys="openTreeKeys"
+          node-key="id"
+          highlight-current
+          :props="defaultProps"
+          @node-expand="nodeExpand"
+          @node-click="nodeClick"
+          @check-change="nodeCheck"
+        >
+        </el-tree>
 
-    <div class="buttons">
-      <el-button @click="getCheckedNodes">通过 node 获取</el-button>
-      <el-button @click="getCheckedKeys">通过 key 获取</el-button>
-      <el-button @click="setCheckedNodes">通过 node 设置</el-button>
-      <el-button @click="setCheckedKeys">通过 key 设置</el-button>
-      <el-button type="primary" @click="openTreeEvent">展开</el-button>
-      <el-button type="primary" @click="closeTreeEvent">收起</el-button>
-      <el-button @click="resetChecked">清空</el-button>
-    </div> -->
+        <div class="buttons">
+          <el-button @click="getCheckedNodes">通过 node 获取</el-button>
+          <el-button @click="getCheckedKeys">通过 key 获取</el-button>
+          <el-button @click="setCheckedNodes">通过 node 设置</el-button>
+          <el-button @click="setCheckedKeys">通过 key 设置</el-button>
+          <el-button type="primary" @click="openTreeEvent">展开</el-button>
+          <el-button type="primary" @click="closeTreeEvent">收起</el-button>
+          <el-button @click="resetChecked">清空</el-button>
+        </div> -->
     <el-divider></el-divider>
     <!-- <h1>节点懒加载</h1>
-    <el-tree
-      ref="tree2"
-      node-key="id"
-      :default-expanded-keys="openTreeKeys2"
-      :props="props"
-      :load="loadNode"
-      lazy
-      show-checkbox
-      :expand-on-click-node="false"
-      @node-click="nodeClick2"
-    >
-    </el-tree>
-    <el-button type="primary" @click="openTreeEvent2">展开2</el-button>
-    <el-button type="primary" @click="closeTreeEvent2">收起2</el-button> -->
+        <el-tree
+          ref="tree2"
+          node-key="id"
+          :default-expanded-keys="openTreeKeys2"
+          :props="props"
+          :load="loadNode"
+          lazy
+          show-checkbox
+          :expand-on-click-node="false"
+          @node-click="nodeClick2"
+        >
+        </el-tree>
+        <el-button type="primary" @click="openTreeEvent2">展开2</el-button>
+        <el-button type="primary" @click="closeTreeEvent2">收起2</el-button> -->
     <el-divider></el-divider>
 
     <h1>自定义接口懒加载</h1>
@@ -61,6 +61,7 @@
 
 <script>
 import { getTreeData } from '@/api/tree';
+
 export default {
   data() {
     return {
@@ -394,5 +395,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

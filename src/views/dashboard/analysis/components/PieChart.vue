@@ -1,15 +1,15 @@
-<!-- DashBoard 分析页 销售额类别占比图表 -->
 <template>
   <div id="main"></div>
 </template>
 
 <script>
 import * as echarts from 'echarts/core';
-import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components';
+import { LegendComponent, TitleComponent, TooltipComponent } from 'echarts/components';
 import { PieChart } from 'echarts/charts';
 import { LabelLayout } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 import { getChartData } from '@/api/account.js';
+
 echarts.use([TitleComponent, TooltipComponent, LegendComponent, PieChart, CanvasRenderer, LabelLayout]);
 export default {
   props: {
@@ -24,8 +24,7 @@ export default {
       myChart: null,
     };
   },
-  computed: {
-  },
+  computed: {},
   watch: {
     fromType() {
       this.setChartOption();
@@ -53,8 +52,7 @@ export default {
       // 设置echarts数据
       this.setChartOption();
       // 设置图形点击事件
-      this.myChart.on('click', (params) => {
-      });
+      this.myChart.on('click', (params) => {});
       // 设置图例点击事件
       this.myChart.on('legendselectchanged', () => {
         const option = this.myChart.getOption();

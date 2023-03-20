@@ -1,10 +1,10 @@
 <template>
   <div>
     <el-table :data="tableData" border style="width: 100%" height="400">
-      <el-table-column prop="date" sortable label="日期" width="180"> </el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="type" label="类型"> </el-table-column>
+      <el-table-column prop="date" sortable label="日期" width="180"></el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+      <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column prop="type" label="类型"></el-table-column>
     </el-table>
     <el-pagination
       :current-page="pageOV.currentPage"
@@ -21,6 +21,7 @@
 
 <script>
 import { getAddressList } from '@/api';
+
 export default {
   props: ['type'],
   data() {
@@ -67,5 +68,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

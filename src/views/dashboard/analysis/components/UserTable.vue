@@ -9,8 +9,8 @@
       @selection-change="handleSelectionChange"
       @filter-change="handleFilterChange"
     >
-      <el-table-column type="selection" width="55" :selectable="selectable"> </el-table-column>
-      <el-table-column prop="rank" label="排名" width="180"> </el-table-column>
+      <el-table-column type="selection" width="55" :selectable="selectable"></el-table-column>
+      <el-table-column prop="rank" label="排名" width="180"></el-table-column>
       <el-table-column
         prop="keyword"
         column-key="keyword"
@@ -21,7 +21,7 @@
       </el-table-column>
       <el-table-column prop="user_number" column-key="user_number" :filters="filters.userNumberFilters" label="用户数">
       </el-table-column>
-      <el-table-column prop="week_rise" label="周涨幅"> </el-table-column>
+      <el-table-column prop="week_rise" label="周涨幅"></el-table-column>
     </el-table>
     <el-pagination
       :current-page="pageObj.currentPage"
@@ -38,21 +38,10 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
+
 export default {
   data() {
     return {
-      filters: {
-        keywordFilters: [
-          { text: '搜索关键词-01', value: '搜索关键词-01' },
-          { text: '搜索关键词-02', value: '搜索关键词-02' },
-          { text: '搜索关键词-06', value: '搜索关键词-06' },
-        ],
-        userNumberFilters: [
-          { text: '433', value: '433' },
-          { text: '11', value: '11' },
-          { text: '3', value: '3' },
-        ],
-      },
       filterData: {
         keyword: [],
         user_number: [],
@@ -74,17 +63,25 @@ export default {
     // 获取热搜数据
     this.getList();
   },
-
   mounted() {
     // this.tableData = this.searchList
   },
-
   methods: {
+    userNumberFilters_filter: [
+      { text: '433', value: '433' },
+      { text: '11', value: '11' },
+      { text: '3', value: '3' },
+    ],
+    keywordFilters_filter: [
+      { text: '搜索关键词-01', value: '搜索关键词-01' },
+      { text: '搜索关键词-02', value: '搜索关键词-02' },
+      { text: '搜索关键词-06', value: '搜索关键词-06' },
+    ],
     ...mapActions('hotSearch', ['getSearchList', 'getListFilterByPage']),
     // 构造合并数据
     generateData(data) {
       ['rank', 'keyword', 'user_number', 'week_rise'].forEach((val) => {
-        this.getSpanNum(val,data);
+        this.getSpanNum(val, data);
       });
     },
     spanMethod({ row, column, rowIndex, columnIndex }) {
@@ -102,11 +99,11 @@ export default {
         let dic = {
           rowspan: rowNum,
           colspan: colNum,
-        }
+        };
         return dic;
       }
     },
-    getSpanNum(curName,data) {
+    getSpanNum(curName, data) {
       const spanArry = [];
       let pos = 0;
       data.forEach((val, i) => {
@@ -127,7 +124,6 @@ export default {
       });
       // 把合并数据放入spanAll里面
       this.spanAll.push(spanArry);
-      
     },
     selectable(row, index) {
       if (row.rank !== 1) {
@@ -168,15 +164,11 @@ export default {
       return this.getListFilterByPage(params).then((res) => {
         this.tableData = res.data.result;
         this.pageObj.totalCount = res.data.total;
-         this.spanAll = []
+        this.spanAll = [];
         this.generateData(res.data.result);
-        
       });
     },
-    handleSelectionChange(selection) {
-    },
+    handleSelectionChange(selection) {},
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

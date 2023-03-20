@@ -20,7 +20,3 @@ export default {
   components: { HotSearch, SaleCard, AnalyzeCard },
 };
 </script>
-
-<style lang='scss' scoped>
-
-</style>

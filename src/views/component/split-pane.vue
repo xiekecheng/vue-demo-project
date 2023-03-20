@@ -1,16 +1,15 @@
-<!-- 组件 -> SplitPane -->
 <template>
   <div class="components-container">
     <split-pane split="vertical" @resize="resize">
-      <template slot="paneL">
+      <template v-slot:paneL>
         <div class="left-container" />
       </template>
-      <template slot="paneR">
+      <template v-slot:paneR>
         <split-pane split="horizontal">
-          <template slot="paneL">
+          <template v-slot:paneL>
             <div class="top-container" />
           </template>
-          <template slot="paneR">
+          <template v-slot:paneR>
             <div class="bottom-container" />
           </template>
         </split-pane>
@@ -21,6 +20,7 @@
 
 <script>
 import splitPane from 'vue-splitpane';
+
 export default {
   components: {
     splitPane,

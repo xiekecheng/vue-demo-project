@@ -1,15 +1,9 @@
 <template>
-	<div>
-		<h1>搜索列表（文章）</h1>
-	</div>
+  <div>
+    <h1>搜索列表（文章）</h1>
+  </div>
 </template>
 
 <script>
-	export default {
-		
-	}
+export default {};
 </script>
-
-<style lang="scss" scoped>
-
-</style>

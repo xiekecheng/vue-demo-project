@@ -1,4 +1,5 @@
-import { getSearchList, getListFilterByPage } from '@/api/hotSearch.js';
+import { getListFilterByPage, getSearchList } from '@/api/hotSearch.js';
+
 export default {
   namespaced: true,
   state: {

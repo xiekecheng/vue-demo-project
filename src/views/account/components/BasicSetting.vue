@@ -14,14 +14,14 @@
       </el-form-item>
       <el-form-item label="国家/地区" prop="Country">
         <el-select v-model="formLabelAlign.Country" placeholder="请选择">
-          <el-option label="中国" value="China"> </el-option>
+          <el-option label="中国" value="China"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="所在省市" >
+      <el-form-item label="所在省市">
         <el-col :span="11">
           <el-form-item prop="province">
             <el-select v-model="formLabelAlign.province" clearable placeholder="请选择">
-              <el-option v-for="item in provinceData" :key="item.id" :label="item.name" :value="item.id"> </el-option>
+              <el-option v-for="item in provinceData" :key="item.id" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
@@ -34,7 +34,7 @@
               placeholder="请选择"
               :disabled="!formLabelAlign.province"
             >
-              <el-option v-for="item in cityData" :key="item.id" :label="item.name" :value="item.id"> </el-option>
+              <el-option v-for="item in cityData" :key="item.id" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
@@ -54,6 +54,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -78,7 +79,14 @@ export default {
         province: [{ required: true, message: '请输入您的所在省!', trigger: 'change' }],
         city: [{ required: true, message: '请输入您的所在城市!', trigger: 'change' }],
         Country: [{ required: true, message: '请输入您的国家或地区!', trigger: 'blur' }],
-        date2: [{ type: 'date', required: true, message: '请选择时间', trigger: 'change' }],
+        date2: [
+          {
+            type: 'date',
+            required: true,
+            message: '请选择时间',
+            trigger: 'change',
+          },
+        ],
         profile: [{ required: true, message: '请输入您的个人简介!', trigger: 'change' }],
         resource: [{ required: true, message: '请选择活动资源', trigger: 'change' }],
         desc: [{ required: true, message: '请填写活动形式', trigger: 'blur' }],
@@ -123,5 +131,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

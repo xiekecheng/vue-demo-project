@@ -48,29 +48,38 @@ export default {};
     width: 100%;
     display: block;
   }
+
   margin-bottom: 16px;
+
   .description {
     color: rgba(0, 0, 0, 0.45);
     font-size: 14px;
   }
+
   .time-info {
     display: flex;
+
     .time {
       flex: 1 1;
     }
+
     .user-list {
       flex: 0 1 auto;
+
       ul,
       li {
         margin: 0;
         list-style: none;
       }
+
       .img-item {
         display: inline-block;
+
         .img-wrap {
           display: inline-block;
           width: 24px;
           height: 24px;
+
           img {
             width: 100%;
             height: 100%;

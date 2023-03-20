@@ -155,22 +155,22 @@ const routes = [
   {
     menu: '个人页',
     iconClass: 'el-icon-user',
-		index:'6',
+    index: '6',
     content: [
       {
         menu: '个人中心',
         to: '/account/center',
-				index:'6-1',
+        index: '6-1',
       },
       {
         menu: '个人设置',
         to: '/account/settings',
-				index:'6-2',
+        index: '6-2',
       },
       {
         menu: '添加用户',
         to: '/account/addUser',
-				index:'6-3',
+        index: '6-3',
       },
     ],
   },
@@ -178,22 +178,22 @@ const routes = [
   {
     menu: '图形编辑器',
     iconClass: 'el-icon-edit',
-		index:'7',
+    index: '7',
     content: [
       {
         menu: '流程编辑器',
         to: '/editor/flow',
-				index:'7-1',
+        index: '7-1',
       },
       {
         menu: '脑图编辑器',
         to: '/editor/mind',
-				index:'7-2',
+        index: '7-2',
       },
       {
         menu: '拓扑编辑器',
         to: '/editor/koni',
-				index:'7-3',
+        index: '7-3',
       },
     ],
   },
@@ -201,27 +201,27 @@ const routes = [
   {
     menu: '组件',
     iconClass: 'el-icon-menu',
-		index:'8',
+    index: '8',
     content: [
       {
         menu: '富文本编辑器',
         to: '/component/richtext',
-				index:'8-1',
+        index: '8-1',
       },
       {
         menu: '树形控件',
         to: '/component/tree',
-				index:'8-2',
+        index: '8-2',
       },
       {
         menu: 'SplitPane',
         to: '/component/split-pane',
-				index:'8-3',
+        index: '8-3',
       },
       {
         menu: '文件上传',
         to: '/component/file-upload',
-				index:'8-4',
+        index: '8-4',
       },
     ],
   },

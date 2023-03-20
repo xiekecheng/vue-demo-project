@@ -1,7 +1,5 @@
 <template>
-  <div ref="sale-table" class="sale-table">
-
-	</div>
+  <div ref="sale-table" class="sale-table"></div>
 </template>
 
 <script>
@@ -27,7 +25,7 @@ export default {
       },
       series: [
         {
-          data: [294, 705, 150, 80, 70, 110, 130,391,883,437,406,943],
+          data: [294, 705, 150, 80, 70, 110, 130, 391, 883, 437, 406, 943],
           type: 'bar',
         },
       ],
@@ -39,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sale-table{
+.sale-table {
   width: 100%;
   height: 300px;
 }

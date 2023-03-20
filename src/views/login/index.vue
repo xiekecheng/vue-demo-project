@@ -10,17 +10,26 @@
         </el-form-item>
         <el-form-item prop="username">
           <el-input v-model="ruleForm.username" type="username" autocomplete="off">
-            <i slot="prefix" class="el-input__icon el-icon-user-solid"></i>
+            <template v-slot:prefix>
+              <el-icon class="el-input__icon">
+                <el-icon-user-solid />
+              </el-icon>
+            </template>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input v-model="ruleForm.password" type="password" autocomplete="off">
-            <i slot="prefix" class="el-input__icon el-icon-edit-outline"></i>
+            <template v-slot:prefix>
+              <el-icon class="el-input__icon">
+                <el-icon-edit-outline />
+              </el-icon>
+            </template>
           </el-input>
         </el-form-item>
         <el-form-item>
           <el-button :loading="loading" type="primary" @click="submitForm('ruleForm')">登录</el-button>
-          <el-button @click="resetForm('ruleForm')">重置</el-button>
+          <el-button @click="resetForm">重置</el-button>
+          <span>新用户?去 <a @click="register">注册</a></span>
         </el-form-item>
       </el-form>
     </div>
@@ -28,10 +37,16 @@
 </template>
 
 <script>
+import { EditOutline as ElIconEditOutline, UserSolid as ElIconUserSolid } from '@element-plus/icons';
 import { setToken } from '@/utils/auth';
-// import { login } from '@/api';
+import { login } from '@/api/user';
 import { mapActions } from 'vuex';
+
 export default {
+  components: {
+    ElIconUserSolid,
+    ElIconEditOutline,
+  },
   data() {
     let validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -62,36 +77,63 @@ export default {
       },
     };
   },
-
   methods: {
     ...mapActions('user', ['login']),
     submitForm(formName) {
+      setToken('token123');
+      this.$message.success('登录成功');
+      this.loading = false;
+      this.$router.push('/');
+      return;
+
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.login(this.ruleForm)
-            .then((res) => {
-              if (res.status === 'SUCCESS') {
-                setToken('token123');
-                this.$message.success('登录成功');
-                this.loading = false;
-                this.$router.push('/');
-              } else {
-                this.$message.warning('登录失败,请确认用户名或密码是否正确');
-                return false;
-              }
-            })
-            .catch((e) => {
-              this.loading = false;
-            });
-        } else {
-          // 登录失败
-          this.$message.warning('表单校验不通过');
-          return false;
+          // this.login(this.ruleForm)
+          //   .then((res) => {
+          //     if (res.status === 'SUCCESS') {
+          //       setToken('token123');
+          //       this.$message.success('登录成功');
+          //       this.loading = false;
+          //       this.$router.push('/');
+          //     } else {
+          //       this.$message.warning('登录失败,请确认用户名或密码是否正确');
+          //       return false;
+          //     }
+          //   })
+          //   .catch((e) => {
+          //     this.loading = false;
+          //   });
+          const { username, password } = this.ruleForm;
+          const params = {
+            username,
+            password,
+          };
+          console.log('login', login);
+          login(params).then((res) => {
+            const { result, data: token } = res;
+            if (result !== 'SUCCESS') {
+              this.$message.warning('登录失败,请确认用户名或密码是否正确');
+              return;
+            }
+            console.log('res', res);
+            setToken(token);
+            this.$message.success('登录成功');
+            this.$router.push('/');
+          });
         }
+        // else {
+        //   // 登录失败
+        //   this.$message.warning('表单校验不通过');
+        //   return false;
+        // }
       });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+    // 跳转到注册页面
+    register() {
+      this.$router.push('/login/register');
     },
   },
 };
@@ -104,20 +146,21 @@ export default {
   background-image: url(../../assets/images/image.png);
   background-size: cover;
   background-position: center;
-  // text-align: center;
   overflow: hidden;
 }
+
 .form-wrap {
   width: 40%;
   margin: 100px auto;
-  // overflow: hidden;
 }
+
 .title-container {
   .title {
     text-align: center;
     color: #fff;
   }
 }
+
 .my-login {
   ::v-deep .el-form-item__content {
     text-align: center;

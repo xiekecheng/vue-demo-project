@@ -1,6 +1,4 @@
-import { login } from '@/api';
 import { register, uploadAvatar } from '@/api/user';
-// import { reject, resolve } from 'core-js/fn/promise';
 
 export default {
   namespaced: true,

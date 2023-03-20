@@ -1,5 +1,4 @@
-const request = require('@/utils/axios');
-
+import request from '@/utils/axios';
 // 注册用户
 export const register = (data) =>
   request({

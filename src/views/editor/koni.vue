@@ -4,17 +4,15 @@
     <!--<div>现在的值:{{ count }}</div>-->
     <!--<el-button @click="increment">自增</el-button>-->
     <h1>实现进度条</h1>
-    <el-button @click='importCase'>引入用例</el-button>
+    <el-button @click="importCase">引入用例</el-button>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
-import { Progress } from 'element-ui';
-// import axios from 'axios';
-import Vue from 'vue';
+import { mapMutations, mapState } from 'vuex';
+import { ElProgress as Progress } from 'element-plus';
 
-Vue.use(Progress);
+window.$vueApp.use(Progress);
 // import router from '@/router';
 // import store from '@/store';
 export default {
@@ -23,21 +21,22 @@ export default {
       timerObj: {}, // 存储多个定时器
       progressObj: {}, // 存储多个引入用例的进度
       NotiDom: {}, // 进度条组件
-
     };
   },
   computed: {
     ...mapState('user', ['count']),
   },
   created() {
-    this.$http.get('http://localhost:8088/user', {
-      params: {
-        curPage: 1,
-        pageSize: 10,
-      },
-    }).then(res => {
-      console.log('res', res);
-    });
+    this.$http
+      .get('http://localhost:8088/user', {
+        params: {
+          curPage: 1,
+          pageSize: 10,
+        },
+      })
+      .then((res) => {
+        console.log('res', res);
+      });
   },
   methods: {
     ...mapMutations('user', ['increment']),
@@ -74,8 +73,6 @@ export default {
       //   // render: res.render,
       //   // render: h => h(App)
       // })
-
-
     },
     // 开启定时器轮询获取进度
     startTimer() {
@@ -87,12 +84,12 @@ export default {
       const startFn = () => {
         // 业务逻辑
         const handleFn = () => {
-            //   调用接口,获取进度,更新进度条
-            const result = this.getProcess(processId);
-            this.setProgress(result.progress, processId);
-            if (result.msg === '成功') {
-              this.clearTimer(processId);
-            }
+          //   调用接口,获取进度,更新进度条
+          const result = this.getProcess(processId);
+          this.setProgress(result.progress, processId);
+          if (result.msg === '成功') {
+            this.clearTimer(processId);
+          }
         };
 
         // 如果定时器存在则先清除定时器
@@ -105,10 +102,10 @@ export default {
       startFn();
     },
 
-
     // 获取进度
     getProcess(processId) {
-      this.progressObj[processId] = typeof this.progressObj[processId] === 'number'? this.progressObj[processId] + 20 : 0;
+      this.progressObj[processId] =
+        typeof this.progressObj[processId] === 'number' ? this.progressObj[processId] + 20 : 0;
       console.log('this.progressObj[processId]', this.progressObj[processId]);
 
       // 返回值
@@ -119,7 +116,6 @@ export default {
         msg: this.progressObj[processId] >= 100 ? '成功' : '',
       };
       return result;
-
     },
     // 设置进度条进度
     setProgress(progress, processId) {
@@ -145,9 +141,6 @@ export default {
       clearInterval(this.timerObj[processId]);
       this.timerObj[processId] = null;
     },
-
   },
 };
 </script>
-
-<style lang='scss' scoped></style>

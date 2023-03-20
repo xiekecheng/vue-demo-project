@@ -34,7 +34,9 @@
             :auto-upload="false"
           >
             <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            <el-icon class="avatar-uploader-icon">
+              <el-icon-plus />
+            </el-icon>
           </el-upload>
         </el-form-item>
         <el-form-item>
@@ -48,8 +50,13 @@
 </template>
 
 <script>
+import { Plus as ElIconPlus } from '@element-plus/icons';
 import { mapActions } from 'vuex';
+
 export default {
+  components: {
+    ElIconPlus,
+  },
   data() {
     return {
       imageUrl: '',
@@ -127,9 +134,11 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
 .avatar-uploader .el-upload:hover {
   border-color: #409eff;
 }
+
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
@@ -138,6 +147,7 @@ export default {
   line-height: 178px;
   text-align: center;
 }
+
 .avatar {
   width: 178px;
   height: 178px;
