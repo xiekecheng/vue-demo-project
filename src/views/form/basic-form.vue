@@ -16,13 +16,7 @@
         <template v-slot:trigger>
           <el-button size="small" type="primary">选取文件</el-button>
         </template>
-        <el-button
-          style="margin-left: 10px"
-          size="small"
-          type="success"
-          @click="submitUpload"
-          >上传到服务器</el-button
-        >
+        <el-button style="margin-left: 10px" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
         <template v-slot:tip>
           <div class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
         </template>
@@ -32,7 +26,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -78,7 +72,7 @@ export default {
           ],
         },
       ],
-    }
+    };
   },
   computed: {
     ...mapState('right', ['isReadOnly']),
@@ -87,48 +81,48 @@ export default {
     // 获取权限
     getRight() {},
     submitUpload() {
-      this.$refs.upload.submit()
+      this.$refs.upload.submit();
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList)
+      console.log(file, fileList);
     },
     handlePreview(file) {
-      console.log(file)
+      console.log(file);
     },
     // 处理上传前事件,校验文件大小
     handleBeforeUpload(file, fileData) {
-      console.log('file', file)
+      console.log('file', file);
       if (this.getFileContent(file) < 10) {
-        console.log('文件大小:', this.getFileContent(file))
+        console.log('文件大小:', this.getFileContent(file));
       }
       if (file.name === '555.pdf') {
-        return false
+        return false;
       }
       fileData.push({
         name: file.name,
         url: 'www.baidu.com',
-      })
-      console.log('fileData', fileData)
+      });
+      console.log('fileData', fileData);
 
-      return false
+      return false;
     },
     // 上传文件
     uploadFile(val1, val2) {
-      console.log('调用')
+      console.log('调用');
       // console.log('list',list);
-      console.log('val1', val1)
-      console.log('val2', val2)
+      console.log('val1', val1);
+      console.log('val2', val2);
       val2.push({
         name: '1111.jpg',
         url: '1111.com',
-      })
+      });
     },
     getFileContent(file) {
-      return file.size / (1024 * 1024)
+      return file.size / (1024 * 1024);
     },
     getInfo() {
-      console.log('arr', this.arr)
+      console.log('arr', this.arr);
     },
   },
-}
+};
 </script>

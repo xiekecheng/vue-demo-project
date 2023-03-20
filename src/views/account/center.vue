@@ -16,14 +16,22 @@
             </div>
             <div class="info">
               <p>
-                <el-icon><el-icon-s-custom /></el-icon>交互专家
+                <el-icon>
+                  <el-icon-s-custom />
+                </el-icon>
+                交互专家
               </p>
               <p>
-                <el-icon><el-icon-s-cooperation /></el-icon
-                >蚂蚁金服-某某某事业群-某某平台部-某某技术部-UED
+                <el-icon>
+                  <el-icon-s-cooperation />
+                </el-icon>
+                蚂蚁金服-某某某事业群-某某平台部-某某技术部-UED
               </p>
               <p>
-                <el-icon><el-icon-location /></el-icon>浙江省杭州市
+                <el-icon>
+                  <el-icon-location />
+                </el-icon>
+                浙江省杭州市
               </p>
             </div>
           </div>
@@ -50,78 +58,69 @@
               @blur="handleInputConfirm"
             >
             </el-input>
-            <el-button
-              v-else
-              class="button-new-tag"
-              size="mini"
-              @click="showInput"
-              >+</el-button
-            >
+            <el-button v-else class="button-new-tag" size="mini" @click="showInput">+</el-button>
           </div>
           <div class="bottom-content">
             <h6>团队</h6>
             <el-row :gutter="10">
-              <el-col :lg="12" :xl="12"
-                ><div class="group">
+              <el-col :lg="12" :xl="12">
+                <div class="group">
                   <span class="icon"
-                    ><img
-                      src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
-                      alt
-                      height="24"
+                    ><img src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png" alt height="24"
                   /></span>
                   科学搬砖组
-                </div></el-col
-              >
-              <el-col :lg="12" :xl="12"
-                ><div class="group">
+                </div>
+              </el-col>
+              <el-col :lg="12" :xl="12">
+                <div class="group">
                   <span class="icon"
                     ><img
                       src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
                       alt
                       height="24" /></span
                   >全组都是吴彦祖
-                </div></el-col
-              >
-              <el-col :lg="12" :xl="12"
-                ><div class="group">
+                </div>
+              </el-col>
+              <el-col :lg="12" :xl="12">
+                <div class="group">
                   <span class="icon"
                     ><img
                       src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
                       alt
                       height="24" /></span
                   >中二少女团
-                </div></el-col
-              >
-              <el-col :lg="12" :xl="12"
-                ><div class="group">
+                </div>
+              </el-col>
+              <el-col :lg="12" :xl="12">
+                <div class="group">
                   <span class="icon"
                     ><img
                       src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
                       alt
                       height="24" /></span
                   >程序员日常
-                </div></el-col
-              >
-              <el-col :lg="12" :xl="12"
-                ><div class="group">
+                </div>
+              </el-col>
+              <el-col :lg="12" :xl="12">
+                <div class="group">
                   <span class="icon"
                     ><img
                       src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
                       alt
                       height="24" /></span
                   >高逼格设计天团
-                </div></el-col
-              >
-              <el-col :lg="12" :xl="12"
-                ><div class="group">
+                </div>
+              </el-col>
+              <el-col :lg="12" :xl="12">
+                <div class="group">
                   <span class="icon"
                     ><img
                       src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
                       alt
                       height="24" /></span
                   >骗你来学计算机
-                </div></el-col
-              >
+                </div>
+              </el-col>
             </el-row>
           </div>
         </div>
@@ -130,12 +129,7 @@
       <el-col :md="16">
         <div class="article">
           <el-tabs v-model="activeName">
-            <el-tab-pane
-              v-for="item in tabs"
-              :key="item.name"
-              :label="item.label"
-              :name="item.name"
-            />
+            <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.label" :name="item.name" />
           </el-tabs>
           <keep-alive>
             <component :is="activeName" />
@@ -148,13 +142,14 @@
 
 <script>
 import {
-  SCustom as ElIconSCustom,
-  SCooperation as ElIconSCooperation,
   Location as ElIconLocation,
-} from '@element-plus/icons'
-import Project from './components/Project'
-import Application from './components/Application'
-import Article1 from './components/Article.vue'
+  SCooperation as ElIconSCooperation,
+  SCustom as ElIconSCustom,
+} from '@element-plus/icons';
+import Project from './components/Project';
+import Application from './components/Application';
+import Article1 from './components/Article.vue';
+
 export default {
   components: {
     Project,
@@ -185,28 +180,28 @@ export default {
       inputValue: '',
       activeName: 'Project',
       currentDate: new Date(),
-    }
+    };
   },
   methods: {
     showInput() {
-      this.inputVisible = true
+      this.inputVisible = true;
       this.$nextTick((_) => {
-        this.$refs.saveTagInput.$refs.input.focus()
-      })
+        this.$refs.saveTagInput.$refs.input.focus();
+      });
     },
     handleInputConfirm() {
-      let inputValue = this.inputValue
+      let inputValue = this.inputValue;
       if (inputValue) {
-        this.dynamicTags.push(inputValue)
+        this.dynamicTags.push(inputValue);
       }
-      this.inputVisible = false
-      this.inputValue = ''
+      this.inputVisible = false;
+      this.inputValue = '';
     },
     handleClose(tag) {
-      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -214,37 +209,46 @@ export default {
   background-color: #ffffff;
   padding: 12px;
 }
+
 .grid-content {
   background-color: #ffffff;
   min-height: 400px;
   padding: 24px;
 }
+
 .top-content {
   .avatar {
     text-align: center;
+
     .name {
       font-size: 20px;
     }
+
     img {
       margin-bottom: 20px;
     }
+
     .signature {
       font-size: 14px;
     }
   }
+
   .info {
     font-size: 14px;
     padding-left: 26px;
   }
 }
+
 .middle-content {
   border-top: 1px dashed rgba(0, 0, 0, 0.06);
   border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
 }
+
 .bottom-content {
   .group {
     line-height: 28px;
   }
+
   .icon {
     border-radius: 50%;
     display: inline-block;
@@ -253,16 +257,19 @@ export default {
     line-height: 24px;
   }
 }
+
 .input-new-tag {
   width: 90px;
   margin-left: 10px;
   vertical-align: bottom;
   height: 20px;
   margin-bottom: 5px;
+
   ::v-deep .el-input__inner {
     height: 20px !important;
   }
 }
+
 .button-new-tag {
   margin-left: 10px;
   height: 20px;
@@ -270,10 +277,12 @@ export default {
   padding-top: 0;
   padding-bottom: 0;
 }
+
 .el-tag + .el-tag {
   margin-left: 8px;
   margin-bottom: 5px;
 }
+
 ::v-deep .el-tabs__content {
   padding: 0 12px;
 }

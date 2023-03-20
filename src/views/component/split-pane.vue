@@ -19,17 +19,18 @@
 </template>
 
 <script>
-import splitPane from 'vue-splitpane'
+import splitPane from 'vue-splitpane';
+
 export default {
   components: {
     splitPane,
   },
   methods: {
     resize() {
-      console.log('resize')
+      console.log('resize');
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -37,19 +38,23 @@ export default {
   position: relative;
   height: 100vh;
 }
+
 .left-container {
   background-color: #f38181;
   height: 100%;
 }
+
 .right-container {
   background-color: #fce38a;
   height: 200px;
 }
+
 .top-container {
   background-color: #fce38a;
   width: 100%;
   height: 100%;
 }
+
 .bottom-container {
   width: 100%;
   background-color: #95e1d3;

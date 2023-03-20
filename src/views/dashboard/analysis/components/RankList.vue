@@ -55,7 +55,7 @@ export default {
       ],
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -63,14 +63,17 @@ ul,
 li {
   list-style: none;
 }
+
 ul {
   .name {
     flex: 1;
   }
 }
+
 li {
   display: flex;
   margin-top: 16px;
+
   .rankNum {
     width: 20px;
     margin-right: 20px;

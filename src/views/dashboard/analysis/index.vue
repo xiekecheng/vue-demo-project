@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import AnalyzeCard from '@/views/dashboard/analysis/components/AnalyzeCard.vue'
-import SaleCard from '@/views/dashboard/analysis/components/SaleCard.vue'
-import HotSearch from '@/views/dashboard/analysis/components/HotSearch.vue'
+import AnalyzeCard from '@/views/dashboard/analysis/components/AnalyzeCard.vue';
+import SaleCard from '@/views/dashboard/analysis/components/SaleCard.vue';
+import HotSearch from '@/views/dashboard/analysis/components/HotSearch.vue';
 
 export default {
   components: { HotSearch, SaleCard, AnalyzeCard },
-}
+};
 </script>

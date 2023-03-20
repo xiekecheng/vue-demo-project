@@ -8,9 +8,9 @@ export default {
   },
   mutations: {
     setIsReadOnly(state, payload) {
-      console.log('mutations=>更改isReadOnly值', payload)
-      const { key, value } = payload
-      state.isReadOnly[key] = value
+      console.log('mutations=>更改isReadOnly值', payload);
+      const { key, value } = payload;
+      state.isReadOnly[key] = value;
     },
   },
   actions: {
@@ -18,13 +18,13 @@ export default {
     fetchReadOnlyData({ commit, state }, payload) {
       // 如果已存在值,不需要再调用接口
       if (state.isReadOnly[payload]) {
-        return
+        return;
       }
 
       setTimeout(() => {
-        console.log('actions=>更改isReadOnly值', true)
-        commit('setIsReadOnly', payload, true)
-      }, 150)
+        console.log('actions=>更改isReadOnly值', true);
+        commit('setIsReadOnly', payload, true);
+      }, 150);
     },
   },
-}
+};

@@ -7,7 +7,8 @@
  * @Description:
  *
  */
-import request from '@/utils/axios'
+import request from '@/utils/axios';
+
 /**
  * @description:
  * @param {*} param 入参
@@ -18,8 +19,8 @@ export const getTreeData = (params) =>
     url: '/getParentTreeNode',
     method: 'GET',
     params,
-  })
+  });
 
 export default {
   getTreeData,
-}
+};

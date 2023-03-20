@@ -25,17 +25,19 @@ export default {
   data() {
     return {
       ops: ['下载', '编辑', '分享', ''],
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .box-card {
   margin-bottom: 12px;
+
   .operation {
     display: flex;
     padding: 0;
+
     > li {
       flex: 1;
       list-style: none;
@@ -43,9 +45,11 @@ export default {
     }
   }
 }
+
 ::v-deep .el-card__body {
   padding: 0;
 }
+
 .card-info {
   padding: 12px;
 }

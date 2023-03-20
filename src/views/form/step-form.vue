@@ -12,14 +12,15 @@
 </template>
 
 <script>
-import BetterScroll from 'better-scroll'
+import BetterScroll from 'better-scroll';
+
 export default {
   mounted() {
-    const wrap = document.querySelector('.wrap')
+    const wrap = document.querySelector('.wrap');
     // eslint-disable-next-line no-unused-vars
-    const bs = new BetterScroll(wrap)
+    const bs = new BetterScroll(wrap);
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

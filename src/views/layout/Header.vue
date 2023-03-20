@@ -23,9 +23,10 @@
 </template>
 
 <script>
-import { Setting, Check, User, Plus } from '@element-plus/icons-vue';
+import { Check, Plus, Setting, User } from '@element-plus/icons-vue';
 import { removeToken } from '@/utils/auth';
 import { mapState } from 'vuex';
+
 export default {
   data() {
     return {
@@ -57,10 +58,12 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
+
   .title {
     font-size: 18px;
     color: white;
   }
+
   .box {
     display: flex;
     align-items: center;
@@ -81,12 +84,15 @@ export default {
       }
     }
   }
+
   .left {
     cursor: pointer;
+
     .img {
       height: 28px;
     }
   }
+
   .right {
     text-align: right;
   }

@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import RankList from './RankList.vue'
-import SaleTable from './SaleTable.vue'
+import RankList from './RankList.vue';
+import SaleTable from './SaleTable.vue';
 
 export default {
   name: 'SaleCard',
@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       activeName: 'sales',
-    }
+    };
   },
-}
+};
 </script>

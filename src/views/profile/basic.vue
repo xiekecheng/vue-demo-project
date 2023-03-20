@@ -32,12 +32,10 @@ export default {
           age: 18,
         },
       ],
-    }
+    };
   },
-  methods: {
-
-  },
-}
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>

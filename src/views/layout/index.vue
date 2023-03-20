@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import SiderBar from '@/views/layout/SiderBar'
-import Header from '@/views/layout/Header'
-import MyFooter from '@/views/layout/MyFooter.vue'
+import SiderBar from '@/views/layout/SiderBar';
+import Header from '@/views/layout/Header';
+import MyFooter from '@/views/layout/MyFooter.vue';
 
 export default {
   components: {
@@ -28,5 +28,5 @@ export default {
     SiderBar,
     MyHeader: Header,
   },
-}
+};
 </script>

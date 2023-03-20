@@ -5,9 +5,7 @@
         <template #header>
           <div class="sale-header">
             <span>线上热门搜索</span>
-            <el-button style="float: right; padding: 3px 0"
-              >操作按钮</el-button
-            >
+            <el-button style="float: right; padding: 3px 0">操作按钮</el-button>
           </div>
         </template>
         <!--<user-table />-->
@@ -20,11 +18,7 @@
             <span>销售额类别占比</span>
             <div>
               <el-radio-group v-model="curType" size="small" class="mr-8">
-                <el-radio-button
-                  v-for="item in salesType"
-                  :key="item"
-                  :label="item"
-                ></el-radio-button>
+                <el-radio-button v-for="item in salesType" :key="item" :label="item"></el-radio-button>
               </el-radio-group>
               <el-dropdown>
                 <span class="el-dropdown-link">
@@ -47,8 +41,8 @@
 </template>
 
 <script>
-import { More as ElIconMore } from '@element-plus/icons'
-import PieChart from './PieChart.vue'
+import { More as ElIconMore } from '@element-plus/icons';
+import PieChart from './PieChart.vue';
 // import UserTable from './UserTable.vue'
 
 export default {
@@ -62,20 +56,22 @@ export default {
     return {
       curType: '全部渠道',
       salesType: ['全部渠道', '线上', '门店'],
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .card {
   position: relative;
 }
+
 .sale-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .mr-8 {
   margin-right: 8px;
 }

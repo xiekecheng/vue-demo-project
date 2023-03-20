@@ -1,4 +1,5 @@
 import * as VueRouter from 'vue-router';
+
 const Layout = () => import('@/views/layout');
 
 const routes = [

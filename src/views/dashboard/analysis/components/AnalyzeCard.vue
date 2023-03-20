@@ -38,10 +38,10 @@
 </template>
 
 <script>
-import InfoCard from './InfoCard.vue'
+import InfoCard from './InfoCard.vue';
 
 export default {
   name: 'AnalyzeCard',
   components: { InfoCard },
-}
+};
 </script>

@@ -1,10 +1,5 @@
 <template>
-  <el-table
-    ref="tableRef"
-    :data="tableData"
-    style="width: 100%"
-    @expand-change="expandChange"
-  >
+  <el-table ref="tableRef" :data="tableData" style="width: 100%" @expand-change="expandChange">
     <el-table-column type="expand">
       <template v-slot="props">
         <el-form label-position="left" inline class="demo-table-expand">
@@ -89,31 +84,33 @@ export default {
           shopId: '10333',
         },
       ],
-    }
+    };
   },
   methods: {
     // 展开事件
     expandChange(row, expandedRows) {
-      console.log('row,expandedRows', row, expandedRows)
+      console.log('row,expandedRows', row, expandedRows);
 
       // 未保存的数据不允许展开
       if (typeof row.id !== 'string') {
-        this.$refs.tableRef.toggleRowExpansion(row, false)
-        return
+        this.$refs.tableRef.toggleRowExpansion(row, false);
+        return;
       }
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .demo-table-expand {
   font-size: 0;
 }
+
 .demo-table-expand label {
   width: 90px;
   color: #99a9bf;
 }
+
 .demo-table-expand .el-form-item {
   margin-right: 0;
   margin-bottom: 0;

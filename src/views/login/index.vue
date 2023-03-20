@@ -11,14 +11,18 @@
         <el-form-item prop="username">
           <el-input v-model="ruleForm.username" type="username" autocomplete="off">
             <template v-slot:prefix>
-              <el-icon class="el-input__icon"><el-icon-user-solid /></el-icon>
+              <el-icon class="el-input__icon">
+                <el-icon-user-solid />
+              </el-icon>
             </template>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input v-model="ruleForm.password" type="password" autocomplete="off">
             <template v-slot:prefix>
-              <el-icon class="el-input__icon"><el-icon-edit-outline /></el-icon>
+              <el-icon class="el-input__icon">
+                <el-icon-edit-outline />
+              </el-icon>
             </template>
           </el-input>
         </el-form-item>
@@ -33,7 +37,7 @@
 </template>
 
 <script>
-import { UserSolid as ElIconUserSolid, EditOutline as ElIconEditOutline } from '@element-plus/icons';
+import { EditOutline as ElIconEditOutline, UserSolid as ElIconUserSolid } from '@element-plus/icons';
 import { setToken } from '@/utils/auth';
 import { login } from '@/api/user';
 import { mapActions } from 'vuex';
@@ -144,16 +148,19 @@ export default {
   background-position: center;
   overflow: hidden;
 }
+
 .form-wrap {
   width: 40%;
   margin: 100px auto;
 }
+
 .title-container {
   .title {
     text-align: center;
     color: #fff;
   }
 }
+
 .my-login {
   ::v-deep .el-form-item__content {
     text-align: center;

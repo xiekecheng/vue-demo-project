@@ -1,20 +1,12 @@
 <template>
   <div>
     <h1>流程编辑器</h1>
-    <el-checkbox v-model="data" :true-label="1" :false-label="0"
-      >显示空用例</el-checkbox
-    >
-    <el-checkbox v-model="data" :true-label="2" :false-label="0"
-      >仅显示空用例</el-checkbox
-    >
+    <el-checkbox v-model="data" :true-label="1" :false-label="0">显示空用例</el-checkbox>
+    <el-checkbox v-model="data" :true-label="2" :false-label="0">仅显示空用例</el-checkbox>
     <div>{{ data }}</div>
 
     <div>
-      <el-tree
-        :data="data2"
-        :props="defaultProps"
-        @node-click="handleNodeClick"
-      ></el-tree>
+      <el-tree :data="data2" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
     </div>
   </div>
 </template>
@@ -85,12 +77,12 @@ export default {
         children: 'children',
         label: 'label',
       },
-    }
+    };
   },
   methods: {
     handleNodeClick(data) {
-      console.log(data)
+      console.log(data);
     },
   },
-}
+};
 </script>

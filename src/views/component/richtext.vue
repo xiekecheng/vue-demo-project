@@ -13,12 +13,12 @@ export default {
       config: {
         uiColor: '#AADC6E',
       },
-    }
+    };
   },
   methods: {
     checkData() {
-      console.log('内容=>', this.richtext)
+      console.log('内容=>', this.richtext);
     },
   },
-}
+};
 </script>

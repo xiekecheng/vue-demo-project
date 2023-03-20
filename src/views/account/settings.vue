@@ -1,7 +1,9 @@
 <template>
   <div class="wrap">
     <el-tabs :tab-position="tabPosition" style="height: 100%">
-      <el-tab-pane label="基本设置"><BasicSetting /></el-tab-pane>
+      <el-tab-pane label="基本设置">
+        <BasicSetting />
+      </el-tab-pane>
       <el-tab-pane label="安全设置">安全设置</el-tab-pane>
       <el-tab-pane label="账号绑定">账号绑定</el-tab-pane>
       <el-tab-pane label="新消息通知">新消息通知</el-tab-pane>
@@ -25,9 +27,10 @@
 </template>
 
 <script>
-import OtherTable from './components/OtherTable.vue'
-import CloudTable from './components/CloudTable.vue'
-import BasicSetting from './components/BasicSetting.vue'
+import OtherTable from './components/OtherTable.vue';
+import CloudTable from './components/CloudTable.vue';
+import BasicSetting from './components/BasicSetting.vue';
+
 export default {
   components: {
     OtherTable,
@@ -39,19 +42,19 @@ export default {
       dialogVisible: false,
       activeTab: '西安',
       tabPosition: 'left',
-    }
+    };
   },
   watch: {
     activeTab(val) {
-      console.log('val', val)
+      console.log('val', val);
     },
   },
   methods: {
     handleClick(tab, event) {
-      console.log('tab, event', tab, event)
+      console.log('tab, event', tab, event);
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

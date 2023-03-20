@@ -12,12 +12,12 @@
             <span>{{ subItem.menu }}</span>
           </template>
           <router-link v-for="(route, routeIdx) in subItem.content" :key="routeIdx" :to="route.to">
-            <el-menu-item :index="route.index"> {{ route.menu }} </el-menu-item>
+            <el-menu-item :index="route.index"> {{ route.menu }}</el-menu-item>
           </router-link>
         </el-sub-menu>
         <!-- 子级列表 -->
         <router-link v-for="(route, routeIdx) in item.content" :key="routeIdx" :to="route.to">
-          <el-menu-item :index="route.index"> {{ route.menu }} </el-menu-item>
+          <el-menu-item :index="route.index"> {{ route.menu }}</el-menu-item>
         </router-link>
       </el-sub-menu>
     </el-menu>
@@ -27,6 +27,7 @@
 
 <script>
 import routes from '@/router/routes';
+
 export default {
   data() {
     return {
@@ -42,15 +43,19 @@ export default {
   width: 208px;
   min-height: 100%;
 }
+
 .my-siderbar {
   height: 100%;
 }
+
 ::v-deep .el-submenu__title {
   text-align: left;
 }
+
 ::v-deep .el-menu-item {
   text-align: left;
 }
+
 * {
   text-decoration: none;
 }

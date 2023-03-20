@@ -1,4 +1,4 @@
-import request from '@/utils/axios'
+import request from '@/utils/axios';
 
 // 分页查询热搜列表
 export const getSearchList = (data) =>
@@ -6,7 +6,7 @@ export const getSearchList = (data) =>
     url: '/getListByPage',
     method: 'post',
     data,
-  })
+  });
 
 // 分页多条件筛选查询热搜列表
 export const getListFilterByPage = (data) =>
@@ -14,8 +14,8 @@ export const getListFilterByPage = (data) =>
     url: '/getListFilterByPage',
     method: 'post',
     data,
-  })
+  });
 export default {
   getSearchList,
   getListFilterByPage,
-}
+};
