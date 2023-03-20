@@ -1,16 +1,13 @@
-<!--
- * @Author: github.com/xiekecheng
- * @Date: 2021-12-18 16:54:40
- * @LastEditTime: 2022-05-18 22:54:05
- * @FilePath: /vue-demo-project/src/views/list/basic-list.vue
- * @Description: 多级表头表格
- * 
--->
 <template>
   <div>
     <h1>标准列表</h1>
     <el-table :data="tableData">
-      <el-table-column v-for="item in newTableColumn" :key="item.label" :prop="item.column" :label="item.label">
+      <el-table-column
+        v-for="item in newTableColumn"
+        :key="item.label"
+        :prop="item.column"
+        :label="item.label"
+      >
         <el-table-column
           v-for="childColumn in item.childColumns"
           :key="childColumn.column"
@@ -116,33 +113,35 @@ export default {
           group: '地址',
         },
       ],
-    };
+    }
   },
   created() {
-    this.getColumns();
+    this.getColumns()
   },
   methods: {
     getColumns() {
-      const newColumn = [];
+      const newColumn = []
       this.tableColumn.forEach((e, idx, arr) => {
         // 没有分组,直接添加
         if (!e.group) {
           newColumn.push({
             column: e.column,
             label: e.label,
-          });
-          return;
+          })
+          return
         }
         // 如果有分组,判断是否已生成最初分组
-        const index = newColumn.findIndex((item) => item.label === e.group && item.childColumns);
+        const index = newColumn.findIndex(
+          (item) => item.label === e.group && item.childColumns
+        )
 
         // 添加过分组,则push进去
         if (index !== -1) {
           newColumn[index].childColumns.push({
             column: e.column,
             label: e.label,
-          });
-          return;
+          })
+          return
         }
         // 未添加过,则创建分组column并添加进去
         const column = {
@@ -153,13 +152,11 @@ export default {
               label: e.label,
             },
           ],
-        };
-        newColumn.push(column);
-      });
-      this.newTableColumn = newColumn;
+        }
+        newColumn.push(column)
+      })
+      this.newTableColumn = newColumn
     },
   },
-};
+}
 </script>
-
-<style lang="scss" scoped></style>

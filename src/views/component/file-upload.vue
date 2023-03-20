@@ -1,11 +1,10 @@
-<!-- 文件上传 -->
 <template>
   <div>
     <!-- 文件上传 -->
     <h1>文件上传</h1>
     <!-- 
 		
-		-->
+    		-->
     <el-upload
       ref="upload"
       class="upload-demo"
@@ -17,19 +16,34 @@
       :file-list="fileList"
       list-type="picture"
     >
-      <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-      <el-button style="margin-left: 10px" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+      <template v-slot:trigger>
+        <el-button size="small" type="primary">选取文件</el-button>
+      </template>
+      <el-button
+        style="margin-left: 10px"
+        size="small"
+        type="success"
+        @click="submitUpload"
+        >上传到服务器</el-button
+      >
+      <template v-slot:tip>
+        <div class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+      </template>
     </el-upload>
     <el-button @click="viewImage">查看图片</el-button>
     <h1>图片预览</h1>
-    <el-image style="width: 100px; height: 100px" :src="url" :preview-src-list="srcList"> </el-image>
+    <el-image
+      style="width: 100px; height: 100px"
+      :src="url"
+      :preview-src-list="srcList"
+    >
+    </el-image>
     <ViewImageDialog ref="ViewImageDialogRef" :url="imgUrl" />
   </div>
 </template>
 
 <script>
-import ViewImageDialog from './components/ViewImageDialog.vue';
+import ViewImageDialog from './components/ViewImageDialog.vue'
 export default {
   components: {
     ViewImageDialog,
@@ -53,27 +67,25 @@ export default {
       ],
       acceptFileType: 'image/*',
       imgUrl: '',
-    };
+    }
   },
   methods: {
     submitUpload() {
-      this.$refs.upload.submit();
+      this.$refs.upload.submit()
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      console.log(file, fileList)
     },
     handlePreview(file) {
-      console.log(file);
-      this.imgUrl = file.url;
-      this.$refs.ViewImageDialogRef.dialogVisible = true;
+      console.log(file)
+      this.imgUrl = file.url
+      this.$refs.ViewImageDialogRef.dialogVisible = true
     },
     // 查看图片
     viewImage() {
       // 打开弹窗
-      this.$refs.ViewImageDialogRef.dialogVisible = true;
+      this.$refs.ViewImageDialogRef.dialogVisible = true
     },
   },
-};
+}
 </script>
-
-<style lang="scss" scoped></style>

@@ -2,45 +2,45 @@
   <div>
     <h1>树形控件</h1>
     <!-- <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">全选</el-checkbox>
-    <el-tree
-      ref="tree"
-      :data="data"
-      show-checkbox
-      :default-expanded-keys="openTreeKeys"
-      node-key="id"
-      highlight-current
-      :props="defaultProps"
-      @node-expand="nodeExpand"
-      @node-click="nodeClick"
-      @check-change="nodeCheck"
-    >
-    </el-tree>
+        <el-tree
+          ref="tree"
+          :data="data"
+          show-checkbox
+          :default-expanded-keys="openTreeKeys"
+          node-key="id"
+          highlight-current
+          :props="defaultProps"
+          @node-expand="nodeExpand"
+          @node-click="nodeClick"
+          @check-change="nodeCheck"
+        >
+        </el-tree>
 
-    <div class="buttons">
-      <el-button @click="getCheckedNodes">通过 node 获取</el-button>
-      <el-button @click="getCheckedKeys">通过 key 获取</el-button>
-      <el-button @click="setCheckedNodes">通过 node 设置</el-button>
-      <el-button @click="setCheckedKeys">通过 key 设置</el-button>
-      <el-button type="primary" @click="openTreeEvent">展开</el-button>
-      <el-button type="primary" @click="closeTreeEvent">收起</el-button>
-      <el-button @click="resetChecked">清空</el-button>
-    </div> -->
+        <div class="buttons">
+          <el-button @click="getCheckedNodes">通过 node 获取</el-button>
+          <el-button @click="getCheckedKeys">通过 key 获取</el-button>
+          <el-button @click="setCheckedNodes">通过 node 设置</el-button>
+          <el-button @click="setCheckedKeys">通过 key 设置</el-button>
+          <el-button type="primary" @click="openTreeEvent">展开</el-button>
+          <el-button type="primary" @click="closeTreeEvent">收起</el-button>
+          <el-button @click="resetChecked">清空</el-button>
+        </div> -->
     <el-divider></el-divider>
     <!-- <h1>节点懒加载</h1>
-    <el-tree
-      ref="tree2"
-      node-key="id"
-      :default-expanded-keys="openTreeKeys2"
-      :props="props"
-      :load="loadNode"
-      lazy
-      show-checkbox
-      :expand-on-click-node="false"
-      @node-click="nodeClick2"
-    >
-    </el-tree>
-    <el-button type="primary" @click="openTreeEvent2">展开2</el-button>
-    <el-button type="primary" @click="closeTreeEvent2">收起2</el-button> -->
+        <el-tree
+          ref="tree2"
+          node-key="id"
+          :default-expanded-keys="openTreeKeys2"
+          :props="props"
+          :load="loadNode"
+          lazy
+          show-checkbox
+          :expand-on-click-node="false"
+          @node-click="nodeClick2"
+        >
+        </el-tree>
+        <el-button type="primary" @click="openTreeEvent2">展开2</el-button>
+        <el-button type="primary" @click="closeTreeEvent2">收起2</el-button> -->
     <el-divider></el-divider>
 
     <h1>自定义接口懒加载</h1>
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { getTreeData } from '@/api/tree';
+import { getTreeData } from '@/api/tree'
 export default {
   data() {
     return {
@@ -128,25 +128,25 @@ export default {
         children: 'children',
         label: 'label',
       },
-    };
+    }
   },
   methods: {
     // 节点展开触发事件
     nodeExpand() {
-      this.checkStatus();
+      this.checkStatus()
     },
     loadNode(node, resolve) {
-      console.log('node', node);
+      console.log('node', node)
       if (node.level === 0) {
         getTreeData().then((res) => {
-          console.log('res', res);
-          resolve(res.data);
-        });
+          console.log('res', res)
+          resolve(res.data)
+        })
       } else
         getTreeData({ nodeId: node.data.oid }).then((res) => {
-          console.log('res', res);
-          resolve(res.data);
-        });
+          console.log('res', res)
+          resolve(res.data)
+        })
     },
     // loadNode(node, resolve) {
     //   if (node.level === 0) {
@@ -186,84 +186,84 @@ export default {
     // },
     // 展开事件
     openTreeEvent() {
-      const checkKeys = this.$refs.tree.getCheckedKeys();
+      const checkKeys = this.$refs.tree.getCheckedKeys()
       if (!checkKeys.length) {
         this.$message({
           showClose: true,
           message: '请选勾选',
           type: 'warning',
-        });
-        return;
+        })
+        return
       }
-      this.openTreeKeys = checkKeys;
+      this.openTreeKeys = checkKeys
     },
     // 展开事件2
     openTreeEvent2() {
-      const checkKeys = this.$refs.tree2.getCheckedKeys();
-      console.log('checkKeys', checkKeys);
+      const checkKeys = this.$refs.tree2.getCheckedKeys()
+      console.log('checkKeys', checkKeys)
       if (!checkKeys.length) {
         this.$message({
           showClose: true,
           message: '请选勾选',
           type: 'warning',
-        });
-        return;
+        })
+        return
       }
-      this.openTreeKeys2 = checkKeys;
+      this.openTreeKeys2 = checkKeys
     },
     // 收起事件
     closeTreeEvent() {
-      const checkKeys = this.$refs.tree.getCheckedKeys();
-      console.log('checkKeys', checkKeys);
+      const checkKeys = this.$refs.tree.getCheckedKeys()
+      console.log('checkKeys', checkKeys)
       if (!checkKeys.length) {
         this.$message({
           showClose: true,
           message: '请选勾选',
           type: 'warning',
-        });
-        return;
+        })
+        return
       }
-      const nodes = this.$refs.tree.store._getAllNodes();
+      const nodes = this.$refs.tree.store._getAllNodes()
       // 或者方法二
       // const nodes = this.$refs.tree.store.nodesMap
       for (let i in nodes) {
         if (Object.prototype.hasOwnProperty.call(nodes, i)) {
-          console.log('nodes[i]', nodes[i]);
+          console.log('nodes[i]', nodes[i])
           if (checkKeys.includes(nodes[i].data.id)) {
-            nodes[i].expanded = false;
+            nodes[i].expanded = false
           }
         }
       }
     },
     // 收起事件2
     closeTreeEvent2() {
-      const checkKeys = this.$refs.tree2.getCheckedKeys();
-      console.log('checkKeys', checkKeys);
+      const checkKeys = this.$refs.tree2.getCheckedKeys()
+      console.log('checkKeys', checkKeys)
       if (!checkKeys.length) {
         this.$message({
           showClose: true,
           message: '请选勾选',
           type: 'warning',
-        });
-        return;
+        })
+        return
       }
-      const nodes = this.$refs.tree2.store._getAllNodes();
+      const nodes = this.$refs.tree2.store._getAllNodes()
       // 或者方法二
       // const nodes = this.$refs.tree.store.nodesMap
       for (let i in nodes) {
         if (Object.prototype.hasOwnProperty.call(nodes, i)) {
-          console.log('nodes[i]', nodes[i]);
+          console.log('nodes[i]', nodes[i])
           if (checkKeys.includes(nodes[i].data.id)) {
-            nodes[i].expanded = false;
+            nodes[i].expanded = false
           }
         }
       }
     },
     getCheckedNodes() {
-      console.log(this.$refs.tree.getCheckedNodes());
+      console.log(this.$refs.tree.getCheckedNodes())
     },
     getCheckedKeys() {
-      console.log(this.$refs.tree.getCheckedKeys());
+      console.log(this.$refs.tree.getCheckedKeys())
     },
     setCheckedNodes() {
       this.$refs.tree.setCheckedNodes([
@@ -275,62 +275,62 @@ export default {
           id: 9,
           label: '三级 1-1-1',
         },
-      ]);
+      ])
     },
     setCheckedKeys() {
-      this.$refs.tree.setCheckedKeys([3]);
+      this.$refs.tree.setCheckedKeys([3])
     },
     resetChecked() {
-      this.$refs.tree.setCheckedKeys([]);
+      this.$refs.tree.setCheckedKeys([])
     },
     handleCheckAllChange(val) {
-      console.log('val', val);
+      console.log('val', val)
       if (val) {
-        this.$refs.tree.setCheckedNodes(this.data);
+        this.$refs.tree.setCheckedNodes(this.data)
       } else {
-        this.$refs.tree.setCheckedNodes([]);
+        this.$refs.tree.setCheckedNodes([])
       }
-      this.isIndeterminate = false;
+      this.isIndeterminate = false
     },
     // 节点点击事件
     nodeClick(data, node, comp) {
-      console.log('data', data);
-      console.log('node', node);
-      console.log('comp', comp);
+      console.log('data', data)
+      console.log('node', node)
+      console.log('comp', comp)
     },
     // 节点点击事件
     nodeClick2(data, node, comp) {
-      console.log('data', data.id);
+      console.log('data', data.id)
       // console.log('node', node);
       // console.log('comp', comp);
     },
     // 全选状态
     checkStatus() {
-      const checkKeys = this.$refs.tree.getCheckedKeys();
+      const checkKeys = this.$refs.tree.getCheckedKeys()
       // 未选中节点
       if (!checkKeys.length) {
-        this.checkAll = false;
-        this.isIndeterminate = false;
-        return;
+        this.checkAll = false
+        this.isIndeterminate = false
+        return
       }
       // 判断是否全选
-      const nodes = this.$refs.tree.store._getAllNodes();
+      const nodes = this.$refs.tree.store._getAllNodes()
       const selectAllFlag = nodes.every((item) => {
-        return item.checked === true;
-      });
-      console.log('selectAllFlag', selectAllFlag);
+        return item.checked === true
+      })
+      console.log('selectAllFlag', selectAllFlag)
       if (!selectAllFlag) {
         // 未全选
-        this.isIndeterminate = true;
+        this.isIndeterminate = true
       } else {
-        this.checkAll = true;
-        this.isIndeterminate = false;
+        this.checkAll = true
+        this.isIndeterminate = false
       }
     },
     // 节点选中事件
     nodeCheck(data1, data2, data3) {
-      console.log('nodeCheck');
-      this.checkStatus();
+      console.log('nodeCheck')
+      this.checkStatus()
       // const halfCheckedNodes = this.$refs.tree.getHalfCheckedNodes();
       // this.isIndeterminate = halfCheckedNodes.length ? true : false;
 
@@ -382,17 +382,15 @@ export default {
     },
     // 展开节点
     expand() {
-      console.log('展开事件');
+      console.log('展开事件')
       // 获取当前选中的节点
-      const checkdNodes = this.$refs.treeRef.getCheckedKeys();
-      console.log('checkdNodes', checkdNodes);
-      this.defKeys = checkdNodes;
+      const checkdNodes = this.$refs.treeRef.getCheckedKeys()
+      console.log('checkdNodes', checkdNodes)
+      this.defKeys = checkdNodes
     },
     close() {},
     // openTreeEvent2() {},
     // closeTreeEvent2() {},
   },
-};
+}
 </script>
-
-<style lang="scss" scoped></style>

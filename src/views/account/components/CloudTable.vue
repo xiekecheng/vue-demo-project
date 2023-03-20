@@ -1,7 +1,8 @@
 <template>
   <div>
     <el-table :data="tableData" border style="width: 100%" height="400">
-      <el-table-column prop="date" sortable label="日期" width="180"> </el-table-column>
+      <el-table-column prop="date" sortable label="日期" width="180">
+      </el-table-column>
       <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
       <el-table-column prop="address" label="地址"> </el-table-column>
       <el-table-column prop="type" label="类型"> </el-table-column>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import { getAddressList } from '@/api';
+import { getAddressList } from '@/api'
 export default {
   props: ['type'],
   data() {
@@ -32,43 +33,41 @@ export default {
         pageSizes: [2, 10, 15, 20],
         totalCount: 400,
       },
-    };
+    }
   },
   watch: {
     type(val) {
-      this.pageOV.currentPage = 1;
-      this.pageOV.currentSize = 10;
-      this.getTableData();
+      this.pageOV.currentPage = 1
+      this.pageOV.currentSize = 10
+      this.getTableData()
     },
   },
   created() {
-    this.getTableData();
+    this.getTableData()
   },
   methods: {
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-      this.pageOV.currentSize = val;
-      this.getTableData();
+      console.log(`每页 ${val} 条`)
+      this.pageOV.currentSize = val
+      this.getTableData()
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-      this.pageOV.currentPage = val;
-      this.getTableData();
+      console.log(`当前页: ${val}`)
+      this.pageOV.currentPage = val
+      this.getTableData()
     },
     getTableData() {
       const params = {
         currentPage: this.pageOV.currentPage,
         currentSize: this.pageOV.currentSize,
         type: this.type,
-      };
+      }
       getAddressList(params).then((res) => {
-        console.log('res', res);
-        this.tableData = res.result.result;
-        this.pageOV.totalCount = res.result.total;
-      });
+        console.log('res', res)
+        this.tableData = res.result.result
+        this.pageOV.totalCount = res.result.total
+      })
     },
   },
-};
+}
 </script>
-
-<style lang="scss" scoped></style>

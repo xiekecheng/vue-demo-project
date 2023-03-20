@@ -1,4 +1,4 @@
-import { register, uploadAvatar } from '@/api/user';
+import { register, uploadAvatar } from '@/api/user'
 
 export default {
   namespaced: true,
@@ -8,10 +8,10 @@ export default {
   },
   mutations: {
     increment(state) {
-      state.count++;
+      state.count++
     },
     setUserInfo(state, payload) {
-      state.userInfo = payload;
+      state.userInfo = payload
     },
   },
   actions: {
@@ -20,33 +20,33 @@ export default {
       return new Promise((resolve, reject) => {
         login(payload)
           .then((res) => {
-            commit('setUserInfo', res.data);
+            commit('setUserInfo', res.data)
             // 将用户信息保存在localStorage
-            localStorage.setItem('userInfo', JSON.stringify(res.data));
-            resolve(res);
+            localStorage.setItem('userInfo', JSON.stringify(res.data))
+            resolve(res)
           })
           .catch((e) => {
-            reject(e);
-          });
-      });
+            reject(e)
+          })
+      })
     },
     // 添加用户
     register({ commit, state }, payload) {
-      return register(payload);
+      return register(payload)
     },
     // 上传头像
     uploadAvatar({ commit, state }, payload) {
       return new Promise((resolve, reject) => {
         uploadAvatar(payload)
           .then((res) => {
-            resolve(res);
+            resolve(res)
           })
           .catch((e) => {
-            reject(e);
-          });
-      });
+            reject(e)
+          })
+      })
     },
   },
   // getters: { ... }
-};
+}
 // export default moduleA

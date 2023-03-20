@@ -2,7 +2,12 @@
   <div>
     <h1>添加用户</h1>
     <div style="width: 400px; margin: 0 auto">
-      <el-form ref="formRegister" label-width="80px" :model="formRegister" :rules="rules">
+      <el-form
+        ref="formRegister"
+        label-width="80px"
+        :model="formRegister"
+        :rules="rules"
+      >
         <el-form-item label="用户名" prop="username">
           <el-input v-model="formRegister.username" />
         </el-form-item>
@@ -17,7 +22,12 @@
         </el-form-item>
         <el-form-item label="角色" prop="role">
           <el-select v-model="formRegister.role" placeholder="请选择">
-            <el-option v-for="item in roleOptions" :key="item.value" :label="item.label" :value="item.value" />
+            <el-option
+              v-for="item in roleOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
           </el-select>
         </el-form-item>
         <el-form-item label="性别" prop="gender">
@@ -34,12 +44,14 @@
             :auto-upload="false"
           >
             <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            <el-icon class="avatar-uploader-icon"><el-icon-plus /></el-icon>
           </el-upload>
         </el-form-item>
         <el-form-item>
           <el-progress :percentage="percentage" :format="format"></el-progress>
-          <el-button type="primary" @click="submitForm('formRegister')">提交</el-button>
+          <el-button type="primary" @click="submitForm('formRegister')"
+            >提交</el-button
+          >
           <el-button @click="resetForm('formRegister')">重置</el-button>
         </el-form-item>
       </el-form>
@@ -48,8 +60,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { Plus as ElIconPlus } from '@element-plus/icons'
+import { mapActions } from 'vuex'
 export default {
+  components: {
+    ElIconPlus,
+  },
   data() {
     return {
       imageUrl: '',
@@ -72,10 +88,12 @@ export default {
         { label: '编辑者', value: 'editor' },
       ],
       rules: {
-        username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+        ],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
       },
-    };
+    }
   },
   methods: {
     ...mapActions('user', ['register', 'uploadAvatar']),
@@ -84,39 +102,40 @@ export default {
       // 表单校验
       this.$refs[formName].validate(async (valid, obj) => {
         if (valid) {
-          const formData = new FormData();
-          formData.append('userInfo', JSON.stringify(this.formRegister));
-          formData.append('file', this.fileInfo);
+          const formData = new FormData()
+          formData.append('userInfo', JSON.stringify(this.formRegister))
+          formData.append('file', this.fileInfo)
           // 调用注册接口
           const result = await this.register({
             data: formData,
             fn: (progressEvent) => {
-              let complete = ((progressEvent.loaded / progressEvent.total) * 100) | 0;
-              this.percentage = complete;
+              let complete =
+                ((progressEvent.loaded / progressEvent.total) * 100) | 0
+              this.percentage = complete
             },
-          });
+          })
           this.$message({
             message: result.message,
             type: result.status === 'SUCCESS' ? 'success' : 'error',
-          });
+          })
         }
-      });
+      })
     },
     // 添加文件
     handleAvatarChange(file, fileList) {
-      this.imageUrl = URL.createObjectURL(file.raw);
-      this.fileInfo = file.raw;
+      this.imageUrl = URL.createObjectURL(file.raw)
+      this.fileInfo = file.raw
     },
     // 进度条提示
     format(percentage) {
-      return percentage === 100 ? '上传成功' : `${percentage}%`;
+      return percentage === 100 ? '上传成功' : `${percentage}%`
     },
     // 重置表单
     resetForm(formName) {
-      this.$refs[formName].resetFields();
+      this.$refs[formName].resetFields()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -15,9 +15,16 @@
               <div class="signature">海纳百川，有容乃大</div>
             </div>
             <div class="info">
-              <p><i class="el-icon-s-custom" />交互专家</p>
-              <p><i class="el-icon-s-cooperation" />蚂蚁金服-某某某事业群-某某平台部-某某技术部-UED</p>
-              <p><i class="el-icon-location" />浙江省杭州市</p>
+              <p>
+                <el-icon><el-icon-s-custom /></el-icon>交互专家
+              </p>
+              <p>
+                <el-icon><el-icon-s-cooperation /></el-icon
+                >蚂蚁金服-某某某事业群-某某平台部-某某技术部-UED
+              </p>
+              <p>
+                <el-icon><el-icon-location /></el-icon>浙江省杭州市
+              </p>
             </div>
           </div>
           <div class="middle-content">
@@ -39,11 +46,17 @@
               v-model="inputValue"
               class="input-new-tag"
               size="small"
-              @keyup.enter.native="handleInputConfirm"
+              @keyup.enter="handleInputConfirm"
               @blur="handleInputConfirm"
             >
             </el-input>
-            <el-button v-else class="button-new-tag" size="mini" @click="showInput">+</el-button>
+            <el-button
+              v-else
+              class="button-new-tag"
+              size="mini"
+              @click="showInput"
+              >+</el-button
+            >
           </div>
           <div class="bottom-content">
             <h6>团队</h6>
@@ -51,7 +64,10 @@
               <el-col :lg="12" :xl="12"
                 ><div class="group">
                   <span class="icon"
-                    ><img src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png" alt height="24"
+                    ><img
+                      src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
+                      alt
+                      height="24"
                   /></span>
                   科学搬砖组
                 </div></el-col
@@ -114,7 +130,12 @@
       <el-col :md="16">
         <div class="article">
           <el-tabs v-model="activeName">
-            <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.label" :name="item.name" />
+            <el-tab-pane
+              v-for="item in tabs"
+              :key="item.name"
+              :label="item.label"
+              :name="item.name"
+            />
           </el-tabs>
           <keep-alive>
             <component :is="activeName" />
@@ -126,14 +147,22 @@
 </template>
 
 <script>
-import Project from './components/Project';
-import Application from './components/Application';
-import Article1 from './components/Article.vue';
+import {
+  SCustom as ElIconSCustom,
+  SCooperation as ElIconSCooperation,
+  Location as ElIconLocation,
+} from '@element-plus/icons'
+import Project from './components/Project'
+import Application from './components/Application'
+import Article1 from './components/Article.vue'
 export default {
   components: {
     Project,
     Application,
     Article1,
+    ElIconSCustom,
+    ElIconSCooperation,
+    ElIconLocation,
   },
   data() {
     return {
@@ -156,28 +185,28 @@ export default {
       inputValue: '',
       activeName: 'Project',
       currentDate: new Date(),
-    };
+    }
   },
   methods: {
     showInput() {
-      this.inputVisible = true;
+      this.inputVisible = true
       this.$nextTick((_) => {
-        this.$refs.saveTagInput.$refs.input.focus();
-      });
+        this.$refs.saveTagInput.$refs.input.focus()
+      })
     },
     handleInputConfirm() {
-      let inputValue = this.inputValue;
+      let inputValue = this.inputValue
       if (inputValue) {
-        this.dynamicTags.push(inputValue);
+        this.dynamicTags.push(inputValue)
       }
-      this.inputVisible = false;
-      this.inputValue = '';
+      this.inputVisible = false
+      this.inputValue = ''
     },
     handleClose(tag) {
-      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,27 +1,31 @@
 <template>
-  <div class='my-login'>
+  <div class="my-login">
     <!-- <h1>登录</h1> -->
-    <div class='form-wrap'>
-      <el-form ref='ruleForm' :model='ruleForm' status-icon :rules='rules' label-width='100px' class='demo-ruleForm'>
+    <div class="form-wrap">
+      <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
         <el-form-item>
-          <div class='title-container'>
-            <h3 class='title'>系统登录</h3>
+          <div class="title-container">
+            <h3 class="title">系统登录</h3>
           </div>
         </el-form-item>
-        <el-form-item prop='username'>
-          <el-input v-model='ruleForm.username' type='username' autocomplete='off'>
-            <i slot='prefix' class='el-input__icon el-icon-user-solid' />
+        <el-form-item prop="username">
+          <el-input v-model="ruleForm.username" type="username" autocomplete="off">
+            <template v-slot:prefix>
+              <el-icon class="el-input__icon"><el-icon-user-solid /></el-icon>
+            </template>
           </el-input>
         </el-form-item>
-        <el-form-item prop='password'>
-          <el-input v-model='ruleForm.password' type='password' autocomplete='off'>
-            <i slot='prefix' class='el-input__icon el-icon-edit-outline' />
+        <el-form-item prop="password">
+          <el-input v-model="ruleForm.password" type="password" autocomplete="off">
+            <template v-slot:prefix>
+              <el-icon class="el-input__icon"><el-icon-edit-outline /></el-icon>
+            </template>
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button :loading='loading' type='primary' @click="submitForm('ruleForm')">登录</el-button>
-          <el-button @click='resetForm'>重置</el-button>
-          <span>新用户?去 <a @click='register'>注册</a></span>
+          <el-button :loading="loading" type="primary" @click="submitForm('ruleForm')">登录</el-button>
+          <el-button @click="resetForm">重置</el-button>
+          <span>新用户?去 <a @click="register">注册</a></span>
         </el-form-item>
       </el-form>
     </div>
@@ -29,11 +33,16 @@
 </template>
 
 <script>
+import { UserSolid as ElIconUserSolid, EditOutline as ElIconEditOutline } from '@element-plus/icons';
 import { setToken } from '@/utils/auth';
 import { login } from '@/api/user';
 import { mapActions } from 'vuex';
 
 export default {
+  components: {
+    ElIconUserSolid,
+    ElIconEditOutline,
+  },
   data() {
     let validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -64,7 +73,6 @@ export default {
       },
     };
   },
-
   methods: {
     ...mapActions('user', ['login']),
     submitForm(formName) {
@@ -72,7 +80,7 @@ export default {
       this.$message.success('登录成功');
       this.loading = false;
       this.$router.push('/');
-      return
+      return;
 
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -97,11 +105,11 @@ export default {
             password,
           };
           console.log('login', login);
-          login(params).then(res => {
-            const { result,data:token} = res
-            if (result!=='SUCCESS'){
+          login(params).then((res) => {
+            const { result, data: token } = res;
+            if (result !== 'SUCCESS') {
               this.$message.warning('登录失败,请确认用户名或密码是否正确');
-              return
+              return;
             }
             console.log('res', res);
             setToken(token);
@@ -127,7 +135,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .my-login {
   width: 100%;
   height: 100%;
@@ -136,19 +144,16 @@ export default {
   background-position: center;
   overflow: hidden;
 }
-
 .form-wrap {
   width: 40%;
   margin: 100px auto;
 }
-
 .title-container {
   .title {
     text-align: center;
     color: #fff;
   }
 }
-
 .my-login {
   ::v-deep .el-form-item__content {
     text-align: center;

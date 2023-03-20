@@ -2,34 +2,41 @@
   <div class="my-header">
     <div class="box left">
       <img class="img" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
-      <h1 class='title'>Vue Project</h1>
+      <h1 class="title">Vue Project</h1>
     </div>
     <div class="box right">
       <el-dropdown @command="handleCommand">
-        <div class='avatar'>
+        <div class="avatar">
           <el-avatar size="small" :src="imgSrc"></el-avatar>
           {{ 'admin' }}
         </div>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item icon="el-icon-user" command="userCenter">个人中心</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-setting" command="userSetting">个人设置</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-check" command="logout" divided>退出登录</el-dropdown-item>
-        </el-dropdown-menu>
+        <template v-slot:dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item :icon="User" command="userCenter">个人中心</el-dropdown-item>
+            <el-dropdown-item :icon="Setting" command="userSetting">个人设置</el-dropdown-item>
+            <el-dropdown-item :icon="Plus" command="logout" divided>退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
       </el-dropdown>
     </div>
   </div>
 </template>
 
 <script>
+import { Setting, Check, User, Plus } from '@element-plus/icons-vue';
 import { removeToken } from '@/utils/auth';
 import { mapState } from 'vuex';
 export default {
-  name: 'MyHeader',
-  data(){
+  data() {
     return {
-      imgSrc:'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'
-    }
+      imgSrc: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+      Plus,
+      Check,
+      Setting,
+      User,
+    };
   },
+  name: 'MyHeader',
   computed: {
     ...mapState('user', ['userInfo']),
   },
@@ -50,8 +57,7 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
-
-  .title{
+  .title {
     font-size: 18px;
     color: white;
   }
@@ -65,12 +71,12 @@ export default {
       height: 28px;
     }
 
-    .avatar{
+    .avatar {
       display: flex;
       align-items: center;
       cursor: pointer;
 
-      .account{
+      .account {
         margin-left: 8px;
       }
     }

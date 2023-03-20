@@ -2,7 +2,7 @@
   <el-card class="box-card" shadow="hover">
     <div class="title-wrap">
       <el-tooltip class="item" effect="dark" content="指标说明" placement="top">
-        <i class="el-icon-warning-outline" />
+        <!--<el-icon><el-icon-warning-outline /></el-icon>-->
       </el-tooltip>
       <slot name="title" />
     </div>
@@ -19,13 +19,17 @@
 </template>
 
 <script>
+// import { WarningOutline as ElIconWarningOutline } from '@element-plus/icons'
 export default {
+  components: {
+    // ElIconWarningOutline,
+  },
   data() {
     return {
       slotList: ['title', 'number', 'chart', 'info'],
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

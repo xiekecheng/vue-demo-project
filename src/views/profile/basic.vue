@@ -1,12 +1,6 @@
 <template>
   <div>
     <h1>基础详情页</h1>
-    <el-button @click="onClear">清空选中数据</el-button>
-    <el-checkbox-group v-model="checkList" @change="selectChange">
-      <div v-for="(item, id) in tableData" :key="id">
-        <el-checkbox :label="item">{{ item.name }}</el-checkbox>
-      </div>
-    </el-checkbox-group>
   </div>
 </template>
 
@@ -38,18 +32,12 @@ export default {
           age: 18,
         },
       ],
-    };
+    }
   },
   methods: {
-    onClear() {
-      this.checkList = [];
-    },
-    // 选中变更
-    selectChange(val) {
-      console.log('selectChange->val', val);
-    },
+
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

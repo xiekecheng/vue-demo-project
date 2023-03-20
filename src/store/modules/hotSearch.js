@@ -1,4 +1,4 @@
-import { getSearchList, getListFilterByPage } from '@/api/hotSearch.js';
+import { getSearchList, getListFilterByPage } from '@/api/hotSearch.js'
 export default {
   namespaced: true,
   state: {
@@ -7,10 +7,10 @@ export default {
   },
   mutations: {
     setSearchList(state, payload) {
-      state.searchList = payload;
+      state.searchList = payload
     },
     setTotal(state, payload) {
-      state.searchTotal = payload;
+      state.searchTotal = payload
     },
   },
   actions: {
@@ -20,24 +20,24 @@ export default {
           .then((res) => {
             // store.commit('setSearchList', res.data.result);
             // store.commit('setTotal',res.data.total)
-            resolve(res);
+            resolve(res)
           })
           .catch((e) => {
-            reject(e);
-          });
-      });
+            reject(e)
+          })
+      })
     },
     // 分页筛选数据
     getListFilterByPage(store, payload) {
       return new Promise((resolve, reject) => {
         getListFilterByPage(payload)
           .then((res) => {
-            resolve(res);
+            resolve(res)
           })
           .catch((e) => {
-            reject(e);
-          });
-      });
+            reject(e)
+          })
+      })
     },
   },
-};
+}
