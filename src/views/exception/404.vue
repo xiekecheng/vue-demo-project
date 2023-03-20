@@ -15,7 +15,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'Error-404',
+};
 </script>
 
 <style lang="scss" scoped></style>

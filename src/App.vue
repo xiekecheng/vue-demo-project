@@ -7,7 +7,7 @@
 -->
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -40,7 +40,7 @@ export default {
 }
 
 .el-main {
-  background-color: #F0F2F5;
+  background-color: #f0f2f5;
   color: #333;
   /* text-align: center; */
   /* line-height: 160px; */
