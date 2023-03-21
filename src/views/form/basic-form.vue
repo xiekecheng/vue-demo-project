@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -73,9 +72,6 @@ export default {
         },
       ],
     };
-  },
-  computed: {
-    ...mapState('right', ['isReadOnly']),
   },
   methods: {
     // 获取权限

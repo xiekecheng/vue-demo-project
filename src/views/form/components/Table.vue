@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 
 export default {
   name: 'MyList',
@@ -20,15 +19,6 @@ export default {
       type: Array,
       default: () => [],
     },
-  },
-  computed: {
-    ...mapState('right', ['isReadOnly']),
-  },
-  created() {
-    console.log('created=>isReadOnly', this.isReadOnly);
-  },
-  mounted() {
-    console.log('mounted=>isReadOnly', this.isReadOnly);
   },
   methods: {},
 };

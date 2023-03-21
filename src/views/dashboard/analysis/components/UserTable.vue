@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
 
 export default {
   data() {
@@ -77,7 +76,6 @@ export default {
       { text: '搜索关键词-02', value: '搜索关键词-02' },
       { text: '搜索关键词-06', value: '搜索关键词-06' },
     ],
-    ...mapActions('hotSearch', ['getSearchList', 'getListFilterByPage']),
     // 构造合并数据
     generateData(data) {
       ['rank', 'keyword', 'user_number', 'week_rise'].forEach((val) => {

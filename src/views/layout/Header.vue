@@ -25,7 +25,6 @@
 <script>
 import { Check, Plus, Setting, User } from '@element-plus/icons-vue';
 import { removeToken } from '@/utils/auth';
-import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -38,9 +37,6 @@ export default {
     };
   },
   name: 'MyHeader',
-  computed: {
-    ...mapState('user', ['userInfo']),
-  },
   methods: {
     handleCommand(command) {
       this.$message('click on item ' + command);
