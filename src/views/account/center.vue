@@ -17,19 +17,19 @@
             <div class="info">
               <p>
                 <el-icon>
-                  <el-icon-s-custom />
+                  <Avatar />
                 </el-icon>
                 交互专家
               </p>
               <p>
                 <el-icon>
-                  <el-icon-s-cooperation />
+                  <Briefcase />
                 </el-icon>
                 蚂蚁金服-某某某事业群-某某平台部-某某技术部-UED
               </p>
               <p>
                 <el-icon>
-                  <el-icon-location />
+                  <Location />
                 </el-icon>
                 浙江省杭州市
               </p>
@@ -141,11 +141,7 @@
 </template>
 
 <script>
-import {
-  Location as ElIconLocation,
-  SCooperation as ElIconSCooperation,
-  SCustom as ElIconSCustom,
-} from '@element-plus/icons';
+import { Location, Briefcase, Avatar } from '@element-plus/icons-vue';
 import Project from './components/Project';
 import Application from './components/Application';
 import Article1 from './components/Article.vue';
@@ -155,9 +151,9 @@ export default {
     Project,
     Application,
     Article1,
-    ElIconSCustom,
-    ElIconSCooperation,
-    ElIconLocation,
+    Avatar,
+    Briefcase,
+    Location,
   },
   data() {
     return {
