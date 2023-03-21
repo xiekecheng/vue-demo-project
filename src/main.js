@@ -2,7 +2,7 @@ import * as Vue from 'vue';
 import App from './App.vue';
 import Element from 'element-plus';
 import request from '@/utils/axios';
-import CKEditor from 'ckeditor4-vue';
+import CKEditor from '@mayasabha/ckeditor4-vue3';
 import pinia from '@/store';
 // 引入css样式
 import 'element-plus/theme-chalk/index.css';
