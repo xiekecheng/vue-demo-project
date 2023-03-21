@@ -14,7 +14,6 @@
     "@mayasabha/ckeditor4-vue3": "^0.0.6",
     "axios": "^0.21.4",
     "better-scroll": "^2.4.2",
-    "ckeditor4-vue": "^1.4.0",
     "core-js": "^3.8.3",
     "cross-env": "^7.0.3",
     "echarts": "^5.2.2",
