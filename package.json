@@ -11,6 +11,7 @@
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
     "@element-plus/icons-vue": "^2.1.0",
+    "@mayasabha/ckeditor4-vue3": "^0.0.6",
     "axios": "^0.21.4",
     "better-scroll": "^2.4.2",
     "ckeditor4-vue": "^1.4.0",

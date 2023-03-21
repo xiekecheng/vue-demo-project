@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
 import { ElProgress as Progress } from 'element-plus';
 
 window.$vueApp.use(Progress);
@@ -22,9 +21,6 @@ export default {
       progressObj: {}, // 存储多个引入用例的进度
       NotiDom: {}, // 进度条组件
     };
-  },
-  computed: {
-    ...mapState('user', ['count']),
   },
   created() {
     this.$http
@@ -39,7 +35,6 @@ export default {
       });
   },
   methods: {
-    ...mapMutations('user', ['increment']),
     // 引入用例
     importCase() {
       // 调用接口

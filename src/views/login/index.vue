@@ -38,10 +38,8 @@
 
 <script>
 import { User, Edit } from '@element-plus/icons-vue';
-// import { Check, Plus, Setting, User } from '@element-plus/icons-vue';
 import { setToken } from '@/utils/auth';
 import { login } from '@/api/user';
-import { mapActions } from 'vuex';
 
 export default {
   components: {
@@ -79,7 +77,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions('user', ['login']),
     submitForm(formName) {
       setToken('token123');
       this.$message.success('登录成功');

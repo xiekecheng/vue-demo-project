@@ -51,7 +51,6 @@
 
 <script>
 import { Plus as ElIconPlus } from '@element-plus/icons';
-import { mapActions } from 'vuex';
 
 export default {
   components: {
@@ -85,7 +84,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions('user', ['register', 'uploadAvatar']),
     // 提交表单,添加用户
     async submitForm(formName) {
       // 表单校验
