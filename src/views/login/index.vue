@@ -12,7 +12,7 @@
           <el-input v-model="ruleForm.username" type="username" autocomplete="off">
             <template v-slot:prefix>
               <el-icon class="el-input__icon">
-                <el-icon-user-solid />
+                <User />
               </el-icon>
             </template>
           </el-input>
@@ -21,7 +21,7 @@
           <el-input v-model="ruleForm.password" type="password" autocomplete="off">
             <template v-slot:prefix>
               <el-icon class="el-input__icon">
-                <el-icon-edit-outline />
+                <Edit />
               </el-icon>
             </template>
           </el-input>
@@ -37,15 +37,16 @@
 </template>
 
 <script>
-import { EditOutline as ElIconEditOutline, UserSolid as ElIconUserSolid } from '@element-plus/icons';
+import { User, Edit } from '@element-plus/icons-vue';
+// import { Check, Plus, Setting, User } from '@element-plus/icons-vue';
 import { setToken } from '@/utils/auth';
 import { login } from '@/api/user';
 import { mapActions } from 'vuex';
 
 export default {
   components: {
-    ElIconUserSolid,
-    ElIconEditOutline,
+    User,
+    Edit,
   },
   data() {
     let validatePass = (rule, value, callback) => {
