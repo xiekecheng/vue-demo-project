@@ -1,23 +1,10 @@
 <template>
-  <div id="app">
-    <!--<h1>hello Vue3</h1>-->
+  <div>
     <router-view />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
-  },
-};
-</script>
+<script setup></script>
 
 <style>
 .el-header,
