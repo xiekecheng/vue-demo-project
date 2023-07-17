@@ -5,9 +5,20 @@
         <template #header>
           <div class="sale-header">
             <span>线上热门搜索</span>
-            <el-button style="float: right; padding: 3px 0">操作按钮</el-button>
+
+            <el-icon><MoreFilled /></el-icon>
           </div>
         </template>
+        <div>
+          <div>
+
+          </div>
+          <!--表格-->
+          <div>
+            <HotSearchTable />
+
+          </div>
+        </div>
         <!--<user-table />-->
       </el-card>
     </el-col>
@@ -40,32 +51,22 @@
   </el-row>
 </template>
 
-<script>
-import { More as ElIconMore } from '@element-plus/icons';
+<script setup>
 import PieChart from './PieChart.vue';
-// import UserTable from './UserTable.vue'
+import { ref } from 'vue';
+import HotSearchTable from '@/views/dashboard/analysis/components/HotSearchTable.vue';
 
-export default {
-  components: {
-    PieChart,
-    // UserTable,
-    ElIconMore,
-  },
-  name: 'HotSearch',
-  data() {
-    return {
-      curType: '全部渠道',
-      salesType: ['全部渠道', '线上', '门店'],
-    };
-  },
-};
+const curType = ref('全部渠道')
+const salesType = ref(['全部渠道', '线上', '门店'])
 </script>
 
 <style lang="scss" scoped>
 .card {
   position: relative;
 }
-
+.desc {
+  margin-top: 24px;
+}
 .sale-header {
   display: flex;
   justify-content: space-between;
