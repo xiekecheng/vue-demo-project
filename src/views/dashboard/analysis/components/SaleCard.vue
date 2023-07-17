@@ -4,7 +4,7 @@
       <el-tab-pane label="销售额" name="sales">
         <el-row :gutter="10">
           <el-col :xs="24" :sm="24" :md="12" :lg="16" :xl="16">
-            <sale-table />
+            <sale-table v-if="activeName === 'sales'" />
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8">1111</el-col>
         </el-row>
@@ -12,7 +12,7 @@
       <el-tab-pane label="访问量" name="visits">
         <el-row :gutter="10">
           <el-col :xs="24" :sm="24" :md="12" :lg="16" :xl="16">
-            <sale-table />
+            <sale-table v-if="activeName === 'visits'" />
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
             <rank-list />
