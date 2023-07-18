@@ -1,9 +1,11 @@
+<!-- 侧边栏Menu -->
 <template>
+  <!--TODO: 菜单导航超出高度未出现滚动条问题-->
   <div class="my-siderbar">
-    <el-menu default-active="2-1-1" class="el-menu-vertical-demo" background-color="#ffffff" :collapse="isCollapse">
+    <el-menu default-active="0-1" class="el-menu-vertical-demo" background-color="#ffffff" :collapse="isCollapse">
       <el-sub-menu v-for="(item, index) in routes" :key="index" :index="item.index">
         <template #title>
-          <i :class="item.iconClass" />
+          <el-icon><component :is="item.icon" /></el-icon>
           <span>{{ item.menu }}</span>
         </template>
         <!-- 子级列表 -->

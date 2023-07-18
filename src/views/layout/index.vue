@@ -3,7 +3,7 @@
     <el-header height="48px" style="background-color: #001529">
       <MyHeader />
     </el-header>
-    <el-container>
+    <el-container class="container-1">
       <el-aside width="200px">
         <SiderBar />
       </el-aside>
@@ -30,3 +30,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container-1 {
+  height: calc(100vh - 48px);
+}
+</style>

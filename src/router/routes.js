@@ -2,7 +2,7 @@
 const routes = [
   {
     menu: 'DashBoard',
-    iconClass: 'el-icon-odometer',
+    icon: 'Odometer',
     index: '0',
     content: [
       {
@@ -25,7 +25,7 @@ const routes = [
 
   {
     menu: '表单页',
-    iconClass: 'el-icon-edit-outline',
+    icon: 'Edit',
     index: '1',
     content: [
       {
@@ -48,12 +48,12 @@ const routes = [
 
   {
     menu: '列表页',
-    iconClass: 'el-icon-s-grid',
+    icon: 'Grid',
     index: '2',
     subMenu: [
       {
         menu: '搜索列表',
-        iconClass: 'el-icon-s-grid',
+        icon: 'Grid',
         index: '2-1',
         content: [
           {
@@ -95,7 +95,7 @@ const routes = [
 
   {
     menu: '详情页',
-    iconClass: 'el-icon-c-scale-to-original',
+    icon: 'ScaleToOriginal',
     index: '3',
     content: [
       {
@@ -113,7 +113,7 @@ const routes = [
 
   {
     menu: '结果页',
-    iconClass: 'el-icon-circle-check',
+    icon: 'CircleCheck',
     index: '4',
     content: [
       {
@@ -128,10 +128,9 @@ const routes = [
       },
     ],
   },
-
   {
     menu: '异常页',
-    iconClass: 'el-icon-warning-outline',
+    icon: 'WarnTriangleFilled',
     index: '5',
     content: [
       {
@@ -151,10 +150,9 @@ const routes = [
       },
     ],
   },
-
   {
     menu: '个人页',
-    iconClass: 'el-icon-user',
+    icon: 'User',
     index: '6',
     content: [
       {
@@ -174,10 +172,9 @@ const routes = [
       },
     ],
   },
-
   {
     menu: '图形编辑器',
-    iconClass: 'el-icon-edit',
+    icon: 'EditPen',
     index: '7',
     content: [
       {
@@ -197,10 +194,9 @@ const routes = [
       },
     ],
   },
-
   {
     menu: '组件',
-    iconClass: 'el-icon-menu',
+    icon: 'Menu',
     index: '8',
     content: [
       {
