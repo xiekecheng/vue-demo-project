@@ -1,25 +1,31 @@
 <!-- 侧边栏Menu -->
 <template>
-  <!--TODO: 菜单导航超出高度未出现滚动条问题-->
   <div class="my-siderbar">
-    <el-menu default-active="0-1" class="el-menu-vertical-demo" background-color="#ffffff" :collapse="isCollapse">
-      <el-sub-menu v-for="(item, index) in routes" :key="index" :index="item.index">
+    <el-menu
+      :default-active="activeMenu"
+      class="el-menu-vertical-demo"
+      background-color="#ffffff"
+      :collapse="isCollapse"
+    >
+      <el-sub-menu v-for="(item, index) in routes" :key="index" :index="item.to || item.index">
         <template #title>
-          <el-icon><component :is="item.icon" /></el-icon>
+          <el-icon>
+            <component :is="item.icon" />
+          </el-icon>
           <span>{{ item.menu }}</span>
         </template>
         <!-- 子级列表 -->
-        <el-sub-menu v-for="subItem in item.subMenu" :key="subItem.index" :index="subItem.index">
+        <el-sub-menu v-for="subItem in item.subMenu" :key="subItem.index" :index="subItem.to || item.index">
           <template #title>
             <span>{{ subItem.menu }}</span>
           </template>
-          <router-link v-for="(route, routeIdx) in subItem.content" :key="routeIdx" :to="route.to">
-            <el-menu-item :index="route.index"> {{ route.menu }}</el-menu-item>
+          <router-link v-for="(route, routeIdx) in subItem.content" :key="routeIdx" :to="route.to || item.index">
+            <el-menu-item :index="route.to"> {{ route.menu }}</el-menu-item>
           </router-link>
         </el-sub-menu>
         <!-- 子级列表 -->
-        <router-link v-for="(route, routeIdx) in item.content" :key="routeIdx" :to="route.to">
-          <el-menu-item :index="route.index"> {{ route.menu }}</el-menu-item>
+        <router-link v-for="(route, routeIdx) in item.content" :key="routeIdx" :to="route.to || item.index">
+          <el-menu-item :index="route.to"> {{ route.menu }}</el-menu-item>
         </router-link>
       </el-sub-menu>
     </el-menu>
@@ -27,17 +33,18 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { useRoute } from 'vue-router';
+import { ref, computed } from 'vue';
 import routes from '@/router/routes';
 
-export default {
-  data() {
-    return {
-      isCollapse: false,
-      routes: routes,
-    };
-  },
-};
+const route = useRoute();
+
+const isCollapse = ref(false);
+
+const activeMenu = computed(() => {
+  return route.path;
+});
 </script>
 
 <style lang="scss" scoped>
